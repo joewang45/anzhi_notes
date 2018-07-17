@@ -111,8 +111,52 @@
    \mathbf{\tau}=\frac{d\mathbf{u}/dt}{|d\mathbf{u}/dt|}
    $$
 
-   有了单位向量，我们就可以引入更多的概念了
-9. 
+9. 不看位移向量，而看路径函数 $$s=s(t)$$ ，显然有：
+   $$
+   ds=|d\mathbf{u}|=\sqrt{(du_1)^2+(du_2)^2+(du_3)^2}
+   $$
+
+10. 于是，这一小段的速率就为：
+    $$
+    \frac{ds}{dt}=\frac{\sqrt{(du_1)^2+(du_2)^2+(du_3)^2}}{dt}=\sqrt{\frac{(du_1)^2}{(dt)^2}+\frac{(du_2)^2}{(dt)^2}+\frac{(du_3)^2}{dt}}=|\frac{d\mathbf{u}}{dt}|
+    $$
+
+11. 于是，单位向量 $$\mathbf{\tau}$$ 就可以写成：
+    $$
+    \mathbf{\tau}=\frac{d\mathbf{u}/dt}{|d\mathbf{u}/dt|}=\frac{d\mathbf{u}/dt}{ds/dt}=\frac{d\mathbf{u}}{ds}
+    $$
+
+12. 我们现在可以求空间中的运动轨迹，在某一时刻某一方向的速度了
+
+    如：求轨迹曲线 $$\mathbf{x}=\mathbf{x}(t)=\begin{pmatrix}2t^2 \\t^2-4t\\3t-5 \end{pmatrix}$$ 在 $$t=1$$ 时，沿方向 $$\mathbf{a}=\mathbf{e}_1-3\mathbf{e}_2+2\mathbf{e}_3$$ 的速度
+
+    1. 运动轨迹曲线的切线速度向量为
+    $$
+    \mathbf{v} = \frac { d\mathbf{x} } {dt} = \frac {d2t^2}{dt}\mathbf{e}_1 + \frac{d(t^2-4t)}{dt}\mathbf{e}_2+\frac{d(3t-5)}{dt}\mathbf{e}_3= 4t\mathbf{e}_1+(2t-4)\mathbf{e}_2+3\mathbf{e}_3
+    $$
+
+    2. $$t=1$$ 时，速度向量便为：
+       $$
+       \mathbf{v}|_{t=1}=4\mathbf{e}_1-2\mathbf{e}_2+3\mathbf{e}_3
+       $$
+
+    3. 计算 $$\mathbf{a}$$ 方向上的单位向量，有：
+    $$
+    \mathbf{a}_e = \frac {\mathbf{a}} {|\mathbf{a}|} = ...
+    $$
+    4. 计算求得 $$t=1$$ 时的切线速度向量在 $$\mathbf{a}$$ 上的速度向量：
+    $$
+    \mathbf{v}|_{t=1}\cdot \mathbf{a}_e =...
+    $$
+
+13. 空间曲线上某一点的曲率定义为：
+    $$
+    \kappa := |\frac{d\mathbf{\tau}}{ds}|=|\frac{d}{ds}(\frac{d\mathbf{u}}{ds})|=|\frac{d^2\mathbf{u}}{ds^2}|
+    $$
+    物理意义为曲线沿路径切线的方向的变化率
+
+14. 曲率半径是曲率的倒数，可以通过圆推导出来
+
 ## 对向量做积分
 
 ### 线积分
@@ -151,27 +195,88 @@
    - 使用参数方程的换元过程，可以表示为：
      $$
      \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot d\mathbf{x}
-     = \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot \frac{d\mathbf{x}}{dt}dt =
+     = \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot \frac{d\mathbf{x}}{dt}dt = \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot \frac{dx_i}{dt}\mathbf{e}_idt
      $$
 
+#### 保守场
+1. 如果一个向量场，可以用一个**标量场的梯度**来表示，即 
+   $$
+   \mathbf{f}(\mathbf{x})=\nabla\phi(\mathbf{x})
+   $$
+   则可以得到一个有趣的推论
 
+2. 我们再求一次上面的力场对运动轨迹的做功，有：
+   $$
+   \int_{\mathcal{C}}\mathbf{f}\cdot d\mathbf{x}
+   = \int_{\mathcal{C}}\nabla \phi \cdot d\mathbf{x}
+   = \int_{\mathcal{C}} \frac {\partial\phi}{\partial x_i} dx_i
+   = \int_{\mathcal{C}} d\phi
+   $$
+   积分的结果变成了常数，于是做功只与路径的起始点，即积分的上下限有关，而与路径无关了
 
+3. 这样的向量场，称作**保守向量场 conservative vector field**；对应的标量场，称作**标量势 scalar potential**
 
+4. 一个保守向量场的旋度是零。该结论可以作为判断一个向量场是否是保守场的充要判断条件。
+5. 例：计算证明 $$\mathbf{f}(\mathbf{x})=\begin{pmatrix} 2x_1x_2+x_3^3 \\ x_1^2 \\ 3x_1x_3^2\end{pmatrix}$$ 是保守场，并求出其标量势
+   1. 计算该向量场的旋度
+   $$
+   \underline{curl} \mathbf{f} = \nabla \times \mathbf{f}
+   = det 
+   \begin{pmatrix} 
+   \mathbf{e}_1 & \mathbf{e}_2 & \mathbf{e}_3  \\
+   \frac{\partial}{\partial x_1} & \frac{\partial}{\partial x_2} & \frac{\partial}{\partial x_3} \\
+   f_1 & f_2 & f_3
+   \end{pmatrix}
+   = 
+   det 
+   \begin{pmatrix} 
+   \mathbf{e}_1 & \mathbf{e}_2 & \mathbf{e}_3  \\
+   \frac{\partial}{\partial x_1} & \frac{\partial}{\partial x_2} & \frac{\partial}{\partial x_3} \\
+   2x_1x_2+x_3^3 & x_1^2 & 3x_1x_3^2
+   \end{pmatrix}
+   = \mathbf{0}
+   $$
+   2. 求该保守场的标量势
+      1. 使用标量势写出原向量场
+      $$
+      \mathbf{f} = \nabla \phi =
+      \frac{\partial \phi}{\partial x_1}\mathbf{e}_1 + 
+      \frac{\partial \phi}{\partial x_2}\mathbf{e}_2 + 
+      \frac{\partial \phi}{\partial x_3}\mathbf{e}_3 
+      $$
+      2. 用上式比较向量场的系数
+      - $$
+        f_1 = \frac{\partial \phi}{\partial x_1} \Rightarrow f_1 \partial x_1 = \partial \phi \\
+        \Rightarrow \int \partial \phi = \int (2x_1x_2+x_3^3) \partial x_1 \\
+        \Rightarrow \phi = x_1^2x_2+x_1x_3^3+p(x_2,x_3)+C
+        $$
 
+      - $$
+        \phi = x_1^2x_2+q(x_1,x_3)+C
+        $$
 
+      - $$
+        \phi = x_1x_3^3+r(x_1,x_2)+C
+        $$
+        于是综合来看 $$\phi = x_1^2x_2+x_1x_3^3+C$$
+#### 赫尔姆兹定理 Helmholtz Theory
+1. 向量场无旋度 $$\Leftrightarrow$$ 向量场是个保守场，有个标量势
+2. 进一步的，向量场无散度 （solenoidal）$$\nabla \cdot \mathbf{f} =0\Leftrightarrow$$ 向量场有个向量势
 
+3. 赫尔姆兹定理说，任意向量场总可以写成**标量势的梯度**和**向量势的旋度**，即
 
+   $$
+   \mathbf{f} \equiv \nabla \phi + \nabla \times \mathbf{a}
+   $$
+   也被称作赫尔姆兹分解 The Helmholtz' Decomposition
+4. **小结**
+   | | | | | |
+   |----------| ---------------| ---------| ------------| --------------|
+   | 任意向量场 | $$\mathbf{f}$$ | 总可以写成 | 其标量势的梯度和向量势的旋度之和 | $$\mathbf{f} \equiv \nabla \phi + \nabla \times \mathbf{a} $$|
+   | 无旋度的向量场| $$ \nabla \times \mathbf{f} =0 $$ | 可以写成 | 其标量势的梯度 | $$\mathbf{f}=\nabla \phi$$ |
+   | 无散度的向量场| $$ \nabla \cdot \mathbf{f} =0 $$ | 可以写成 | 其向量势的旋度 | $$\mathbf{f}=\nabla \times \mathbf{a}$$|
 
+### 面积分/二重积分
 
-
-
-
-
-
-
-
-保守场
-
-二重积分
 
 
