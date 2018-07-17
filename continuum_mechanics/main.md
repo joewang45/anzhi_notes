@@ -75,11 +75,49 @@
 
 ## 对向量做微分
 
+### 变量为标量的向量函数的微分
+
+1. 我们这里以位移函数 $$\mathbf{u}=\mathbf{u}(t)$$ 为中心讨论向量函数的微分
+
+2. 向量函数 的微分的定义和一般的标量函数是一样的，有
+   $$
+   \frac{d\mathbf{u}(t)}{dt}:=\lim\limits_{\Delta t\to0}\frac{\Delta\mathbf{u}}{\Delta t}=\lim\limits_{\Delta t\to0}\frac{\mathbf{u}(t+\Delta t)-\mathbf{u}(t)}{\Delta t}
+   $$
+
+3. 因为从微分计算的定义上看，向量函数和标量函数具有相同的定义，所以除了点积和叉积有些特殊之外，我们熟悉的微分计算规则都可以直接使用，要注意的只是为了叉积要保证顺序，有：
+   - $$\frac{d}{dt}(\mathbf{u}+\mathbf{v})=\frac{d\mathbf{u}}{dt}+\frac{d\mathbf{v}}{dt}$$
+   - ...
+
+4. **一般的计算法则为**：
+   $$
+   \frac{d\mathbf{u}(t)}{dt}=\frac{du_1}{dt}\mathbf{e}_1+\frac{du_2}{dt}\mathbf{e}_2+\frac{du_3}{dt}\mathbf{e}_3=\frac{du_i}{dt}\mathbf{e}_i
+   $$
+
+5. 位移对时间微分的物理意义显然是速度；位移向量对时间微分的物理意义是速度向量
+
+6. 上面这个想法的数学表示是，由位置点的构成的集合，即轨迹曲线，每一点的切线向量，如下图：
+
+   ![](C:\Users\wang\Documents\gitHub\anzhi_notes\continuum_mechanics\picture\1.png)
+
+7. 速度的模，即速率为：
+
+   $$
+   |\frac{d\mathbf{u}}{dt}|=\sqrt{(\frac{du_1}{dt}\mathbf{e}_1)^2+(\frac{du_2}{dt}\mathbf{e}_2)^2+(\frac{du_3}{dt}\mathbf{e}_3)^2}=\sqrt{(\frac{du_1}{dt})^2+(\frac{du_2}{dt})^2+(\frac{du_3}{dt})^2}
+   $$
+
+8. 结合上面两个式子，可以得到切线方向的单位向量 $$\mathbf{\tau}$$ ，有：
+
+   $$
+   \mathbf{\tau}=\frac{d\mathbf{u}/dt}{|d\mathbf{u}/dt|}
+   $$
+
+   有了单位向量，我们就可以引入更多的概念了
+9. 
 ## 对向量做积分
 
 ### 线积分
 
-1. 对一个关于标量的向量函数 $$\mathbf{u}=\mathbf{u}(t)$$ 做积分，和对标量函数做积分的方法是一样的，有：
+1. 对变量为标量的向量函数 $$\mathbf{u}=\mathbf{u}(t)$$ 做积分，和对标量函数做积分的方法是一样的，有：
 
    $$
    \int^{2}_{1} \mathbf{u}(t)dt=\int^{2}_{1} \begin{pmatrix} t-t^2 \\ 2t^2 \\ -3 \end{pmatrix} dt= \begin{pmatrix} -5/6 \\ 14/3 \\ -3 \end{pmatrix}
@@ -115,6 +153,13 @@
      \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot d\mathbf{x}
      = \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot \frac{d\mathbf{x}}{dt}dt =
      $$
+
+
+
+
+
+
+
 
 
 
