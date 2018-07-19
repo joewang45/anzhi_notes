@@ -198,6 +198,17 @@
      = \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot \frac{d\mathbf{x}}{dt}dt = \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot \frac{dx_i}{dt}\mathbf{e}_idt
      $$
 
+
+
+
+
+
+
+
+
+
+
+
 #### 保守场
 1. 如果一个向量场，可以用一个**标量场的梯度**来表示，即 
    $$
@@ -277,6 +288,56 @@
    | 无散度的向量场| $$ \nabla \cdot \mathbf{f} =0 $$ | 可以写成 | 其向量势的旋度 | $$\mathbf{f}=\nabla \times \mathbf{a}$$|
 
 ### 面积分/二重积分
+1. 面积分是二重积分最直观的形式，$$\iint_{\mathcal{R}} f(x_1,x_2) dx_1dx_2$$ 就是该函数对面 $$\mathcal{R}$$ 积分，得到如图所示的体积
+   ![](C:\Users\wang\Documents\gitHub\anzhi_notes\continuum_mechanics\picture\2.png)
 
+2. 计算二重积分时，可以采用换元的方法
 
+3. 换元对应的物理意义，是更换坐标系，如下图：
+
+   ![](C:\Users\wang\Documents\gitHub\anzhi_notes\continuum_mechanics\picture\3.png)
+
+   - 在平面上存在平面直角坐标系 $$x_1-x_2$$ 和一般坐标系 $$t_1-t_2$$
+
+   - 在 $$t_1-t_2$$ 坐标系下，面积微元 $$dS=|d\mathbf{x}_{t_1} \times d\mathbf{x}_{t_2}|$$
+
+   - 其中，$$\mathbf{x}$$ 是有关 $$t_1$$ 和 $$t_2$$ 的向量函数，即 $$\mathbf{x}=\mathbf{x}(t_1,t_2)=x_1(t_1,t_2)\mathbf{e}_1+ x_2(t_1,t_2)\mathbf{e}_2$$
+
+   - 故有：
+     $$
+     \begin{align}
+     d\mathbf{x}_{t_1} &= \frac{\partial \mathbf{x} }{\partial t_1}dt_1+\frac{\partial \mathbf{x} }{\partial t_2}dt_2=\frac{\partial \mathbf{x} }{\partial t_1}dt_1 \\
+     d\mathbf{x}_{t_2} &= \frac{\partial \mathbf{x} }{\partial t_1}dt_1+\frac{\partial \mathbf{x} }{\partial t_2}dt_2=\frac{\partial \mathbf{x} }{\partial t_2}dt_2
+     \end{align}
+     $$
+
+   - 于是，面积微元就可以写成：
+     $$
+     \begin{align}
+     dS & \ = |d\mathbf{x}_{t_1} \times d\mathbf{x}_{t_2}| \\
+        & \ = |\frac{\partial \mathbf{x} }{\partial t_1} \times \frac{\partial \mathbf{x} }{\partial t_2}| dt_1dt_2 \\
+        & \ = |\frac{\partial x_i}{\partial t_1} \mathbf{e}_i \times \frac {\partial x_j}{\partial t_2}\mathbf{e}_j|dt_1dt_2 \\
+        & \ = |\frac{\partial x_i \partial x_j}{\partial t_1 \partial t_2} \varepsilon_{ijk}\mathbf{e}_k|dt_1t_2\\
+        & \ = |\frac{\partial x_1 \partial x_2}{\partial t_1 \partial t_2} - \frac{\partial x_2 \partial x_1}{\partial t_1 \partial t_2}  |dt_1dt_2\\
+        & \ = \begin{vmatrix} 
+                 \frac{\partial x_1}{\partial t_1} & \frac{\partial x_2}{\partial t_1} \\
+                 \frac{\partial x_1}{\partial t_2} & \frac{\partial x_2}{\partial t_2} 
+                 \end{vmatrix} 
+                 dt_1dt_2\\
+     \end{align}
+     $$
+
+4. 于是我们得到了雅克比矩阵 Jacobian Matrix，有：
+   $$
+   \mathbf{J}= \frac{\partial x_i}{\partial t_j}
+   $$
+
+5. 应用雅克比矩阵变换坐标系：
+   $$
+   \int f(x_1,x_2,x_3) dx = \int g(y_1,y_2,y_3) \cdot det(\frac{\partial x_i}{\partial y_j}) dy
+   $$
+
+6. 例题：使用极坐标，计算单位圆在第一象限（$$0 \leq y \leq \sqrt{1-x^2} ,\quad 0 \leq x \leq 1$$）的面积
+   - 使用极坐标，有：$$\begin{cases} x=r\cdot cos\phi \\ y=r\cdot sin\phi\end{cases}$$
+     
 
