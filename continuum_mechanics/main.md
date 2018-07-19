@@ -209,6 +209,8 @@
 
 
 
+
+
 #### 保守场
 1. 如果一个向量场，可以用一个**标量场的梯度**来表示，即 
    $$
@@ -287,7 +289,7 @@
    | 无旋度的向量场| $$ \nabla \times \mathbf{f} =0 $$ | 可以写成 | 其标量势的梯度 | $$\mathbf{f}=\nabla \phi$$ |
    | 无散度的向量场| $$ \nabla \cdot \mathbf{f} =0 $$ | 可以写成 | 其向量势的旋度 | $$\mathbf{f}=\nabla \times \mathbf{a}$$|
 
-### 面积分/二重积分
+### 二重积分与雅可比矩阵
 1. 面积分是二重积分最直观的形式，$$\iint_{\mathcal{R}} f(x_1,x_2) dx_1dx_2$$ 就是该函数对面 $$\mathcal{R}$$ 积分，得到如图所示的体积
    ![](C:\Users\wang\Documents\gitHub\anzhi_notes\continuum_mechanics\picture\2.png)
 
@@ -327,17 +329,33 @@
      \end{align}
      $$
 
-4. 于是我们得到了雅克比矩阵 Jacobian Matrix，有：
+4. 于是我们得到了**雅可比矩阵 Jacobian Matrix**，有：
    $$
    \mathbf{J}= \frac{\partial x_i}{\partial t_j}
    $$
 
 5. 应用雅克比矩阵变换坐标系：
    $$
-   \int f(x_1,x_2,x_3) dx = \int g(y_1,y_2,y_3) \cdot det(\frac{\partial x_i}{\partial y_j}) dy
+   \int f(x) dx = \int f[x(y)] dx =\int f(y) \cdot det(\frac{\partial x_i}{\partial y_j}) dy
    $$
 
 6. 例题：使用极坐标，计算单位圆在第一象限（$$0 \leq y \leq \sqrt{1-x^2} ,\quad 0 \leq x \leq 1$$）的面积
    - 使用极坐标，有：$$\begin{cases} x=r\cdot cos\phi \\ y=r\cdot sin\phi\end{cases}$$
-     
+   - 计算雅可比矩阵的行列式：
+     $$
+     det(\mathbf{J})=\begin{vmatrix} 
+     \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \phi} \\
+     \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \phi} \\
+     \end{vmatrix}
+     = \begin{vmatrix}
+     cos \phi & - r\cdot sin \phi \\
+     sin \phi & r \cdot cos \phi
+     \end{vmatrix} = r
+     $$
+
+   - 计算面积
+     $$
+     \int_{0}^{1}\int_{0}^{1}1dxdy = \int_{0}^{\pi/2}\int_{0}^{1}rdrd\phi = \frac{1}{4}\pi
+     $$
+
 
