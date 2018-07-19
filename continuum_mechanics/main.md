@@ -121,7 +121,7 @@
     \frac{ds}{dt}=\frac{\sqrt{(du_1)^2+(du_2)^2+(du_3)^2}}{dt}=\sqrt{\frac{(du_1)^2}{(dt)^2}+\frac{(du_2)^2}{(dt)^2}+\frac{(du_3)^2}{dt}}=|\frac{d\mathbf{u}}{dt}|
     $$
 
-11. 于是，单位向量 $$\mathbf{\tau}$$ 就可以写成：
+11. 于是，曲线切线方向的单位向量 $$\mathbf{\tau}$$ 就可以写成：
     $$
     \mathbf{\tau}=\frac{d\mathbf{u}/dt}{|d\mathbf{u}/dt|}=\frac{d\mathbf{u}/dt}{ds/dt}=\frac{d\mathbf{u}}{ds}
     $$
@@ -130,32 +130,56 @@
 
     如：求轨迹曲线 $$\mathbf{x}=\mathbf{x}(t)=\begin{pmatrix}2t^2 \\t^2-4t\\3t-5 \end{pmatrix}$$ 在 $$t=1$$ 时，沿方向 $$\mathbf{a}=\mathbf{e}_1-3\mathbf{e}_2+2\mathbf{e}_3$$ 的速度
 
-    1. 运动轨迹曲线的切线速度向量为
+    - 运动轨迹曲线的切线速度向量为
     $$
     \mathbf{v} = \frac { d\mathbf{x} } {dt} = \frac {d2t^2}{dt}\mathbf{e}_1 + \frac{d(t^2-4t)}{dt}\mathbf{e}_2+\frac{d(3t-5)}{dt}\mathbf{e}_3= 4t\mathbf{e}_1+(2t-4)\mathbf{e}_2+3\mathbf{e}_3
     $$
 
-    2. $$t=1$$ 时，速度向量便为：
+    - $$t=1$$ 时，速度向量便为：
        $$
        \mathbf{v}|_{t=1}=4\mathbf{e}_1-2\mathbf{e}_2+3\mathbf{e}_3
        $$
 
-    3. 计算 $$\mathbf{a}$$ 方向上的单位向量，有：
+    - 计算 $$\mathbf{a}$$ 方向上的单位向量，有：
     $$
     \mathbf{a}_e = \frac {\mathbf{a}} {|\mathbf{a}|} = ...
     $$
-    4. 计算求得 $$t=1$$ 时的切线速度向量在 $$\mathbf{a}$$ 上的速度向量：
+    - 计算求得 $$t=1$$ 时的切线速度向量在 $$\mathbf{a}$$ 上的速度向量：
     $$
     \mathbf{v}|_{t=1}\cdot \mathbf{a}_e =...
     $$
 
-13. 空间曲线上某一点的曲率定义为：
+13. 空间曲线上某一点的曲率（标量）定义为：
     $$
     \kappa := |\frac{d\mathbf{\tau}}{ds}|=|\frac{d}{ds}(\frac{d\mathbf{u}}{ds})|=|\frac{d^2\mathbf{u}}{ds^2}|
     $$
     物理意义为曲线沿路径切线的方向的变化率
 
 14. 曲率半径是曲率的倒数，可以通过圆推导出来
+
+15. 由于切线向量的 $$\mathbf{\tau}$$ 方向总是在变化的，所以空间曲线切线的变化量 $$\Delta \mathbf{\tau}$$ 与 $$\mathbf{\tau}$$ 是垂直的，如下：
+
+    ![](C:\Users\wang\Documents\gitHub\anzhi_notes\continuum_mechanics\picture\4.png)
+
+    $$
+    \begin{align}
+     & \frac{d(\pmb{\tau} \cdot \pmb{\tau})}{ds} = \frac{1}{ds} = 0 \\
+    \Rightarrow & \frac{d[\pmb{\tau}(s)\cdot \pmb{\tau}(s)]}{d\pmb{\tau}(s)}\cdot \frac{d\pmb{\tau}(s)}{ds}=0 \\
+    \Rightarrow & 2\pmb{\tau}(s) \cdot \frac{d\pmb{\tau}(s)}{ds}=0\\
+    \Rightarrow & \pmb{\tau}\cdot d\pmb{\tau} =0
+    \end{align}
+    $$
+
+16. $$\pmb{\tau}$$ 是切线方向的单位向量，但是 $$d\pmb{\tau}$$ 不是单位向量，这个显而易见的事实在一堆数学符号下面，显得有点晦涩
+    $$d\pmb{\tau}$$ 方向上的单位向量$\mathbf{v}$，有：
+
+    $$
+    \pmb{\nu}=\pmb{\nu}(s)=\frac{d\pmb{\tau}}{|d\pmb{\tau}|} = \frac{d\pmb{\tau}}{\kappa(s)ds}
+    $$
+
+17. 使用两个方向上的单位向量，可以定义出垂直于这两个单位向量的单位向量 $$\pmb{b}(s)=\pmb{\tau}(s)\times \pmb{\nu}(s)$$
+    ![](C:\Users\wang\Documents\gitHub\anzhi_notes\continuum_mechanics\picture\5.png)
+
 
 ## 对向量做积分
 
@@ -197,18 +221,6 @@
      \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot d\mathbf{x}
      = \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot \frac{d\mathbf{x}}{dt}dt = \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot \frac{dx_i}{dt}\mathbf{e}_idt
      $$
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #### 保守场
@@ -358,4 +370,5 @@
      \int_{0}^{1}\int_{0}^{1}1dxdy = \int_{0}^{\pi/2}\int_{0}^{1}rdrd\phi = \frac{1}{4}\pi
      $$
 
-
+7. 上面所说的是最为简单的情况，接下来我们来处理较为复杂的情况
+8. 三维空间中的任意曲面总可以写成 $$\mathbf{x}=x_i\mathbf{e}_i$$
