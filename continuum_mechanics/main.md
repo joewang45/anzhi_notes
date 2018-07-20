@@ -21,9 +21,9 @@
    - 小写字母加上箭头：$$\vec{u}$$，$$\vec{v}$$
    - 小写字母加下划线：$$\underline{u}$$，$$\underline{v}$$ 
 
-3. 向量的模 the magnitude of a vector 是表示向量大小标量，一定是一个非负数，记作 |\underline{u}|
+3. 向量的模 the magnitude of a vector 是表示向量大小标量，一定是一个非负数，记作 $$|\underline{u}|$$
 
-4. 模为 1 的向量为单位向量，单位向量和基向量的概念不同！
+4. 模为 1 的向量为单位向量；单位向量和基向量的概念不同！
 
 ### 向量代数 Vector Algebra
 
@@ -221,6 +221,8 @@
      \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot d\mathbf{x}
      = \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot \frac{d\mathbf{x}}{dt}dt = \int_{\mathcal{C}}\mathbf{f}(\mathbf{x})\cdot \frac{dx_i}{dt}\mathbf{e}_idt
      $$
+
+
 
 
 #### 保守场
