@@ -1,4 +1,4 @@
-# 1. 刚体的角速度和线速度 
+# 1. 刚体的自旋 
 
 ![](..\picture\12.png)
 
@@ -10,9 +10,9 @@
 
 刚体中的点 $P$ ，到点 $O$ 位置向量为 $\pmb{r}$ 。
 
-证明：$P$ 点旋转的切线速度 $\pmb{v} = \pmb{\omega} \times \pmb{r}$ 
+## 1.1 求 $P$ 点的切线速度 $\pmb{v}$ 
 
-## 解
+### 解
 
 一、点 $P$ 到旋转轴的距离 
 $$
@@ -36,3 +36,45 @@ $$
 $$
 \pmb{v} = \pmb{\omega} \times \pmb{r}
 $$
+
+## 1.2 角动量和惯性张量
+
+![](..\picture\12.png)
+
+一个物体的角动量 angular momentum $\pmb{h}$ 是一个向量。
+
+定义为它的位置向量和动量的叉积，有：
+$$
+\pmb{h} = \pmb{r} \times m\pmb{v}
+$$
+我们可以通过惯性张量 $\hat{\pmb{I}}$ （带个帽子，为了区别于单位张量 $\pmb{I}$）这个线性算子，建立角动量和角速度的线性关系，有：
+$$
+\begin{align}
+& \pmb{h}= \hat{\pmb{I}} ( \pmb{\omega}) \\
+with \ \ & \hat{\pmb{I}} = m( |\pmb{r}|^2 \pmb{I} - \pmb{r} \otimes \pmb{r})
+\end{align}
+$$
+有：
+$$
+\begin{align}
+\hat{\pmb{I}}(\pmb{\omega}) 
+& = (|\pmb{r}|^2 \pmb{I} - \pmb{r} \otimes \pmb{r}) \pmb{\omega} \\
+& = |\pmb{r}|^2 \pmb{\omega} - \pmb{r}(\pmb{r} \cdot \pmb{\omega}) \\
+& = |\pmb{r}|^2|\pmb{\omega}| \pmb{e}_\omega - |\pmb{r}| | \pmb{\omega}|cos\theta |\pmb{r}| \pmb{e}_r \\
+& = |\pmb{r}|^2|\pmb{\omega}| (\pmb{e}_\omega - cos\theta \pmb{e}_r) \\ 
+& = |\pmb{r}|^2|\pmb{\omega}| sin\theta \ \pmb{e}_h
+\end{align}
+$$
+![](..\picture\13.png)
+
+这个关系可以照着下图画一下理解
+
+![](..\picture\14.png)
+
+方向是正确的，现在只要看 magnitude 是否与定义的相配了，有：
+$$
+|\pmb{r} \times \pmb{v}| 
+= | \pmb{r} \times \pmb{\omega} \times \pmb{r}| = |\pmb{r}|^2|\pmb{\omega}| sin\theta
+$$
+物体的惯性张量是一个只与几何属性有关的量。
+
