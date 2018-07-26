@@ -140,17 +140,6 @@ $$
 $$
 Q.E.D
 
-### 单位张量
-
-笛卡尔坐标系下的单位张量，对对象向量不做变换的张量：
-$$
-\pmb{I} 
-= \pmb{e}_1\otimes\pmb{e}_1 
-+ \pmb{e}_2\otimes\pmb{e}_2 
-+ \pmb{e}_3\otimes\pmb{e}_3
-= \pmb{e}_i\otimes\pmb{e}_i
-$$
-
 ## 2.2 张量的分量形式
 
 从上式可以接着推出张量在笛卡尔坐标系下的分量形式：
@@ -365,6 +354,10 @@ $$
 $$
 \pmb{A} : \pmb{B} = A_{ij} B_{ij}
 $$
+引入张量的迹的概念之后，我们有：
+$$
+\pmb{A}:\pmb{B} = tr(\pmb{A}^T\pmb{B})=tr(\pmb{AB}^T)=tr(\pmb{B}^T\pmb{A})=tr(\pmb{BA}^T)
+$$
 两个向量的点乘可以转写为，单位张量与这两个向量的圈乘的双点缩并：
 $$
 \pmb{u} \cdot \pmb{v} = \pmb{I} : (\pmb{u} \otimes \pmb{v})
@@ -383,6 +376,12 @@ T_{jikl}
 :( \pmb{e}_k\otimes \pmb{e}_l)
 $$
 
+双点缩并是二阶张量的内积。
+
+内积为零，意味着正交，于是：
+$$
+\pmb{A}:\pmb{B}=0 \Leftrightarrow \pmb{A} \bot \pmb{B}
+$$
 一些推论：
 
 - $ (\pmb{A} \otimes \pmb{B}):\pmb{C} = \pmb{A} (\pmb{B}:\pmb{C}) = (\pmb{B}:\pmb{C})\pmb{A}$
