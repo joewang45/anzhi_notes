@@ -152,3 +152,150 @@ Inverse of Tensor
 $$
 \pmb{T}\pmb{T}^{-1}=\pmb{T}^{-1}\pmb{T}=\pmb{I}
 $$
+
+只有非奇异张量才有逆。
+
+奇异张量，即行列式为零的张量，实际上是把原来的空间降了维；想要通过逆的方式升维，是做不到的。
+
+一些有关逆的性质：
+
+- $(\pmb{T}^{-1})^{-1}=\pmb{T}$
+- $(\alpha\pmb{T})^{-1} = \frac{1}{\alpha} \pmb{T}^{-1}$
+- $(\pmb{AB})^{-1}=\pmb{B}^{-1} \pmb{A}^{-1}$
+- $det(\pmb{T}^{-1})=[det(\pmb{T})]^{-1}$
+- $\pmb{T}^{-T} = (\pmb{T}^{-1})^T = (\pmb{T}^{T})^{-1}$
+
+# 7. 一个正交的张量
+
+An Orthogonal Tensor
+
+定义：
+$$
+\pmb{T}(\pmb{a})\cdot \pmb{T}(\pmb{b}) = \pmb{a} \cdot \pmb{b}
+$$
+变换后的两个向量的内积不变。
+
+由定义可以推导出：
+$$
+\begin{align}
+& \pmb{T}(\pmb{a})\cdot \pmb{T}(\pmb{b}) = \pmb{a}\pmb{T}^T\pmb{T}\pmb{b}= \pmb{a} \cdot \pmb{b} \\
+\\
+\Rightarrow \quad & \pmb{T}^T\pmb{T}=\pmb{I}
+\end{align}
+$$
+这同时也满足了张量的逆的定义，所以一个正交的张量的逆和转置是一样的，有：
+$$
+\pmb{T}_{ortho}^T = \pmb{T}_{ortho}^{-1}
+$$
+注意：
+
+- 一个有正交属性的张量，和两个正交的张量是不一样的。
+- 两个正交的张量是在张量空间中，内积为零的两个张量。
+- 一个有正交属性的张量，是在向量空间做线性变换时，不改变空间的单位尺度的线性变换，即：
+
+$$
+det(\pmb{T})= \pm 1
+$$
+
+如果还不改变空间的朝向，即基的手向，那么这个张量被称作 proper orthogonal，即：
+$$
+det(\pmb{T})=  1
+$$
+A proper orthogonal Tensor 也经常被称作 rotation tensor，因为用于转动坐标轴的张量都是 proper orthogonal 的。
+
+## 7.1 使用正交张量转动坐标轴
+
+转动坐标轴是一种比较简单的换基行动。
+
+我们通过对基向量做线性变换来变换坐标轴。
+
+使用张量 $\pmb{T}$ 对基向量 $\pmb{e}_i$ 进行变换，得到新的基向量 $\pmb{e}_i^{'}$，有：
+$$
+\pmb{e}_i^{'}=\pmb{T}(\pmb{e}_i)
+$$
+相反的转换通过转置张量进行，有：
+$$
+\pmb{e}_i=\pmb{T}^T(\pmb{e}_i^{'})
+$$
+
+在基向量 $\pmb{e}_i$ 下，有：
+$$
+\pmb{T}=T_{ij} \pmb{e}_i \otimes \pmb{e}_j 
+= (\pmb{e}_i \pmb{T}\pmb{e}_j) (\pmb{e}_i \otimes \pmb{e}_j) 
+= (\pmb{e}_i \cdot \pmb{e}_j^{'}) (\pmb{e}_i \otimes \pmb{e}_j)
+$$
+未完待续..
+
+# 8. 对称张量和反对称张量
+
+Symmetric and Skew Tensors
+
+定义：
+
+- 张量是对称的
+  $$
+  \pmb{T}=\pmb{T}^{T}
+  $$
+
+- 张量是反对称的
+  $$
+  \pmb{T} = -\pmb{T}^{T}
+  $$
+
+
+
+
+他们也是与坐标轴无关的性质。
+
+在笛卡尔坐标系里，用矩阵形式表示，有：
+
+- 对称张量 $\pmb{S}$
+  $$
+  \pmb{S}=
+  \begin{pmatrix}
+  S_{11} & S_{12} & S_{13} \\
+  S_{12} & S_{22} & S_{23} \\
+  S_{13} & S_{23} & S_{33} \\
+  \end{pmatrix}
+  $$
+
+- 反对称张量 $\pmb{W}$
+  $$
+  \pmb{W} =
+  \begin{pmatrix}
+  0 & W_{12} & W_{13} \\
+  - W_{12} & 0 & W_{23} \\
+  - W_{13} & -W_{23} & 0 
+  \end{pmatrix}
+  $$
+  反对称张量没有逆
+
+任何一个张量都可以拆成一个对称张量和一个反对称张量的和，有：
+$$
+\pmb{T} = \pmb{T}_{sym} + \pmb{T}_{skew} 
+= \frac{1}{2}(\pmb{T}+\pmb{T}^T) + \frac{1}{2}(\pmb{T}-\pmb{T}^T)
+$$
+一些对称和反对称张量的性质：
+
+-  $\pmb{S}:\pmb{T} = \pmb{S} : \pmb{T}^T = \pmb{S} : \frac{1}{2}(\pmb{T}+\pmb{T}^T)$
+
+-  $\pmb{W}:\pmb{T} = -\pmb{W} : \pmb{T}^T = \pmb{W} : \frac{1}{2}(-\pmb{T}^T)$
+
+-  $\pmb{S}:\pmb{W} = 0 $
+
+-  $tr(\pmb{SW})=0$
+
+-  $\pmb{u}\pmb{W}\pmb{u}=0$
+
+-  $det(\pmb{W})=0$
+
+## 8.1 赝向量
+
+Axial Vectors / Pseudovectors
+
+因为反对称张量里，只有三个独立的数，和一个向量类似，所以我们称它为赝向量。
+
+
+
+
+

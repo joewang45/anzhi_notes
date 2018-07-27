@@ -208,7 +208,7 @@ $$
 $$
 一个三维空间中的二阶张量有九个分量。
 
-张量可以写成 $3\times3$ 的矩阵形式。
+张量可以写成 $3\times3$ 的矩阵形式，这满足它的定义。
 $$
 \pmb{T} = 
 [\pmb{T}] = 
@@ -243,6 +243,9 @@ $$
   $$
   \underline{\underline{\underline{\underline{\pmb{T}}}}}=T_{jikl} \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k\otimes \pmb{e}_l
   $$
+
+
+
 
 
 一个景点的高阶张量是 permutation tensor：
@@ -382,6 +385,8 @@ $$
 $$
 \pmb{A}:\pmb{B}=0 \Leftrightarrow \pmb{A} \bot \pmb{B}
 $$
+这个性质是用于张量空间中的。
+
 一些推论：
 
 - $ (\pmb{A} \otimes \pmb{B}):\pmb{C} = \pmb{A} (\pmb{B}:\pmb{C}) = (\pmb{B}:\pmb{C})\pmb{A}$

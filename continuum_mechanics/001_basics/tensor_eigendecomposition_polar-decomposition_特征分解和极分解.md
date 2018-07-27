@@ -8,13 +8,15 @@
 
 定义：
 
-- 对一个二阶张量 $\pmb{T}$，总能找到单位向量 $\hat{\pmb{n}}$ 和标量 $\lambda$ ，使：
+- 对一个二阶张量 $\pmb{T}$，总能找到向量 $\hat{\pmb{n}}$ 和标量 $\lambda$ ，使：
 
 $$
 \pmb{T}\hat{\pmb{n}} = \lambda \hat{\pmb{n}}
 $$
-- 这样的单位向量称作==特征向量== Eigenvector。
+- 这样的向量称作==特征向量== Eigenvector。
 - 这样的标量称作==特征值== Eigenvalue。
+
+由于 $\pmb{T}(\alpha\hat{\pmb{n}})=\alpha\pmb{T}(\hat{\pmb{n}})$ 所以讨论向量的模的大小没有意义，所以总可以认为 $\hat{\pmb{n}}$ 是个单位向量。
 
 ## 1.2 特征方程
 
@@ -62,11 +64,14 @@ $$
 \begin{align}
 & \lambda ^3 - I_1 \lambda^2+I_2\lambda -I_3=0 \\
 \\
-with \quad I_1 & = tr(\pmb{T}) = T_{ii}\\
-I_2 & = \frac{1}{2} [(tr(\pmb{T}))^2 - tr(\pmb{T}^2)]= \frac{1}{2}(T_{ii} T_{jj} - T_{ij}T_{ji}) \\
+with \quad I_1 & = tr(\pmb{T}) = T_{ii}
+\\ \\ 
+I_2 & = \frac{1}{2} [(tr(\pmb{T}))^2 - tr(\pmb{T}^2)]= \frac{1}{2}(T_{ii} T_{jj} - T_{ij}T_{ji}) \\ \\
 I_3 & = det(\pmb{T})=  \varepsilon_{ijk} T_{1i}T_{2j}T_{3k}
 \end{align}
 $$
+
+$I_1, I_2, I_3$ 称作==张量不变量==。
 
 解这个方程，得到的三个根 $\lambda_1, \lambda_2, \lambda_3$  代回 $\pmb{T}-\lambda \pmb{I}$，便有：
 $$
@@ -100,13 +105,9 @@ $$
 
 这样我们就能求得特征值 $\lambda_1$ 对应的特征向量  $\hat{\pmb{n}}_1$ 了。
 
-## 1.4 用特征值表示的张量
+## 1.4 特征向量的正交性
 
-
-
-## 1.5 特征向量的正交性
-
-对称张量的特征向量是两两正交的。
+对称张量的特征向量是两两正交的，他们组成了一个正交基。
 
 令张量 $\pmb{T}$ 的两个任意特征值为 $\lambda_1, \lambda_2$ 。
 
@@ -188,4 +189,122 @@ $$
 \Rightarrow 
 \hat{\pmb{n}}_1 \bot \hat{\pmb{n}}_2
 $$
-很显然，**对称张量**和**特征值不同**是这个推导的核心。
+显然，**对称张量**和**特征值不同**是这个推导的核心。
+
+## 1.5 张量的特征值表示
+
+可以用张量的特征值和特征向量来表示一个==对称的张量==。
+
+这个本质上是一个换基的操作：将原来的基换成特征向量组成的基
+
+即形如 $$\pmb{T}^{\hat{\pmb{n}}}=\sum_{i=1}^3 \lambda_{(i)} \hat{\pmb{n}}_{(i)} \otimes \hat{\pmb{n}}_{(i)}$$ 的张量和原来的 $\pmb{T}^{\pmb{e}}$ 一样，都满足 $\pmb{T}\hat{\pmb{n}} = \lambda \hat{\pmb{n}}$
+
+这里打括号的 $(i)$ 代表了不按照爱因斯特求和约定进行求和，所以也不需遵循指标不超过两个的规定。
+
+$\hat{\pmb{n}}_{(i)}$ 代表任意的特征向量；$\hat{\pmb{n}}_{(k)}$ 代表特定的特征向量。
+
+将之代入定义式，有：
+$$
+\begin{align}
+右边 & = \lambda \hat{\pmb{n}} = \lambda_{(k)}  \hat{\pmb{n}} _{(k)}  
+\\ \\
+左边 & = \pmb{T}\hat{\pmb{n}} 
+= \sum_{i=1}^3 \lambda_{(i)} \hat{\pmb{n}}_{(i)} \otimes \hat{\pmb{n}}_{(i)} [\hat{\pmb{n}}_{(k)}] \\
+&= \sum_{i=1}^3 \lambda_{(i)} \hat{\pmb{n}}_{(i)} [ \hat{\pmb{n}}_{(i)} \cdot\hat{\pmb{n}}_{(k)}]
+\end{align}
+$$
+由于不同的单位向量正交，所以这里也可以使用 Kronecker Delta，所以 $i=k$, 所有 $i \neq k$ 的项都是零，有：
+$$
+\begin{align}
+ 左边 & 
+= \sum_{i=1}^3 \lambda_{(i)} \hat{\pmb{n}}_{(i)} \delta_{ki}
+= \lambda_{(k)}\hat{\pmb{n}}_{(k)}  \\
+ Q.E.D 
+\end{align}
+$$
+
+所以，用特征值表示的张量为：
+$$
+\begin{align}
+\pmb{T}& =\sum_{i=1}^3 \lambda_{(i)} \hat{\pmb{n}}_{(i)} \otimes \hat{\pmb{n}}_{(i)} 
+\\ \\
+& = 
+\begin{array}{c c c}
+\lambda_1  \hat{\pmb{n}}_1 \otimes \hat{\pmb{n}}_1 & + 0  & + 0 \\
++0 & \lambda_2  \hat{\pmb{n}}_2 \otimes \hat{\pmb{n}}_2 & + 0 \\
++0 & +0 & \lambda_3  \hat{\pmb{n}}_3 \otimes \hat{\pmb{n}}_3 & \\
+\end{array}
+\end{align}
+$$
+这个表达式的矩阵形式就是：
+$$
+\pmb{T}^{\hat{\pmb{n}}} = 
+\begin{pmatrix}
+\lambda_1 & 0  & 0 \\
+0 & \lambda_2 & 0 \\
+0 & 0 & \lambda_3
+\end{pmatrix}
+$$
+相对于原来的基，换基大成功！
+$$
+\pmb{T}^{{\pmb{e}}} = 
+\begin{pmatrix}
+T_{11} & T_{12}  & T_{13} \\
+T_{21} & T_{22}  & T_{23} \\
+T_{31} & T_{32}  & T_{33} \\
+\end{pmatrix}
+$$
+
+使用特征向量作为基，原张量的的不变量变得很简单，有：
+$$
+\begin{align}
+I_1 & = tr(\pmb{T}) = tr(\pmb{T}^{\hat{\pmb{n}}}) = \lambda_1+\lambda_2+\lambda_3 \\
+\\
+I_2 & =  \frac{1}{2} [(tr(\pmb{T}))^2 - tr(\pmb{T}^2)]= \lambda_1\lambda_2 + \lambda_2\lambda_3 + \lambda_3\lambda_1 \\
+\\
+I_3 & = det(\pmb{T})=\lambda_1\lambda_2\lambda_3
+\end{align}
+$$
+
+## 1.6 特征值相同的情况
+
+如 1.4 中所说，特征向量的正交性是建立在特征值不同的基础上的。
+
+对式 
+$$
+(T_{ij}-T_{ji}) \hat{n}_{2,i} \hat{n}_{1,j} = (\lambda_1-\lambda_2)\hat{\pmb{n}}_1 \hat{\pmb{n}}_2
+$$
+
+如果 $\lambda_1 = \lambda_2$，就可以得到许许多多的 $\hat{\pmb{n}}_1, \hat{\pmb{n}}_2$ ，令他们为一个集合。
+
+在这个集合中总能找到两个特殊特征向量 $\hat{\pmb{n}}_1^*, \hat{\pmb{n}}_2^*$，满足：
+$$
+\hat{\pmb{n}}_1^* \bot \hat{\pmb{n}}_2^*
+$$
+于是，可以接着使用这两个正交的向量和另一个和这两个向量分别正交的向量作为基，得到：
+$$
+\pmb{T}^{\hat{\pmb{n}}^*} = 
+\begin{pmatrix}
+\lambda_1 & 0  & 0 \\
+0 & \lambda_2=\lambda_1 & 0 \\
+0 & 0 & \lambda_3
+\end{pmatrix}
+= \lambda_1\pmb{I}+(\lambda_3-\lambda_1)\hat{\pmb{n}}_3 \otimes\hat{\pmb{n}}_3
+$$
+最终的表达式里并没有出现 $\hat{\pmb{n}}_1, \hat{\pmb{n}}_2$，可以说是一定程度避开了对特征向量的讨论。
+
+如果 $\lambda_1 = \lambda_2 = \lambda_3$，则相应的有：
+$$
+\pmb{T}^{\hat{\pmb{n}}^*} = 
+\begin{pmatrix}
+\lambda_1 & 0  & 0 \\
+0 & \lambda_2=\lambda_1 & 0 \\
+0 & 0 & \lambda_3=\lambda_1
+\end{pmatrix}
+= \lambda_1\pmb{I}
+$$
+
+我们获得了一个 spherical tensor。
+
+## 1.7 正定的张量
+
