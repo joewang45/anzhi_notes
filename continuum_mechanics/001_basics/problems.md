@@ -1,3 +1,5 @@
+[TOC]
+
 # 1. 刚体的自旋 
 
 ![](..\picture\12.png)
@@ -78,3 +80,14 @@ $$
 $$
 物体的惯性张量是一个只与几何属性有关的量。
 
+## 1.3 自旋张量
+
+由 $\pmb{v}=\pmb{\omega} \times \pmb{r}$
+
+如果有一个张量 $\pmb{W}$ ，使：
+$$
+\pmb{W} (\pmb{r}) = \pmb{v}=\pmb{\omega} \times \pmb{r} 
+$$
+那么，角速度 $\pmb{\omega}$ 就是张量 $\pmb{W}$ 的赝向量。
+
+张量 $\pmb{W}$ 被称作自旋张量。

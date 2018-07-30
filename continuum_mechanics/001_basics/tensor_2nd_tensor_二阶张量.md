@@ -228,7 +228,7 @@ $$
 
 # 8. 对称张量和反对称张量
 
-Symmetric and Skew Tensors
+Symmetric Tensors and Skew Tensors
 
 定义：
 
@@ -241,7 +241,6 @@ Symmetric and Skew Tensors
   $$
   \pmb{T} = -\pmb{T}^{T}
   $$
-
 
 
 
@@ -270,7 +269,7 @@ Symmetric and Skew Tensors
   $$
   反对称张量没有逆
 
-任何一个张量都可以拆成一个对称张量和一个反对称张量的和，有：
+任何一个张量都可以分解成一个对称张量和一个反对称张量的和，有：
 $$
 \pmb{T} = \pmb{T}_{sym} + \pmb{T}_{skew} 
 = \frac{1}{2}(\pmb{T}+\pmb{T}^T) + \frac{1}{2}(\pmb{T}-\pmb{T}^T)
@@ -293,9 +292,94 @@ $$
 
 Axial Vectors / Pseudovectors
 
-因为反对称张量里，只有三个独立的数，和一个向量类似，所以我们称它为赝向量。
+因为反对称张量里，只有三个独立的数，和一个向量类似。
+
+所以我们想，从反对称张量中，定义出一个向量。
+
+定义：对于反对称张量 $\pmb{W}$ 的赝向量 $\pmb{w}$，总有：
+$$
+\begin{align}
+& \pmb{W}(\pmb{u})=\pmb{w} \times \pmb{u} \\
+\end{align}
+$$
+根据定义，有：
+$$
+\begin{align}
+W_{ij}
+& = \pmb{e}_i \pmb{W} \pmb{e}_j 
+= \pmb{e}_i (\pmb{w} \times \pmb{e}_j) 
+= \pmb{e}_i (w_k\pmb{e}_k \times \pmb{e}_j) \\
+& = \pmb{e}_i (w_k \varepsilon_{kjm} \pmb{e}_m) 
+= \varepsilon_{kji} w_k 
+= - \varepsilon_{ijk} w_k
+\end{align}
+$$
+所以，向量 $\pmb{w}$ 的系数就可以定下来了，有：
+$$
+\pmb{w} 
+= \begin{pmatrix} w_1 \\ w_2 \\ w_3 \end{pmatrix}
+= \begin{pmatrix} W_{32} \\ W_{13} \\ W_{21} \end{pmatrix}
+$$
+
+# 9. 球张量和偏张量
+
+Spherical Tensors and Deviatoric Tensors
+
+定义：任何一个张量都可以分解成一个球张量和一个偏张量的和
+$$
+\begin{align}
+& \pmb{T}  = \pmb{T}_{sph} + \pmb{T}_{dev}  \\
+\\
+with \quad 
+& \pmb{T}_{sph} = \frac{1}{3} \cdot tr(\pmb{T}) \cdot \pmb{I} \\
+\\
+& \pmb{T}_{dev} = \pmb{T} - \pmb{T}_{sph} \\
+\end{align}
+$$
+任何对角位置上的元素都一样的对角张量，都是球张量。
+
+球张量和偏张量的性质：
+
+- $tr(\pmb{T}_{dev})=0$
+- $(\pmb{T}_{dev})_{sph}=0$
+- $\pmb{A}_{dev}:\pmb{B}_{sph}=0$
+
+# 10. 正定张量和半正定张量
+
+A Positive Definite Tensor and A Positive Semi-Definite Tensor 
+
+> 严格数学定义：
+> $$
+> \pmb{T}: \pmb{v}\otimes \pmb{v} > 0
+> $$
+>
 
 
+定义：
 
+- 张量 $\pmb{T}$ 是一个正定张量，当其对任意向量 $\pmb{v}$，有：
 
+$$
+\pmb{v} \pmb{T} \pmb{v} >0
+$$
 
+- 张量 $\pmb{T}$ 是一个半正定张量，当其对任意向量 $\pmb{v}$，有：
+
+$$
+\pmb{v} \pmb{T} \pmb{v} \geq 0
+$$
+
+判断一个张量正定的必要不充分条件（满足所有这些条件的张量肯定正定）有：
+
+1. 张量矩阵的对角元素都是正值
+2. 张量矩阵中的最大值在对角线上
+3. 张量的行列式大于零
+4. $A_{ii} + A_{jj} > 2A_{ij}$ （不是爱因斯坦求和）
+
+判断一个张量正定的充要条件是：
+$$
+张量的对称张量矩阵对角线上的元素都是正值
+$$
+一个正定张量最重要的特性就是，它的行列式大于零。
+
+所以，使用正定张量的变换，永远是可逆的。

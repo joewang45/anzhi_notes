@@ -1,10 +1,10 @@
 [TOC]
 
-# 1. 特征分解 
+---
 
 特征分解是谱分解的一种。
 
-## 1.1 特征向量和特征值
+# 1. 特征向量和特征值
 
 定义：
 
@@ -18,7 +18,7 @@ $$
 
 由于 $\pmb{T}(\alpha\hat{\pmb{n}})=\alpha\pmb{T}(\hat{\pmb{n}})$ 所以讨论向量的模的大小没有意义，所以总可以认为 $\hat{\pmb{n}}$ 是个单位向量。
 
-## 1.2 特征方程
+# 2. 特征方程
 
 由定义式可得：
 $$
@@ -27,7 +27,7 @@ $$
 
 这是一个齐次线性方程组。
 
-> ### 克莱默法则
+> ## 克莱默法则
 >
 > 齐次线性方程组 $\pmb{K}\pmb{x}=\pmb{o}$
 >
@@ -51,7 +51,7 @@ $$
 
 这个方程称作二阶张量的==特征方程==。
 
-## 1.3 解特征方程
+# 3. 解特征方程
 
 一般情况下一元三次方程有三个解，即三个特征值。
 
@@ -70,6 +70,8 @@ I_2 & = \frac{1}{2} [(tr(\pmb{T}))^2 - tr(\pmb{T}^2)]= \frac{1}{2}(T_{ii} T_{jj}
 I_3 & = det(\pmb{T})=  \varepsilon_{ijk} T_{1i}T_{2j}T_{3k}
 \end{align}
 $$
+
+## 张量不变量 Tensor Invariant
 
 $I_1, I_2, I_3$ 称作==张量不变量==。
 
@@ -105,7 +107,7 @@ $$
 
 这样我们就能求得特征值 $\lambda_1$ 对应的特征向量  $\hat{\pmb{n}}_1$ 了。
 
-## 1.4 特征向量的正交性
+# 4. 特征向量的正交性
 
 对称张量的特征向量是两两正交的，他们组成了一个正交基。
 
@@ -191,7 +193,7 @@ $$
 $$
 显然，**对称张量**和**特征值不同**是这个推导的核心。
 
-## 1.5 张量的特征值表示
+# 5. 张量的特征值表示
 
 可以用张量的特征值和特征向量来表示一个==对称的张量==。
 
@@ -266,7 +268,7 @@ I_3 & = det(\pmb{T})=\lambda_1\lambda_2\lambda_3
 \end{align}
 $$
 
-## 1.6 特征值相同的情况
+# 6. 特征值相同的情况
 
 如 1.4 中所说，特征向量的正交性是建立在特征值不同的基础上的。
 
@@ -306,5 +308,204 @@ $$
 
 我们获得了一个 spherical tensor。
 
-## 1.7 正定的张量
+# 7. 特征分解与正定性
+
+由张量正定的定义
+
+>  张量 $\pmb{T}$ 是一个正定张量，当其对任意向量 $\pmb{v}$，有：
+>  $$
+>  \pmb{v} \pmb{T} \pmb{v} >0
+>  $$
+>
+
+一个张量和它的特征向量，有：
+$$
+\begin{align}
+& \pmb{T}\hat{\pmb{n}} = \lambda \hat{\pmb{n}} \\
+\Rightarrow \quad 
+& \hat{\pmb{n}}\pmb{T}\hat{\pmb{n}} = \hat{\pmb{n}}\lambda \hat{\pmb{n}} =\lambda
+\end{align}
+$$
+我们可以得到结论：一个正定张量的特征值都是正值。
+
+还有一个结论：如果非零的特征向量对应特征值为零，该张量是一个奇异张量。
+
+# 8. 特征值的极值性
+
+一个张量的特征值，总是它的矩阵中对角线上，能出现的最大值和最小值。
+
+我们给张量选定一组非特征向量的正交基 $\pmb{e}_1^*, \pmb{e}_2^*,\pmb{e}_3^*$。
+
+我们总可以用特征向量组成的基来表达选定的这组一般基，如：
+$$
+\pmb{e}_1^* 
+= \alpha_1 \hat{\pmb{n}}_1 + \alpha_2 \hat{\pmb{n}}_2 + \alpha_3 \hat{\pmb{n}}_3
+$$
+作为单位向量，有：
+$$
+|\pmb{e}_1^*|^2
+= \alpha_1^2+\alpha_2^2+\alpha_3^2 =1
+$$
+在一般基下，一个张量矩阵的元素总可以写成：
+$$
+T_{ij}^*
+=\pmb{e}_i^*\pmb{T}\pmb{e}_j^*
+= [\pmb{e}_i^*]^T[\pmb{T}][\pmb{e}_{j}]
+$$
+我们分析元素 $T_{11}^*$ ，有：
+$$
+\begin{align}
+T_{11}^*
+& = [\pmb{e}_1^*]^T[\pmb{T}][\pmb{e}_{1}]
+= \begin{pmatrix} \alpha_1 & \alpha_2 & \alpha_3\end{pmatrix}
+ \begin{pmatrix} \lambda_1 & 0&0 \\ 0 & \lambda_2 & 0 \\ 0& 0 & \lambda_3\end{pmatrix}
+ \begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3\end{pmatrix} \\
+ &= \alpha_1^2 \lambda_1+\alpha_2^2 \lambda_2+\alpha_3^2 \lambda_3
+ \end{align}
+$$
+令 $\lambda_1 \geq \lambda_2 \geq \lambda_3$，有：
+$$
+\begin{align}
+& \begin{cases}
+\lambda_1 = \lambda_1(\alpha_1^2+\alpha_2^2+\alpha_3^2) \geq T_{11}^* \\
+\lambda_3 = \lambda_3(\alpha_1^2+\alpha_2^2+\alpha_3^2) \leq T_{11}^* \\
+\end{cases}\\
+\\
+Q.E.D &
+\end{align}
+$$
+
+# 9. 凯莱-哈密顿定理
+
+The Cayley-Hamilton Theorem
+
+凯莱-哈密顿定理是特征方程的推广。
+
+> 特征方程
+> $$
+> \lambda ^3 - I_1 \lambda^2+I_2\lambda -I_3=0 
+> $$
+>
+
+对任意的张量（不要求对称）$\pmb{T}$，总有：
+$$
+\begin{align}
+& \pmb{T}^3 - I_A \cdot \pmb{T}^2 + I_B\cdot \pmb{T} -I_C \cdot \pmb{I} = \pmb{o} \\
+\\
+with \quad 
+& \pmb{I}_A = tr(\pmb{T}) \\
+\\
+& \pmb{I}_B = \frac{1}{2} \Big( [tr(\pmb{T})]^2-tr(\pmb{T}^2) \Big)\\
+\\
+& \pmb{I}_C = \frac{1}{3} \Big( tr(\pmb{T^3}) + \frac{3}{2} tr(\pmb{T})tr(\pmb{T^2}) + \frac{1}{2}[tr(\pmb{T})]^3 \Big)
+\end{align}
+$$
+
+# 10. 偏量不变量
+
+Deviatoric Invariants
+
+我们可以对偏张量做特征分解。
+
+对张量的 $\pmb{T}$ 的偏量部分 $\pmb{T}_{dev}$ 部分做特征分解，得到对应的特征值 $s$ ，偏量不变量 $J_1, J_2, J_3$，和偏量的特征方程：
+$$
+\begin{align}
+& s^3 - J_1 s^2-J_2s -J_3 =0 \\
+\\
+with \quad 
+
+& J_1  = tr (\pmb{T}_{dev})=0 \\
+\\
+& J_2 = -\frac{1}{2} \Big([tr(\pmb{T}_{dev})]^2 - tr (\pmb{T}_{dev}^2) \Big) = -(s_1s_2+s_2s_3+s_3s_1) 
+\\ & \quad= \frac{1}{2} (s_1^2+s_2^2+s_3^2)\
+\\ & \quad=\frac{1}{6}[(\lambda_1-\lambda_2)^2 + (\lambda_2-\lambda_3)^2 + (\lambda_3-\lambda_1)^2 ] \\
+\\
+& J_3 = det(\pmb{T}_{dev})=s_1s_2s_3 \\
+\end{align}
+$$
+
+> 张量不变量
+> $$
+> \begin{align}
+> & \lambda ^3 - I_1 \lambda^2+I_2\lambda -I_3=0 \\
+> \\
+> with \quad I_1 & = tr(\pmb{T}) = T_{ii}
+> \\ \\ 
+> I_2 & = \frac{1}{2} [(tr(\pmb{T}))^2 - tr(\pmb{T}^2)]= \frac{1}{2}(T_{ii} T_{jj} - T_{ij}T_{ji}) \\ \\
+> I_3 & = det(\pmb{T})=  \varepsilon_{ijk} T_{1i}T_{2j}T_{3k}
+> \end{align}
+> $$
+>
+
+# 11. 同轴的张量
+
+Coaxial Tensors
+
+特征向量相同的张量，称作同轴的张量。
+
+张量同轴的充要条件时：
+$$
+\pmb{A} \pmb{B} = \pmb{B} \pmb{A}
+$$
+一个张量和它的逆是同轴的，因为：
+$$
+\pmb{T}\pmb{T}^{-1} = \pmb{T}^{-1}\pmb{T}
+$$
+
+# 12. 张量的极分解
+
+Polar Decomposition of Tensors
+
+任一非奇异二阶张量 $\pmb{T}$，可以写成一个 Rotation Tensor $\pmb{R}$ 和另一个张量 $\pmb{U}$ 的乘积的形式，有：
+$$
+\pmb{T} = \pmb{RU}
+$$
+也就是对一个向量，先做一步变换 $\pmb{U}$，再做一步旋转 $\pmb{R}$。
+
+这个分解并不是唯一的。
+
+我们应尽量选一个对称矩阵做 $\pmb{U}$ 。
+
+考虑由非奇异张量构成的张量 $$\pmb{T}^T\pmb{T}$$，它是一个正定的张量， 因为：
+$$
+\pmb{u}\pmb{T}^T\pmb{T}\pmb{u} 
+=\pmb{T}\pmb{u} \cdot \pmb{T}\pmb{u} = |\pmb{T}\pmb{u}|^2\cdot 1>0
+$$
+由于 $\pmb{T}^T\pmb{T}$ 肯定是个对称张量，其根也是对称张量，我们可以取：
+$$
+\pmb{U} = (\pmb{T}^T \pmb{T})^{1/2}
+$$
+我们现在来看在 $\pmb{U}$ 确定下来的情况下，对应的 $\pmb{R}$ 是怎么样的，有：
+$$
+\begin{align}
+\pmb{R}^T\pmb{R} & = (\pmb{T}\pmb{U}^{-1})^T(\pmb{T}\pmb{U}^{-1}) = \pmb{U}^{-T}\pmb{T}^T\pmb{T}\pmb{U^{-1}} = \pmb{U}^{-T}\pmb{U}^2\pmb{U}^{-1} \\
+& =  (\pmb{U}^{-T}\pmb{U})(\pmb{U}\pmb{U}^{-1})=\pmb{I}
+\end{align}
+$$
+所以，在 $\pmb{U}$ 取 $(\pmb{T}^T \pmb{T})^{1/2}$ 时，$\pmb{R}$ 一定是正交的。
+
+又  $det(\pmb{R})= \frac{det(\pmb{T})}{det (\pmb{U})}=1>0$ ，所以 $\pmb{R}$ 一定 proper orthogonal。
+
+还可以证明这样的分解一定是唯一的。
+
+总的来看，一个张量的极分解就是：
+$$
+\pmb{T}= \pmb{R} \pmb{U}  =\pmb{R} (\pmb{T}^T\pmb{T} )^{1/2}
+$$
+
+
+---
+
+另一种差不多的分解方式是：
+$$
+\pmb{T}= \pmb{V} \pmb{R} = (\pmb{T}\pmb{T}^T)^{1/2}\pmb{R}
+$$
+
+## 柯西-格林张量
+
+Cauchy-Green Tensors
+
+上面这两种分解得到的张量，分别称作 左/右柯西-格林张量。
+
+
 

@@ -245,10 +245,7 @@ $$
   $$
 
 
-
-
-
-一个景点的高阶张量是 permutation tensor：
+一个经典的高阶张量是 permutation tensor：
 $$
 \underline{\underline{\underline{\pmb{E}}}} 
 = \varepsilon_{jik}\pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k
@@ -300,7 +297,7 @@ $$
 
 所以多个张量的单点缩并总是可以两个两个来。
 
-#### 张量的幂
+#### 张量的正整数幂
 
 张量的 $n$ 次幂就是对一个张量做 $n$ 次单点缩并，可以使用递推定义：
 $$
@@ -308,6 +305,39 @@ $$
 \pmb{T}^0 = \pmb{I} \\
 \pmb{T}^n = \pmb{T}^{n-1}\pmb{T}
 \end{cases}
+$$
+
+#### 张量的一般幂
+
+张量的一般幂，就是张量的分式幂 fractional power。
+
+包括正整数、正分数、负整数、负分数。
+
+张量的根是对正定实张量而言的，即其特征值都是正数。
+
+定义张量的幂需要从特征分解入手。
+
+由特征分解的定义，有：
+$$
+\begin{align}
+& \pmb{T} \hat{\pmb{n}} = \lambda \hat{\pmb{n}} \\
+\\
+\Rightarrow \quad & \pmb{T}^n \hat{\pmb{n}} = \lambda^n \hat{\pmb{n}}
+\end{align}
+$$
+故，$\pmb{T}$ 和 $\pmb{T}^n$ 的特征向量是相同的，都是 $\hat{\pmb{n}}$。
+
+它们是同轴的。
+
+但是特征值却是不同的，一个是 $\lambda$，另一个是 $\lambda^n$ 。
+
+由此，我们可以定义张量的实数 $m$ 次幂，有：
+$$
+\begin{align}
+& \pmb{T} = \sum_{i=1}^3 \lambda_{(i)} \hat{\pmb{n}}_{(i)} \otimes \hat{\pmb{n}}_{(i)} \\
+\Rightarrow \quad 
+& \pmb{T}^m = \sum_{i=1}^3 \lambda_{(i)}^m \hat{\pmb{n}}_{(i)} \otimes \hat{\pmb{n}}_{(i)} \\
+\end{align}
 $$
 
 ### 3.1.3 高阶张量的单点缩并
@@ -332,7 +362,6 @@ $$
 \pmb{A}(\pmb{B} \otimes \pmb{C})\pmb{D}
 = (\pmb{A}\pmb{B}) \otimes (\pmb{C}\pmb{D})
 $$
-
 
 ## 3.2 双点缩并
 
