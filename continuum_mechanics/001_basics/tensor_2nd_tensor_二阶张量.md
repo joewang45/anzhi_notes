@@ -98,8 +98,8 @@ $$
 - $tr(\pmb{T}) =tr(\pmb{T}^T)= T_{ii}$
 - $tr(\pmb{T}^2)=tr(\pmb{T}\pmb{T}) = T_{ij}T_{ji}$
 - $tr(\pmb{T}^3)=tr(\pmb{T}\pmb{T}\pmb{T}) = T_{ij}T_{jk}T_{ki}$
-- $[tr(\pmb{T})]^2=tr(\pmb{T})\cdot  tr(\pmb{T})= T_{ii}T_{jj}$
-- $[tr(\pmb{T})]^3=tr(\pmb{T})\cdot tr(\pmb{T})\cdot  tr(\pmb{T})= T_{ii}T_{jj}T_{kk}$
+- $\big(tr(\pmb{T})\big)^2=tr(\pmb{T})\cdot  tr(\pmb{T})= T_{ii}T_{jj}$
+- $\big(tr(\pmb{T})\big)^3=tr(\pmb{T})\cdot tr(\pmb{T})\cdot  tr(\pmb{T})= T_{ii}T_{jj}T_{kk}$
 
 两个张量的迹：
 
@@ -162,7 +162,7 @@ $$
 - $(\pmb{T}^{-1})^{-1}=\pmb{T}$
 - $(\alpha\pmb{T})^{-1} = \frac{1}{\alpha} \pmb{T}^{-1}$
 - $(\pmb{AB})^{-1}=\pmb{B}^{-1} \pmb{A}^{-1}$
-- $det(\pmb{T}^{-1})=[det(\pmb{T})]^{-1}$
+- $det(\pmb{T}^{-1})=\big(det(\pmb{T})\big)^{-1}$
 - $\pmb{T}^{-T} = (\pmb{T}^{-1})^T = (\pmb{T}^{T})^{-1}$
 
 # 7. 一个正交的张量
@@ -187,9 +187,8 @@ $$
 $$
 \pmb{T}_{ortho}^T = \pmb{T}_{ortho}^{-1}
 $$
-注意：
+注意*一个有正交属性的张量，和两个正交的张量是不一样的。*
 
-- 一个有正交属性的张量，和两个正交的张量是不一样的。
 - 两个正交的张量是在张量空间中，内积为零的两个张量。
 - 一个有正交属性的张量，是在向量空间做线性变换时，不改变空间的单位尺度的线性变换，即：
 
@@ -201,7 +200,7 @@ $$
 $$
 det(\pmb{T})=  1
 $$
-A proper orthogonal Tensor 也经常被称作 rotation tensor，因为用于转动坐标轴的张量都是 proper orthogonal 的。
+A proper orthogonal Tensor 也经常被称作 Rotation Tensor，因为用于转动坐标轴的张量都是 proper orthogonal 的。
 
 ## 7.1 使用正交张量转动坐标轴
 
@@ -243,7 +242,6 @@ Symmetric Tensors and Skew Tensors
   $$
 
 
-
 他们也是与坐标轴无关的性质。
 
 在笛卡尔坐标系里，用矩阵形式表示，有：
@@ -269,9 +267,11 @@ Symmetric Tensors and Skew Tensors
   $$
   反对称张量没有逆
 
-任何一个张量都可以分解成一个对称张量和一个反对称张量的和，有：
+任何一个张量都可以分解成一个对称张量和一个反对称张量的和。
+
+我们定义算符 $sym()$ 和 $skew()$ 为取某张量的对称和反对称部分，有：
 $$
-\pmb{T} = \pmb{T}_{sym} + \pmb{T}_{skew} 
+\pmb{T} = sym(\pmb{T}) + skew(\pmb{T}) 
 = \frac{1}{2}(\pmb{T}+\pmb{T}^T) + \frac{1}{2}(\pmb{T}-\pmb{T}^T)
 $$
 一些对称和反对称张量的性质：
@@ -325,24 +325,22 @@ $$
 
 Spherical Tensors and Deviatoric Tensors
 
-定义：任何一个张量都可以分解成一个球张量和一个偏张量的和
+定义：对角位置上的元素都一样的对角张量是球张量
+
+任何一个张量都可以分解成一个球张量和一个偏张量的和。
+
+我们定义算符 $sph()$ 和 $dev()$ 为取某张量的球量部分和偏量部分，有：
 $$
 \begin{align}
-& \pmb{T}  = \pmb{T}_{sph} + \pmb{T}_{dev}  \\
-\\
-with \quad 
-& \pmb{T}_{sph} = \frac{1}{3} \cdot tr(\pmb{T}) \cdot \pmb{I} \\
-\\
-& \pmb{T}_{dev} = \pmb{T} - \pmb{T}_{sph} \\
+& \pmb{T}  = sph(\pmb{T}) + dev(\pmb{T})  = \frac{1}{3} \cdot tr(\pmb{T}) \cdot \pmb{I} + \big(\pmb{T} - sph(\pmb{T})\big)\\
+
 \end{align}
 $$
-任何对角位置上的元素都一样的对角张量，都是球张量。
-
 球张量和偏张量的性质：
 
-- $tr(\pmb{T}_{dev})=0$
-- $(\pmb{T}_{dev})_{sph}=0$
-- $\pmb{A}_{dev}:\pmb{B}_{sph}=0$
+- $tr\big(dev(\pmb{T})\big)=0$
+- $sph\big(dev(\pmb{T})\big)=0$
+- $dev(\pmb{A}): sph(\pmb{B})=0$
 
 # 10. 正定张量和半正定张量
 

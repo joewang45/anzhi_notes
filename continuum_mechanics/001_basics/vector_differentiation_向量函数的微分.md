@@ -147,3 +147,4 @@ $$
 $$
 ![](C:\Users\wang\Documents\gitHub\anzhi_notes\continuum_mechanics\picture\5.png)
 
+未完待续。。

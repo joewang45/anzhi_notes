@@ -245,6 +245,7 @@ $$
   $$
 
 
+
 一个经典的高阶张量是 permutation tensor：
 $$
 \underline{\underline{\underline{\pmb{E}}}} 
@@ -458,3 +459,8 @@ $$
 
 \end{align}
 $$
+
+# 4. 张量的坐标系变换
+
+张量的坐标系变换，是向量坐标系变换的推广。
+

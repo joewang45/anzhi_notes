@@ -1,3 +1,7 @@
+---
+typora-root-url: ..\picture
+---
+
 [TOC]
 
 # 1. 一般的向量
@@ -195,5 +199,109 @@ $$
 
 
 
-## 2.2 向量的坐标变换
+## 2.2 向量的坐标系变换
 
+坐标系的变换，就是不同坐标系下，分量的关系。
+
+一般说的是坐标系的转动。
+
+坐标系平动并不会造成向量分量的变化，因为不管怎样都是 $u_i \pmb{e}_i$
+
+### 2.2.1 向量的平面坐标系变换
+
+坐标系变换，是通过一个等式进行的，如典型的坐标系绕 $x_3$ 轴旋转：
+
+![](..\picture\verctor_coordiante_transformation_2d.png)
+$$
+\begin{align}
+\pmb{u}^{\pmb{e}} &= \pmb{u}^{\pmb{e}'} \\
+u_i\pmb{e}_i &= u_i'\pmb{e}'_i \\
+\end{align}
+$$
+这个等式被称作 Transformation Equation。
+
+具体来看，由平面几何关系，有：
+$$
+\begin{align}
+u_i \pmb{e}_i 
+& = u_1 \pmb{e}_1 + u_2 \pmb{e}_2 \\
+\\
+& = (|OB| - |AB|) \pmb{e}_1 +(|BD|+|CP|)\pmb{e}_2 \\
+\\
+& = (u_1' \cdot cos\theta - u_2' \cdot sin\theta) \pmb{e}_1 
++ (u_1' \cdot sin\theta + u_2' \cdot cos\theta) \pmb{e}_2 \\
+\\
+\end{align}
+$$
+
+我们便可以建立起分量之间的关系，有：
+$$
+\begin{align}
+& \begin{cases}
+u_1 = u_1' \cdot cos\theta - u_2' \cdot sin\theta \\
+u_2 = u_1' \cdot sin\theta + u_2' \cdot cos\theta
+\end{cases} \\
+\\
+\Rightarrow \quad
+& 
+\begin{pmatrix} u_1 \\ u_2 \end{pmatrix}
+= \begin{pmatrix} cos\theta &-sin\theta \\ sin\theta & cos\theta \\ \end{pmatrix}
+\begin{pmatrix} u_1' \\ u_2' \end{pmatrix}
+\end{align}
+$$
+换一个角度看，等式左右两边在同一的原坐标系 $o-x_1-x_2$ 下，有：
+$$
+\underbrace{
+\Bigg(
+\underbrace {\begin{pmatrix} 1 \\ 0 \\ \end{pmatrix}}_{\pmb{e}_1} 
+\underbrace{\begin{pmatrix} 0 \\ 1 \\ \end{pmatrix}}_{\pmb{e}_2}
+\Bigg)
+}_{ o-x_1-x_2 \ 下的原坐标系基向量}
+\begin{pmatrix} u_1 \\ u_2 \end{pmatrix}
+=
+\underbrace{
+\Bigg(
+\underbrace {\begin{pmatrix} 1\cdot cos\theta \\ 1\cdot sin\theta \\ \end{pmatrix}}_{\pmb{e}_1': 点 D 坐标} 
+\underbrace{\begin{pmatrix} 1\cdot -sin\theta \\ 1\cdot cos\theta \\ \end{pmatrix}}_{\pmb{e}_2'}
+\Bigg)
+}_{o-x_1-x_2 \ 下的目标坐标系基向量}
+\begin{pmatrix} u_1' \\ u_2' \end{pmatrix}
+$$
+
+### 2.2.2 向量的三维坐标系变换
+
+将上面那个变换带上轴 $x_3$ ，有：
+$$
+\begin{align}
+\begin{pmatrix}1 &0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1\end{pmatrix}
+\begin{pmatrix} u_1 \\ u_2 \\ u_3\end{pmatrix}
+= \begin{pmatrix} cos\theta &-sin\theta & 0\\ sin\theta & cos\theta & 0\\ 0 & 0 & 1\end{pmatrix}
+\begin{pmatrix} u_1' \\ u_2' \\ u_3'\end{pmatrix}
+\end{align}
+$$
+写成浓缩的矩阵形式，有：
+$$
+[\pmb{I}][\pmb{u}] = [\pmb{u}] = [\pmb{Q} ][\pmb{u}']
+$$
+使用指标记法，有：
+$$
+u_i = Q_{ij}u_j'
+$$
+注意，这里不要写成张量形式，因为张量的定义是将一个向量映射到另一个向量。这里是把同一个向量在不同坐标系下的表达形式找出来，虽然形式上没有不同。
+
+反之有：
+$$
+[\pmb{Q}]^{-1}[\pmb{u}] = [\pmb{u}']
+$$
+这样一个旋转坐标系的矩阵矩阵是正交矩阵，故有：
+$$
+[\pmb{Q}]^{-1}=[\pmb{Q}]^T
+$$
+写成指标形式有：
+$$
+Q_{ji}u_j=u_i'
+$$
+三维旋转坐标矩阵中元素的通式有：
+$$
+Q_{ij} = cos(\pmb{e}_i, \pmb{e}_j')=\pmb{e}_i \cdot \pmb{e}_j'
+$$
