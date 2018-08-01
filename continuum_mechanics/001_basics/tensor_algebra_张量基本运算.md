@@ -1,3 +1,4 @@
+# 0. 目录
 [TOC]
 
 # 1. 一般的张量
@@ -246,6 +247,11 @@ $$
 
 
 
+
+
+
+
+
 一个经典的高阶张量是 permutation tensor：
 $$
 \underline{\underline{\underline{\pmb{E}}}} 
@@ -463,4 +469,173 @@ $$
 # 4. 张量的坐标系变换
 
 张量的坐标系变换，是向量坐标系变换的推广。
+
+## 4.1 基本变换规则
+
+坐标系变换建立在基向量变换的基础上。
+
+> 正交基向量 $\pmb{e}_1, \pmb{e}_2, \pmb{e}_3$ 和另一个正交基向量 $\pmb{e}_1', \pmb{e}_2', \pmb{e}_3'$ , 每个向量之间的关系可以通过他们的夹角来描述
+> $$
+> \begin{align}
+> & \pmb{e}_i \cdot \pmb{e}_j' = Q_{ij} = cos(\pmb{e}_i, \pmb{e}_j' ) \\
+> \Rightarrow \quad
+> & \pmb{e}_i = Q_{ij} \pmb{e}_j' \\
+> & \pmb{e}_i' = Q_{ji} \pmb{e}_j \\
+> \end{align}
+> $$
+>
+
+和向量的坐标系变换一样，张量的坐标系变换的表现，是矩阵中的分量的变化。
+
+对张量 $\pmb{T} = T_{ij} \pmb{e}_i \otimes \pmb{e}_j = T_{pq}' \pmb{e}_p' \otimes \pmb{e}_q'$ ，有：
+$$
+\begin{align}
+T_{ij} \pmb{e}_i \otimes \pmb{e}_j & = T_{pq}' \pmb{e}_p' \otimes \pmb{e}_q' \\
+\\
+& = T_{pq}' (Q_{ip}\pmb{e}_i) \otimes (Q_{jq}\pmb{e}_j) \\
+\\
+& = Q_{ip} Q_{jq} T_{pq}' \pmb{e}_i \otimes \pmb{e}_j \\
+\\
+\Rightarrow \quad T_{ij}
+& = Q_{ip} Q_{jq} T_{pq}' \\
+\\
+[\pmb{T}] & = [\pmb{Q}][\pmb{T}'][\pmb{Q}^T]
+\end{align}
+$$
+反过来就有：
+$$
+\begin{align}
+T_{ij}'
+& = Q_{pi} Q_{qj} T_{pq} \\
+\\
+[\pmb{T}'] 
+& = [\pmb{Q}^T][\pmb{T}][\pmb{Q}]
+\end{align}
+$$
+
+三阶张量的坐标系变换，有：
+$$
+T_{ijk}' = Q_{pi} Q_{qj} Q_{rk} T_{pqr}
+$$
+这个就很难用矩阵描述了。
+
+### 例：摩尔变换 The Mohr Transformation
+
+>在二维平面中存在张量 $\pmb{S}$ ，有：
+>$$
+>\begin{align}
+>\pmb{S} 
+>& = S_{11} \pmb{e}_1 \otimes \pmb{e}_1  + S_{12} \pmb{e}_1 \otimes \pmb{e}_2 \\
+>\\
+>& + S_{21} \pmb{e}_2 \otimes \pmb{e}_1  + S_{22} \pmb{e}_2 \otimes \pmb{e}_2 \\
+>\\
+>& = 
+>\begin{pmatrix}
+>S_{11} & S_{12} \\
+>S_{21} & S_{22} \\
+>\end{pmatrix}
+>\end{align}
+>$$
+>
+>通过旋转变换坐标系，旋转的角度为 $\theta$ ，变换矩阵有：
+>$$
+>Q_{ij} = \pmb{e}_i \cdot \pmb{e}_j'
+>= 
+>\begin{pmatrix}
+> \pmb{e}_1 \cdot \pmb{e}_1' &  \pmb{e}_1 \cdot \pmb{e}_2' \\
+> \pmb{e}_2 \cdot \pmb{e}_1' &  \pmb{e}_2 \cdot \pmb{e}_2' \\
+>\end{pmatrix}
+>= 
+>\begin{pmatrix}
+>cos\theta &  -sin\theta \\
+> sin\theta &  cos\theta \\
+>\end{pmatrix}
+>$$
+>于是，变换过的张量获得了新的分量，有：
+>$$
+>\begin{align}
+>\pmb{S} 
+>& = S_{11}' \pmb{e}_1' \otimes \pmb{e}_1'  + S_{12}' \pmb{e}_1' \otimes \pmb{e}_2' 
+>+ S_{21}' \pmb{e}_2' \otimes \pmb{e}_1'  + S_{22}' \pmb{e}_2' \otimes \pmb{e}_2' \\
+>\\
+>& = (Q_{11}Q_{11}S_{11}+Q_{11}Q_{21}S_{12}+Q_{21}Q_{11}S_{21}+Q_{21}Q_{21}S_{22}) \pmb{e}_1' \otimes \pmb{e}_1' \\
+>& \quad \  + ...\\
+>\\
+>& = (cos^2\theta S_{11} + cos\theta sin\theta S_{12} + sin\theta cos\theta S_{21} + cos^2\theta S_{22}) \pmb{e}_1' \otimes \pmb{e}_1'  \\ 
+>& \quad \  + ...\\
+>\\
+>
+>\Rightarrow [\pmb{S}']
+>& = 
+> [\pmb{Q}^T][\pmb{S}][\pmb{Q}]
+>=
+>\begin{pmatrix}
+>cos\theta &  sin\theta \\
+>-sin\theta &  cos\theta \\
+>\end{pmatrix}
+>
+>\begin{pmatrix}
+>S_{11} & S_{12} \\
+>S_{21} & S_{22} \\
+>\end{pmatrix}
+>
+>\begin{pmatrix}
+>cos\theta &  -sin\theta \\
+>sin\theta &  cos\theta \\
+>\end{pmatrix}
+>\end{align}
+>$$
+>当 $\pmb{S}$ 是一个对称张量的时候，我们只有三个独立分量，有：
+>$$
+>\begin{cases}
+>S_{11}' = S_{11} cos^2 \theta + S_{22} sin^2\theta + S_{12} sin(2\theta) \\
+>\\
+>S_{22}' = S_{11} sin^2 \theta + S_{22} cos^2\theta - S_{12} sin(2\theta) \\
+>\\
+>S_{12}' = (S_{22}-S_{11})sin\theta cos\theta + S_{12} cos(2\theta) \\
+>\end{cases}
+>$$
+>这个就是摩尔变换。
+
+## 4.2 各向同性张量
+
+An Isotropic Tensor
+
+定义：无论坐标系如何旋转，其分量都不发生变化的张量，即
+$$
+T_{ij} = T_{ij}'  = Q_{pi} Q_{qj} T_{pq}
+$$
+使用某旋转张量 (proper orthogonal) 嗯对任一张量做变换，我们可以得到：
+
+- 零阶张量都是各向同性的。
+
+- 一阶张量都不是各向同性的。
+
+- ==二阶张量中，只有球张量 $\alpha \pmb{I} = \alpha \delta_{ij}$ 是各向同性的。== 其他的二阶张量都是各向异性的。
+
+- ==三阶张量中，只有张量 $\alpha \underline{\underline{\underline{E}}} = \alpha \varepsilon_{ijk} \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k $ 是各向同性的。==
+
+  - 三阶张量比较特殊的一点是，镜像的 orthogonal 张量 ($det(\pmb{Q}) = -1$) 会让它的分量正负交换
+  - 偶数阶的张量则没有这个问题
+
+- 有三个不同的基本四阶张量是各向同性的：
+  $$
+  \begin{align}
+  \underline{\underline{\underline{\underline{I}}}} 
+  & = \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_i \otimes \pmb{e}_j \\
+  \\
+  \tilde{\underline{\underline{\underline{\underline{I}}}}}
+  & = \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_j \otimes \pmb{e}_i \\
+  \\
+  \pmb{I} \otimes \pmb{I} 
+  & = \pmb{e}_i \otimes \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_j \\
+  \end{align}
+  $$
+  ==四阶各向同性张量的一般形式为：==
+  $$
+  \alpha\pmb{I} \otimes \pmb{I} 
+  + \beta \underline{\underline{\underline{\underline{I}}}} 
+  + \gamma\tilde{\underline{\underline{\underline{\underline{I}}}}}
+  $$
+  
 
