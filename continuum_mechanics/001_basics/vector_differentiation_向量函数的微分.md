@@ -25,13 +25,13 @@
 
 为了更加方便的描述场函数的各种操作，我们引入 Nabla 算子 $\nabla$ ，来代表对空间的偏微分算符，有：
 
-- 梯度的计算，*Nabla 空乘* ：$\nabla(\bullet) = \frac{\partial}{\partial x_i}\pmb{e}_i(\bullet):=grad(\bullet)$
-- 散度的计算，*Nabla 点乘* ：$\nabla\cdot (\bullet) = \frac{\partial}{\partial x_i}\pmb{e}_i\cdot(\bullet):=div(\bullet)$
-- 旋度的计算，*Nabla 叉乘* ：$\nabla\times (\bullet) = \frac{\partial}{\partial x_i}\pmb{e}_i\times(\bullet):=curl(\bullet)$
+- 梯度的计算，*Nabla 升阶乘* ：$\nabla(\bullet) = \frac{\partial}{\partial x_i}\pmb{e}_i(\bullet):=grad(\bullet)$
+- 散度的计算，*Nabla 降阶乘* ：$\nabla\cdot (\bullet) = \frac{\partial}{\partial x_i}\pmb{e}_i\cdot(\bullet):=div(\bullet)$
+- 旋度的计算，*Nabla 不变阶乘* ：$\nabla\times (\bullet) = \frac{\partial}{\partial x_i}\pmb{e}_i\times(\bullet):=curl(\bullet)$
 
 # 1. 变量为标量的向量函数的微分 $\pmb{u}=\pmb{u}(t)$
 
-我们这里以位移函数 $\pmb{u}=\pmb{u}(t)$ 为中心讨论向量函数的微分
+我们这里以位移函数 $\pmb{u}=\pmb{u}(t)​$ 为中心讨论向量函数的微分
 
 ## 1.1 定义
 
@@ -222,10 +222,10 @@ $$
 \\
 & = \phi(\pmb{x}) + (\frac{\partial\phi}{\partial x_1} dx_1 + \frac{\partial\phi}{\partial x_2} dx_2 + \frac{\partial\phi}{\partial x_3} dx_3) \\
 \\
-& =  \phi(\pmb{x}) + \underbrace{\frac{\partial \phi}{\partial x_i}\pmb{e}_i}_{\nabla\phi} \cdot dx_j\pmb{e}_j \\
+& =  \phi(\pmb{x}) + \underbrace{\frac{\partial \phi}{\partial x_i}\pmb{e}_i}_{grad(\phi)} \cdot dx_j\pmb{e}_j \\
 \\
 \Rightarrow d\phi(\pmb{x})
-& =   \nabla\phi \cdot d\pmb{x}
+& =   grad(\phi) \cdot d\pmb{x}
 \end{align}
 $$
 标量场的梯度描述了标量场中，空间点上的标量值，在每个方向的变化之和，是三维空间中的“斜率”。
@@ -278,13 +278,21 @@ The Directional Derivative
 
 某方向导数，就是在这个方向上的变化值。
 
-采用单位向量计算 $d\phi(\pmb{x}) =   \nabla\phi \cdot d\pmb{x}$ 即可得到方向导数。
+采用单位向量，来计算 $d\phi(\pmb{x}) =   \nabla\phi \cdot d\pmb{x}$ 即可得到方向导数。
 
 记标量场 $\phi(\pmb{x})$ 在方向 $\pmb{w}$ 上的方向导数为 $D_{\pmb{w}} (\phi)$，有：
 $$
-D_{\pmb{w}} (\phi) = \nabla \phi \cdot \frac{\pmb{w}}{|\pmb{w}|} = grad(\phi) \cdot \pmb{e}_{\pmb{w}}
+D_{\pmb{w}} (\phi) 
+= grad(\phi) \cdot \pmb{e}_{\pmb{w}}
+= \nabla \phi \cdot \frac{\pmb{w}}{|\pmb{w}|} 
 $$
 也可以引入无穷小来进一步准确定义，这里不继续了。
+
+## 2.2 向量场的梯度
+
+对向量场做梯度计算，将会使向量场升阶，成为张量场。
+
+请参见张量场的计算。
 
 # 3. 散度
 
