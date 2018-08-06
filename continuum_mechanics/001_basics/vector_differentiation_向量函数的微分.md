@@ -31,7 +31,7 @@
 
 # 1. 变量为标量的向量函数的微分 $\pmb{u}=\pmb{u}(t)$
 
-我们这里以位移函数 $\pmb{u}=\pmb{u}(t)​$ 为中心讨论向量函数的微分
+我们这里以位移函数 $\pmb{u}=\pmb{u}(t)$ 为中心讨论向量函数的微分
 
 ## 1.1 定义
 
@@ -313,42 +313,47 @@ $$
 
 <u>物理意义</u>：
 
-散度描述的是场内的“物质”的损失，可以理解为逸散程度。
+> 散度描述的是场内的“物质”的损失，可以理解为逸散程度。
+>
+> 考虑处于速度场 $\pmb{v}(\pmb{x})$ 中的流体，立足于点 $(x_1,x_2,x_3)$ ，取一块边长分别为 $\Delta x_1, \Delta x_2, \Delta x_3$ 的立方体空间进行讨论，如下图：
+>
+> ![1533135514031](..\picture\1533135514031.png)
+>
+> 讨论沿 $x_1$ 方向的速度 $v_1$ ，右侧面的平均流速 $v_{ave}$ ，可以用泰勒级数描述，有：
+> $$
+> \begin{align}
+> v_{ave} 
+> & = v_1(x_1+\Delta x_1, x_2+\frac{1}{2}\Delta x_2, x_3 + \frac{1}{2}\Delta x_3) > \\
+> \\
+> & = v_1(x_1,x_2,x_3) + 
+> (\frac{\partial v_1}{\partial x_1} \Delta x_1 + \frac{\partial v_1}{\partial x_2} > \frac{1}{2} \Delta x_2 + \frac{\partial v_1}{\partial x_3} \frac{1}{2} \Delta x_3)
+> \end{align}
+> $$
+> 单位时间内，从右侧流出的体积就为：$\Delta x_2 \Delta x_3 v_{ave}$
+>
+> 单位时间内，$x_1$ 方向上的净损失就为：
+> $$
+> \Delta x_2 \Delta x_3 v_{ave} 
+> -\Big( v_1(x_1,x_2,x_3) + 
+> \frac{\partial v_1}{\partial x_2} \frac{1}{2} \Delta x_2 + \frac{\partial v_1}{\partial x_3} \frac{1}{2} \Delta x_3) \Big) \\
+> \\
+> =\Delta x_1 \Delta x_2 \Delta x_3 \cdot \frac{\partial v_1}{\partial x_1}
+> $$
+> 故，流场中，$x_1$ 方向上，单位体积单位时间内，损失的量就为 $\frac{\partial v_1}{\partial x_1}$
+>
+> 故，同理，流场中，所有方向上，单位体积单位时间内，损失的量就为：
+> $$
+> \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + > \frac{\partial v_3}{\partial x_3} 
+> = div (\pmb{v})
+> $$
+> 散度为正说明有损失，散度为零说明没有损失
+>
+> 散度为正的流体称为可压缩流体，散度为零的流体称为不可压缩流体
 
-考虑处于速度场 $\pmb{v}(\pmb{x})$ 中的流体，立足于点 $(x_1,x_2,x_3)$ ，取一块边长分别为 $\Delta x_1, \Delta x_2, \Delta x_3$ 的立方体空间进行讨论，如下图：
-
-![1533135514031](..\picture\1533135514031.png)
-
-讨论沿 $x_1$ 方向的速度 $v_1$ ，右侧面的平均流速 $v_{ave}$ ，可以用泰勒级数描述，有：
+一个向量场的散度是这个向量场梯度的迹，即：
 $$
-\begin{align}
-v_{ave} 
-& = v_1(x_1+\Delta x_1, x_2+\frac{1}{2}\Delta x_2, x_3 + \frac{1}{2}\Delta x_3) \\
-\\
-& = v_1(x_1,x_2,x_3) + 
-(\frac{\partial v_1}{\partial x_1} \Delta x_1 + \frac{\partial v_1}{\partial x_2} \frac{1}{2} \Delta x_2 + \frac{\partial v_1}{\partial x_3} \frac{1}{2} \Delta x_3)
-\end{align}
+div(\pmb{u}) = tr \Big( grad (\pmb{u})\Big) = grad(\pmb{u}): \pmb{I} = \nabla\cdot\pmb{u}
 $$
-单位时间内，从右侧流出的体积就为：$\Delta x_2 \Delta x_3 v_{ave}$
-
-单位时间内，$x_1$ 方向上的净损失就为：
-$$
-\Delta x_2 \Delta x_3 v_{ave} 
--\Big( v_1(x_1,x_2,x_3) + 
- \frac{\partial v_1}{\partial x_2} \frac{1}{2} \Delta x_2 + \frac{\partial v_1}{\partial x_3} \frac{1}{2} \Delta x_3) \Big) \\
- \\
- =\Delta x_1 \Delta x_2 \Delta x_3 \cdot \frac{\partial v_1}{\partial x_1}
-$$
-故，流场中，$x_1$ 方向上，单位体积单位时间内，损失的量就为 $\frac{\partial v_1}{\partial x_1}$
-
-故，同理，流场中，所有方向上，单位体积单位时间内，损失的量就为：
-$$
-\frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} 
-= div (\pmb{v})
-$$
-散度为正说明有损失，散度为零说明没有损失
-
-散度为正的流体称为可压缩流体，散度为零的流体称为不可压缩流体
 
 # 4. 旋度
 

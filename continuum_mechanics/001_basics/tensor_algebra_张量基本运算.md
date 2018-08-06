@@ -248,10 +248,6 @@ $$
 
 
 
-
-
-
-
 一个经典的高阶张量是 permutation tensor：
 $$
 \underline{\underline{\underline{\pmb{E}}}} 
@@ -386,7 +382,15 @@ $$
 \begin{align}
 (\pmb{a}\otimes\pmb{b}\otimes\pmb{c}):(\pmb{d}\otimes\pmb{e}\otimes\pmb{f})
 & = (\pmb{b} \cdot \pmb{d}) (\pmb{c} \cdot \pmb{e}) \pmb{a}\otimes\pmb{f} \\
-
+\end{align}
+$$
+Dyad 和 Triadics 的双点缩并：
+$$
+\begin{align}
+(\pmb{a}\otimes\pmb{b}\otimes\pmb{c}):(\pmb{d}\otimes\pmb{e})
+& = (\pmb{b} \cdot \pmb{d}) (\pmb{c} \cdot \pmb{e}) \pmb{a} \\
+(\pmb{a}\otimes\pmb{b}):(\pmb{c}\otimes \pmb{d}\otimes\pmb{e}) 
+& = (\pmb{a} \cdot \pmb{c}) (\pmb{b} \cdot \pmb{d}) \pmb{e} & not \ sure\ yet\\
 \end{align}
 $$
 张量的双点缩并：
