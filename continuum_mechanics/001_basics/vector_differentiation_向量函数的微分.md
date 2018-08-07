@@ -343,16 +343,16 @@ $$
 >
 > 故，同理，流场中，所有方向上，单位体积单位时间内，损失的量就为：
 > $$
-> \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + > \frac{\partial v_3}{\partial x_3} 
+> \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} 
 > = div (\pmb{v})
 > $$
 > 散度为正说明有损失，散度为零说明没有损失
 >
 > 散度为正的流体称为可压缩流体，散度为零的流体称为不可压缩流体
 
-一个向量场的散度是这个向量场梯度的迹，即：
+向量场的散度，或者说是散度的，更一般的定义，是梯度与二阶单位张量的两点并积，有：
 $$
-div(\pmb{u}) = tr \Big( grad (\pmb{u})\Big) = grad(\pmb{u}): \pmb{I} = \nabla\cdot\pmb{u}
+div(\pmb{u})= grad(\pmb{u}): \pmb{I} = \nabla\cdot\pmb{u}
 $$
 
 # 4. 旋度

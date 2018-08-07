@@ -58,7 +58,6 @@ $$
 
 
 
-
 ### 向量场梯度的物理意义
 
 某向量场的梯度是一个线性变换，它做了一个什么事呢，让我们具体来看一看。
@@ -257,11 +256,14 @@ grad(\pmb{T})
 = \frac{\partial \pmb{T}}{\partial \pmb{x}} 
 = \frac{\partial T_{ij}}{\partial x_k} \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k
 $$
-同样类似向量场的梯度，注意和 Nabla 算子直接计算的区别，有：
+张量场的梯度可以使用 Nabla 算子进行描述，获得另一种定义的梯度，有：
 $$
+\begin{align}
 grad(\pmb{T}) \neq \nabla \otimes \pmb{T} 
-= \frac{\partial}{\partial x_i} \pmb{e}_i \otimes T_{jk} \pmb{e}_j\otimes \pmb{e}_k 
-= \frac{\partial T_{jk}}{\partial x_i} \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k
+& = \frac{\partial}{\partial x_i} \pmb{e}_i \otimes T_{jk} \pmb{e}_j\otimes \pmb{e}_k \\
+\\
+& = \frac{\partial T_{jk}}{\partial x_i} \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k 
+\end{align}
 $$
 
 ## 2.3 张量场的散度
@@ -283,8 +285,114 @@ div (\pmb{T}) = grad(\pmb{T}) : \pmb{I}
 \end{align}
 $$
 
-张量场的散度可以使用 Nabla 算子进行描述，但需要转置，有：
+张量场的散度可以使用 Nabla 算子进行描述，获得另一种定义的散度：
 $$
-div (\pmb{T}) \neq \nabla \cdot \pmb{T} 
-=  \frac{\partial}{\partial x_i} \pmb{e}_i \cdot T_{jk} \pmb{e}_j \otimes \pmb{e}_k 
+\begin{align}
+div (\pmb{T}) \neq \nabla \cdot \pmb{T}
+& =  \frac{\partial}{\partial x_i} \pmb{e}_i \cdot T_{jk} \pmb{e}_j \otimes \pmb{e}_k \\
+\\ 
+& = \frac{\partial T_{jk}}{\partial x_i} (\pmb{e}_i\cdot\pmb{e}_j)\pmb{e}_k \\
+\\
+& = \frac{\partial T_{ji}}{\partial x_j}\pmb{e}_i
+\end{align}
 $$
+
+也有人改变了 Nabla 算符的意义，不再是按顺序乘，而是把算符的对象包进去，有：
+$$
+\nabla \cdot (\bullet) 
+= \frac{\partial (\bullet)}{\partial x_i} \cdot \pmb{e}_i 
+= div(\bullet)
+$$
+
+### 散度定理
+
+The Divergence Theorem
+
+高斯散度定理可以从向量场推广至更高阶的张量场。
+
+>高斯散度定理 the divergence theorem of Gauss 是最重要的积分定理。
+>
+>联系了三维物体的面积分和体积分。
+>
+>对处于向量场 $$\pmb{v}(\pmb{x},t)$$ 的物体 $$\mathcal{B}$$ ，其体积为 $$V$$ ，表面积为 $$S$$ ，表面外法向量为 $$\pmb{n}(\pmb{x})$$ ，有：
+>$$
+>\int_S \pmb{v} \cdot \pmb{n}dS
+>= \int_V div (\pmb{v})dV \\
+>$$
+>该定理有三个推论：
+>$$
+>\begin{align}
+>1. &\  \int_S \phi \pmb{u} \cdot \pmb{n}dS=\int_V div(\phi \pmb{u})dV \\
+>2. &\  \int_S \phi \pmb{n}dS = \int_V \underline{grad} (\phi) dV \\
+>3. &\  \int_S \pmb{n} \times \pmb{u}dS = \int_V \underline{curl}(\pmb{u})dV
+>\end{align}
+>$$
+>对一个很小的体积来说，有：
+>$$
+>div(\pmb{v}) = 
+>\frac{\int_S \pmb{v}\cdot \pmb{n}dS}
+>{\lim\limits_{V\to0} V}
+>$$
+>所以高斯散度定理说的是，向量场的散度，等于，其中的物体，其每单位体积表面积的通量。
+
+一个处于三维空间的 $n$ 阶张量场 $\pmb{T}^{(n)}=\pmb{T}^{(n)}(\pmb{x},t)$ ，其分量为 $T_{\underbrace{abc...n}_{n}}$
+
+对处于该张量场的物体 $$\mathcal{B}$$ ，其体积为 $$V$$ ，表面积为 $$S$$ ，表面外法向量为 $$\pmb{n}(\pmb{x})$$ ，有：
+$$
+\int_S \pmb{T}^{(n)} \cdot \pmb{n}dS
+= \int_V div (\pmb{T}^{(n)})dV \\
+$$
+对于二阶张量来说，有：
+$$
+\begin{align}
+\int_S \pmb{T} \cdot \pmb{n}dS
+& = \int_V div (\pmb{T})dV \\
+\\
+\int_S T_{ij}n_jdS 
+& = \int_V \frac{\partial T_{ij}}{\partial x_j}dV
+\end{align}
+$$
+该定理也有三个推论
+$$
+\begin{align}
+1. &\  \int_S (\phi \pmb{T})\pmb{n}dS=\int_V div(\phi \pmb{T})dV \\
+2. &\  \int_S \pmb{u}\otimes\pmb{n}dS = \int_V grad(\pmb{u}) dV \\
+3. &\  \int_S \pmb{u} \cdot \pmb{T}\pmb{n}dS = \int_V div(\pmb{T}^T\pmb{u})dV
+\end{align}
+$$
+
+
+## 2.4 张量场的旋度
+
+好像不太需要考虑。
+
+## 2.5 张量场的性质
+
+---
+
+$grad(\phi \pmb{v}) = \phi grad(\pmb{v})+\pmb{v} \otimes grad(\phi)$
+
+$grad(\pmb{u} \cdot \pmb{v}) = \Big( grad(\pmb{u}) \Big)^T \pmb{v} +  \Big( grad(\pmb{v}) \Big)^T \pmb{u}$
+
+$div (\pmb{u} \otimes \pmb{v}) = \Big( grad(\pmb{u}) \Big) \pmb{v} + \Big( div(\pmb{v})\Big)\pmb{u}$
+
+$curl (\pmb{u} \times \pmb{v}) = \pmb{u} div(\pmb{v}) - \pmb{v} div (\pmb{u}) + grad(\pmb{u})\pmb{v} - grad(\pmb{v})\pmb{u}$
+
+---
+
+$div(\phi\pmb{T}) = \pmb{T} grad (\phi) + \phi div(\pmb{T})$
+
+$div(\pmb{T}\pmb{u})=\pmb{u}\cdot div(\pmb{T}^T)+tr\Big(\pmb{A}grad(\pmb{u})\Big)$
+
+$div(\pmb{A}\pmb{B})=\pmb{A}div(\pmb{B})+grad(\pmb{A}):\pmb{B}$
+
+$div\Big(\pmb{A}(\phi\pmb{B})\Big)=\phi div(\pmb{A}\pmb{B})+\pmb{A}\Big(\pmb{B}grad(\phi)\Big)$
+
+$grad(\phi\pmb{A})=\phi grad(\pmb{A})+\pmb{A}\otimes grad(\phi)$
+
+---
+
+$\nabla^2(\pmb{a}\cdot\pmb{b})=\nabla^2\pmb{a}\cdot\pmb{b}+2grad(\pmb{a}):grad(\pmb{b})+\pmb{u}\cdot\nabla^2\pmb{b}$
+
+$curl\Big(curl(\pmb{u})\Big)=grad\Big(div(\pmb{u})\Big)-\nabla^2\pmb{u}$
+

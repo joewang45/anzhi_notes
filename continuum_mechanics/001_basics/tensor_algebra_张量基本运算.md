@@ -88,6 +88,7 @@ $$
 
 - $(\pmb{a}\otimes\pmb{b})(\pmb{c}\otimes\pmb{d})=(\pmb{b}\cdot\pmb{c})(\pmb{a}\otimes\pmb{d})$
 - $\pmb{a}(\pmb{b}\otimes\pmb{c}) = (\pmb{a}\cdot \pmb{b})\pmb{c}$
+- 存疑：$\pmb{a}\cdot(\pmb{b}\otimes\pmb{c}) = (\pmb{a}\cdot \pmb{b})\pmb{c}$
 
 和叉乘一样，圈乘对顺序十分严格。
 
@@ -219,6 +220,8 @@ T_{21} & T_{22} & T_{23} \\
 T_{31} & T_{32} & T_{33} \\
 \end{pmatrix}
 $$
+$\pmb{e}_i \otimes \pmb{e}_j$ 告诉我们，这个分量处于由 $\pmb{e}_i$ 为基构成的矩阵的第 $i$ 列，第 $j$ 行。
+
 从推导中我们可以看出，实际上不需要是笛卡尔坐标系，任何坐标系的基又可以完成这一推导，只是分量会有所不同，有：
 $$
 \pmb{T} 
@@ -244,8 +247,6 @@ $$
   $$
   \underline{\underline{\underline{\underline{\pmb{T}}}}}=T_{jikl} \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k\otimes \pmb{e}_l
   $$
-
-
 
 
 一个经典的高阶张量是 permutation tensor：
@@ -289,6 +290,7 @@ $$
 A_{ij}\pmb{e}_i\otimes\pmb{e}_j 
 B_{kl}\pmb{e}_k\otimes\pmb{e}_l 
 = A_{ij}B_{kl} \delta_{jk} (\pmb{e}_i\otimes\pmb{e}_l) \\
+\\
 & = A_{ij}B_{jl} (\pmb{e}_i\otimes\pmb{e}_l)
 \end{align}
 $$
