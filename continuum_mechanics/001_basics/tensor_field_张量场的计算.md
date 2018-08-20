@@ -58,6 +58,7 @@ $$
 
 
 
+
 ### 向量场梯度的物理意义
 
 某向量场的梯度是一个线性变换，它做了一个什么事呢，让我们具体来看一看。
@@ -135,8 +136,6 @@ Deformation Gradient
 > - $p_0 \to p_f: \pmb{u}=\pmb{u}(\pmb{X})$
 > - $q_0 \to q_f: \pmb{u}=\pmb{u}(\pmb{X}+d\pmb{X})$
 >
-> 这里还没有真正涉及到欧拉或者拉格朗日构型，因为还没有涉及到位移的表达式。
->
 > 有图：
 >
 > ![1533556273711](../picture/1533556273711.png)
@@ -157,12 +156,12 @@ Deformation Gradient
 > 由向量场的梯度：
 > $$
 > grad(\pmb{u}) 
->  = \frac{\partial u_i}{\partial x_j}  (\pmb{e}_i \otimes \pmb{e}_j)
-> = \frac{d\pmb{u}}{d\pmb{x}}
+>  = \frac{\partial u_i}{\partial X_j}  (\pmb{e}_i \otimes \pmb{e}_j)
+> = \frac{d\pmb{u}}{d\pmb{X}}
 > $$
 > 可得：
 > $$
-> d\pmb{x}  = d\pmb{X} + grad(\pmb{u}) [d\pmb{X}]
+> d\pmb{x}  = d\pmb{X} +  \underbrace{grad(\pmb{u}) [d\pmb{X}]}_{变形量}
 > $$
 >
 
