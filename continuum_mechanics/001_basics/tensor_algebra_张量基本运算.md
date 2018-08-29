@@ -59,8 +59,10 @@ $$
 
 定义 Dyad：
 $$
-(\pmb{a} \otimes \pmb{b})\pmb{c}
+\textcolor{blue}{
+(\pmb{a} \otimes \pmb{b})\cdot \pmb{c}
 =\pmb{a}(\pmb{b}\cdot \pmb{c})
+}
 $$
 这样一个东西满足张量为线性算子的定义，于是 Dyad 是一个张量。
 
@@ -230,7 +232,9 @@ $$
 $$
 很容易可以从笛卡尔坐标系的正交性得出，张量在笛卡尔坐标系下的分量（算一算就明白）
 $$
-T_{ij}= \pmb{e}_i \pmb{T} \pmb{e}_j
+\textcolor{blue}{
+T_{ij}= \pmb{e}_i \cdot \pmb{T} \cdot \pmb{e}_j
+}
 $$
 这个和向量在笛卡尔坐标系下的分量 $u_i=\pmb{u} \pmb{e}_i$ 存在形式上的统一。
 
@@ -249,6 +253,7 @@ $$
   $$
 
 
+
 一个经典的高阶张量是 permutation tensor：
 $$
 \underline{\underline{\underline{\pmb{E}}}} 
@@ -264,6 +269,15 @@ $$
 单点缩并，称作 simple contraction。单点经常被省略。
 
 对一个张量和一个向量，有：
+$$
+\textcolor{blue}{
+\begin{align}
+\pmb{T}\cdot\pmb{u} 
+= T_{ij}u_j \pmb{e}_i
+\end{align}
+}
+$$
+
 $$
 \begin{align}
 \pmb{T}\pmb{a} 
@@ -283,6 +297,12 @@ Simple Contraction 是用于区别 Double Contraction 的概念。
 ### 3.1.2 张量和张量的单点缩并
 
 根据 $(\pmb{a}\otimes\pmb{b})(\pmb{c}\otimes\pmb{d})=(\pmb{b}\cdot\pmb{c})(\pmb{a}\otimes\pmb{d})$ ，有：
+$$
+\textcolor{blue}{
+\pmb{A}\cdot\pmb{B} = A_{ik}B_{kj}\pmb{e}_i\otimes \pmb{e}_j
+}
+$$
+
 $$
 \begin{align}
 \pmb{A} \pmb{B} 
@@ -306,10 +326,11 @@ $$
 
 张量的 $n$ 次幂就是对一个张量做 $n$ 次单点缩并，可以使用递推定义：
 $$
+\textcolor{blue}{
 \begin{cases}
 \pmb{T}^0 = \pmb{I} \\
 \pmb{T}^n = \pmb{T}^{n-1}\pmb{T}
-\end{cases}
+\end{cases}}
 $$
 
 #### 张量的一般幂
@@ -362,6 +383,18 @@ $$
 $$
 简单来说就是相邻的两个向量点乘，剩下的仍然按照圈乘顺序排列。
 
+$$
+\textcolor{blue}{
+\begin{align}
+(\pmb{a} \otimes \pmb{b})\cdot(\pmb{c} \otimes \pmb{d} \otimes \pmb{e}) 
+& = (\pmb{b} \cdot \pmb{c})(\pmb{a} \otimes \pmb{d}\otimes \pmb{e}) \\
+(\pmb{a} \otimes \pmb{b}\otimes\pmb{c})\cdot(\pmb{d} \otimes \pmb{e} \otimes \pmb{f}) 
+& = (\pmb{c} \cdot \pmb{d})(\pmb{a} \otimes \pmb{b} \otimes \pmb{e}\otimes \pmb{f}) \\
+\end{align}
+}
+$$
+
+
 于是，可以很容易的证明（算算便知）
 $$
 \pmb{A}(\pmb{B} \otimes \pmb{C})\pmb{D}
@@ -374,17 +407,21 @@ $$
 
 Dyad 的双点缩并：
 $$
+\textcolor{blue}{
 \begin{align}
 (\pmb{a}\otimes\pmb{b}):(\pmb{c}\otimes\pmb{d})
 & = (\pmb{a} \cdot \pmb{c})(\pmb{b} \cdot \pmb{d}) \\
 \end{align}
+}
 $$
 Triadics 的双点缩并：
 $$
+\textcolor{blue}{
 \begin{align}
 (\pmb{a}\otimes\pmb{b}\otimes\pmb{c}):(\pmb{d}\otimes\pmb{e}\otimes\pmb{f})
 & = (\pmb{b} \cdot \pmb{d}) (\pmb{c} \cdot \pmb{e}) \pmb{a}\otimes\pmb{f} \\
 \end{align}
+}
 $$
 Dyad 和 Triadics 的双点缩并：
 $$
@@ -397,7 +434,9 @@ $$
 $$
 张量的双点缩并：
 $$
-\pmb{A} : \pmb{B} = A_{ij} B_{ij}
+\textcolor{blue}{
+\pmb{A} : \pmb{B} = A_{ij} B_{ij} = tr(\pmb{A}^T\cdot\pmb{B})
+}
 $$
 引入张量的迹的概念之后，我们有：
 $$
@@ -425,7 +464,9 @@ $$
 
 内积为零，意味着正交，于是：
 $$
+\textcolor{blue}{
 \pmb{A}:\pmb{B}=0 \Leftrightarrow \pmb{A} \bot \pmb{B}
+}
 $$
 这个性质是用于张量空间中的。
 
@@ -480,7 +521,7 @@ $$
 
 坐标系变换建立在基向量变换的基础上。
 
-> 正交基向量 $\pmb{e}_1, \pmb{e}_2, \pmb{e}_3$ 和另一个正交基向量 $\pmb{e}_1', \pmb{e}_2', \pmb{e}_3'$ , 每个向量之间的关系可以通过他们的夹角来描述
+> 正交基向量 $\pmb{e}_1, \pmb{e}_2, \pmb{e}_3​$ 和另一个正交基向量 $\pmb{e}_1', \pmb{e}_2', \pmb{e}_3'​$ , 每个向量之间的关系可以通过他们的夹角来描述
 > $$
 > \begin{align}
 > & \pmb{e}_i \cdot \pmb{e}_j' = Q_{ij} = cos(\pmb{e}_i, \pmb{e}_j' ) \\
@@ -494,6 +535,15 @@ $$
 和向量的坐标系变换一样，张量的坐标系变换的表现，是矩阵中的分量的变化。
 
 对张量 $\pmb{T} = T_{ij} \pmb{e}_i \otimes \pmb{e}_j = T_{pq}' \pmb{e}_p' \otimes \pmb{e}_q'$ ，有：
+$$
+\textcolor{blue}{
+\pmb{T} = T_{ij} \pmb{e}_i \otimes \pmb{e}_j = T_{pq}' \pmb{e}_p' \otimes \pmb{e}_q'
+= T_{pq}' (Q_{ip}\pmb{e}_i) \otimes (Q_{jq}\pmb{e}_j)
+\\
+[\pmb{T}']  = [\pmb{Q}^T][\pmb{T}][\pmb{Q}]
+}
+$$
+
 $$
 \begin{align}
 T_{ij} \pmb{e}_i \otimes \pmb{e}_j & = T_{pq}' \pmb{e}_p' \otimes \pmb{e}_q' \\

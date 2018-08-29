@@ -34,14 +34,18 @@ $$
 
 相互垂直的向量：
 $$
+\textcolor{red}{
 \pmb{a}\cdot\pmb{b}=0 
 \Leftrightarrow
 \pmb{a} \bot \pmb{b} \\
+}
 $$
 
 向量的模可以通过点积自己得到：
 $$
+\textcolor{red}{
 |\pmb{a}| = \sqrt{\pmb{a} \cdot \pmb{a}}
+}
 $$
 向量的模是向量的一种不变量，即无论坐标系如何旋转，它都是一样的。
 
@@ -59,10 +63,12 @@ $$
 - 指标记法的向量点积：
 
 $$
+\textcolor{red}{
 \pmb{a} \cdot \pmb{b} 
 = a_i \pmb{e}_i \cdot b_j \pmb{e}_j 
 = a_ib_j \delta_{ij}
 = a_ib_i
+}
 $$
 
 - 矩阵记法的向量点积：
@@ -90,7 +96,11 @@ $$
 
 相互平行（线性相关）的向量：
 $$
-\pmb{a} \times \pmb{b} = \pmb{0}
+\textcolor{red}{
+\pmb{a} \times \pmb{b} = \pmb{0} 
+\Leftrightarrow
+\pmb{a} \parallel \pmb{b}
+}
 $$
 ==向量叉积不满足乘法交换律==。
 
@@ -101,9 +111,11 @@ $$
 - 指标记法的向量叉积：
 
 $$
+\textcolor{red}{
 \pmb{a} \times \pmb{b}
 = a_i \pmb{e}_i \times b_j \pmb{e}_j
 = a_ib_j\varepsilon_{ijk}\pmb{e}_k
+}
 $$
 
 - 矩阵记法的向量叉积：
@@ -204,6 +216,7 @@ $$
 
 
 
+
 ## 2.2 向量的坐标系变换
 
 坐标系的变换，就是不同坐标系下，表示向量的分量不同。
@@ -256,6 +269,27 @@ u_2 = u_1' \cdot sin\theta + u_2' \cdot cos\theta
 $$
 换一个角度看，等式左右两边在同一的原坐标系 $o-x_1-x_2$ 下，有：
 $$
+\textcolor{red}{
+
+\Bigg(
+\underbrace {\begin{pmatrix} 1 \\ 0 \\ \end{pmatrix}}_{\pmb{e}_1} 
+\underbrace{\begin{pmatrix} 0 \\ 1 \\ \end{pmatrix}}_{\pmb{e}_2}
+\Bigg)
+}
+\textcolor{red}{
+\begin{pmatrix} u_1 \\ u_2 \end{pmatrix}
+=
+
+\Bigg(
+\underbrace {\begin{pmatrix}  cos\theta \\  sin\theta \\ \end{pmatrix}}_{\pmb{e}_1'} 
+\underbrace{\begin{pmatrix}  -sin\theta \\  cos\theta \\ \end{pmatrix}}_{\pmb{e}_2'}
+\Bigg)
+
+\begin{pmatrix} u_1' \\ u_2' \end{pmatrix}
+}
+$$
+
+$$
 \underbrace{
 \Bigg(
 \underbrace {\begin{pmatrix} 1 \\ 0 \\ \end{pmatrix}}_{\pmb{e}_1} 
@@ -276,6 +310,12 @@ $$
 ### 2.2.2 向量的三维坐标系变换
 
 将上面那个变换带上轴 $x_3$ ，有：
+$$
+\textcolor{red}{
+[u_i']=\underbrace{[cos(e_i,e_j')]^T}_{Q_{ji}\pmb{e}_i \otimes \pmb{e}_j}[u_j]
+}
+$$
+
 $$
 \begin{align}
 \begin{pmatrix}1 &0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1\end{pmatrix}
