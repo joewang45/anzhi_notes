@@ -14,7 +14,7 @@ typora-root-url: ..\picture
 - 加法：平行四边形定理
 - 标量乘法
 
-向量的长度称作向量的模，记作 $$|\pmb{a}|$$
+向量的长度称作向量的模，记作 $$|\mathbf{a}|$$
 
 ## 1.2 计算法则
 由定义我们可以推导出计算法则：
@@ -27,7 +27,7 @@ typora-root-url: ..\picture
 
 定义：两个向量的点积是一个标量：
 $$
-\pmb{a}\cdot\pmb{b}=|\pmb{a}||\pmb{b}|cos(\pmb{a},\pmb{b})
+\mathbf{a}\cdot\mathbf{b}=|\mathbf{a}||\mathbf{b}|cos(\mathbf{a},\mathbf{b})
 $$
 
 点积的几何意义不重要。
@@ -35,25 +35,26 @@ $$
 相互垂直的向量：
 $$
 \textcolor{red}{
-\pmb{a}\cdot\pmb{b}=0 
+\mathbf{a}\cdot\mathbf{b}=0 
 \Leftrightarrow
-\pmb{a} \bot \pmb{b} \\
+\mathbf{a} \bot \mathbf{b} \\
 }
 $$
 
 向量的模可以通过点积自己得到：
 $$
 \textcolor{red}{
-|\pmb{a}| = \sqrt{\pmb{a} \cdot \pmb{a}}
+|\mathbf{a}| = \sqrt{\mathbf{a} \cdot \mathbf{a}}
 }
 $$
 向量的模是向量的一种不变量，即无论坐标系如何旋转，它都是一样的。
 
 向量乘以某方向的单位向量，可以得到投影长度：
 $$
-\pmb{a} \cdot \pmb{e} 
-= |\pmb{a}| \cdot 1\cdot cos(\pmb{a}, \pmb{e})
-= |\pmb{a}|\cdot cos(\pmb{a}, \pmb{e})
+\mathbf{a} \cdot \mathbf{e} 
+= |\mathbf{a}| \cdot 1\cdot cos(\mathbf{a}, \mathbf{e})
+= |\mathbf{a}|\cdot cos(\mathbf{a}, \mathbf{e}) \\
+\textcolor{red}{a_x=\mathbf{a}\cdot\mathbf{e}_x}
 $$
 
 ---
@@ -64,8 +65,8 @@ $$
 
 $$
 \textcolor{red}{
-\pmb{a} \cdot \pmb{b} 
-= a_i \pmb{e}_i \cdot b_j \pmb{e}_j 
+\mathbf{a} \cdot \mathbf{b} 
+= a_i \mathbf{e}_i \cdot b_j \mathbf{e}_j 
 = a_ib_j \delta_{ij}
 = a_ib_i
 }
@@ -74,7 +75,7 @@ $$
 - 矩阵记法的向量点积：
 
 $$
-\pmb{a} \cdot \pmb{b} 
+\mathbf{a} \cdot \mathbf{b} 
 = 
 \begin{pmatrix}
 a_1 & a_2 & a_3
@@ -90,16 +91,16 @@ $$
 
 向量叉积也不是所有向量都有的性质。
 
-定义：两个向量的叉积是一个方向遵循右手定则，模为 $|\pmb{a}||\pmb{b}|sin(\pmb{a},\pmb{b})$ 的向量
+定义：两个向量的叉积是一个方向遵循右手定则，模为 $|\mathbf{a}||\mathbf{b}|sin(\mathbf{a},\mathbf{b})$ 的向量
 
 叉积的几何意义是，由相乘的两向量组成的平行四边形的法向量，向量的模为平行四边形的面积。
 
 相互平行（线性相关）的向量：
 $$
 \textcolor{red}{
-\pmb{a} \times \pmb{b} = \pmb{0} 
+\mathbf{a} \times \mathbf{b} = \mathbf{0} 
 \Leftrightarrow
-\pmb{a} \parallel \pmb{b}
+\mathbf{a} \parallel \mathbf{b}
 }
 $$
 ==向量叉积不满足乘法交换律==。
@@ -112,19 +113,19 @@ $$
 
 $$
 \textcolor{red}{
-\pmb{a} \times \pmb{b}
-= a_i \pmb{e}_i \times b_j \pmb{e}_j
-= a_ib_j\varepsilon_{ijk}\pmb{e}_k
+\mathbf{a} \times \mathbf{b}
+= a_i \mathbf{e}_i \times b_j \mathbf{e}_j
+= a_ib_j\varepsilon_{ijk}\mathbf{e}_k
 }
 $$
 
 - 矩阵记法的向量叉积：
 
 $$
-\pmb{a} \times \pmb{b}
+\mathbf{a} \times \mathbf{b}
 = det 
 \begin{pmatrix}
-\pmb{e}_1 & \pmb{e}_2 & \pmb{e}_3 \\
+\mathbf{e}_1 & \mathbf{e}_2 & \mathbf{e}_3 \\
 a_1 & a_2 & a_3 \\
 b_1 & b_2 & b_3
 \end{pmatrix}
@@ -134,9 +135,9 @@ $$
 
 三重积是分别使用点积和叉积：
 $$
-[\pmb{a}, \pmb{b}, \pmb{c}] 
-= \pmb{a} \cdot (\pmb{b} \times \pmb{c}) 
-= (\pmb{a} \times \pmb{b}) \cdot \pmb{c}) 
+[\mathbf{a}, \mathbf{b}, \mathbf{c}] 
+= \mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) 
+= (\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c}) 
 $$
 三重积的几何意义是，三个向量组成的平行六面体的体积。
 
@@ -152,7 +153,7 @@ $$
 
 一个向量在不同的基下有不同的表现形式，这些表现形式都是等价的。
 
-最常见的莫过于笛卡尔坐标系，它的基为：$\pmb{e}_1, \pmb{e}_2, \pmb{e}_3$ 
+最常见的莫过于笛卡尔坐标系，它的基为：$\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$ 
 
 ## 2.1 指标记法
 
@@ -162,7 +163,7 @@ $$
 
 使用爱因斯坦求和约定，有：
 $$
-\pmb{a}= a_1\pmb{e}_1 + a_2\pmb{e}_2 + a_3\pmb{e}_3 = \sum_{i=1}^{3} a_i\pmb{e}_i :=a_i\pmb{e}_i
+\mathbf{a}= a_1\mathbf{e}_1 + a_2\mathbf{e}_2 + a_3\mathbf{e}_3 = \sum_{i=1}^{3} a_i\mathbf{e}_i :=a_i\mathbf{e}_i
 $$
 爱因斯坦求和约定意味着：
 
@@ -183,14 +184,14 @@ $$
 
 Kronecker Delta: 
 $$
-\delta_{ij} := \pmb{e}_i \cdot \pmb{e}_j
+\delta_{ij} := \mathbf{e}_i \cdot \mathbf{e}_j
 = \begin{cases}
 1, i=j \\ 0, i\neq j
 \end{cases}
 $$
 Levi-Civita：
 $$
-\varepsilon_{ijk}\pmb{e}_k := \pmb{e}_i \times \pmb{e}_j \\
+\varepsilon_{ijk}\mathbf{e}_k := \mathbf{e}_i \times \mathbf{e}_j \\
 with \quad \varepsilon_{ijk} =
 \begin{cases}
 1, ijk = {123,231,312} \\ 
@@ -206,10 +207,13 @@ $$
 
 3. 拉格朗日恒等式：
    $$
-   (\pmb{a} \times \pmb{b}) \cdot (\pmb{c} \times \pmb{d}) 
-   = (\pmb{a} \cdot \pmb{c}) (\pmb{b}\cdot \pmb{d})
-   -  (\pmb{a} \cdot \pmb{d}) (\pmb{b}\cdot \pmb{c})
+   (\mathbf{a} \times \mathbf{b}) \cdot (\mathbf{c} \times \mathbf{d}) 
+   = (\mathbf{a} \cdot \mathbf{c}) (\mathbf{b}\cdot \mathbf{d})
+   -  (\mathbf{a} \cdot \mathbf{d}) (\mathbf{b}\cdot \mathbf{c})
    $$
+
+
+
 
 
 
@@ -223,7 +227,7 @@ $$
 
 我们说的坐标系变换，一般说是指坐标系的转动。
 
-> 坐标系平动并不会造成向量分量的变化，因为不管怎样都是 $u_i \pmb{e}_i$
+> 坐标系平动并不会造成向量分量的变化，因为不管怎样都是 $u_i \mathbf{e}_i$
 
 ### 2.2.1 向量的平面坐标系变换
 
@@ -232,8 +236,8 @@ $$
 ![](..\picture\verctor_coordiante_transformation_2d.png)
 $$
 \begin{align}
-\pmb{u}^{\pmb{e}} &= \pmb{u}^{\pmb{e}'} \\
-u_i\pmb{e}_i &= u_i'\pmb{e}'_i \\
+\mathbf{u}^{\mathbf{e}} &= \mathbf{u}^{\mathbf{e}'} \\
+u_i\mathbf{e}_i &= u_i'\mathbf{e}'_i \\
 \end{align}
 $$
 这个等式被称作 Transformation Equation。
@@ -241,13 +245,13 @@ $$
 具体来看，由平面几何关系，有：
 $$
 \begin{align}
-u_i \pmb{e}_i 
-& = u_1 \pmb{e}_1 + u_2 \pmb{e}_2 \\
+u_i \mathbf{e}_i 
+& = u_1 \mathbf{e}_1 + u_2 \mathbf{e}_2 \\
 \\
-& = (|OB| - |AB|) \pmb{e}_1 +(|BD|+|CP|)\pmb{e}_2 \\
+& = (|OB| - |AB|) \mathbf{e}_1 +(|BD|+|CP|)\mathbf{e}_2 \\
 \\
-& = (u_1' \cdot cos\theta - u_2' \cdot sin\theta) \pmb{e}_1 
-+ (u_1' \cdot sin\theta + u_2' \cdot cos\theta) \pmb{e}_2 \\
+& = (u_1' \cdot cos\theta - u_2' \cdot sin\theta) \mathbf{e}_1 
++ (u_1' \cdot sin\theta + u_2' \cdot cos\theta) \mathbf{e}_2 \\
 \\
 \end{align}
 $$
@@ -272,8 +276,8 @@ $$
 \textcolor{red}{
 
 \Bigg(
-\underbrace {\begin{pmatrix} 1 \\ 0 \\ \end{pmatrix}}_{\pmb{e}_1} 
-\underbrace{\begin{pmatrix} 0 \\ 1 \\ \end{pmatrix}}_{\pmb{e}_2}
+\underbrace {\begin{pmatrix} 1 \\ 0 \\ \end{pmatrix}}_{\mathbf{e}_1} 
+\underbrace{\begin{pmatrix} 0 \\ 1 \\ \end{pmatrix}}_{\mathbf{e}_2}
 \Bigg)
 }
 \textcolor{red}{
@@ -281,8 +285,8 @@ $$
 =
 
 \Bigg(
-\underbrace {\begin{pmatrix}  cos\theta \\  sin\theta \\ \end{pmatrix}}_{\pmb{e}_1'} 
-\underbrace{\begin{pmatrix}  -sin\theta \\  cos\theta \\ \end{pmatrix}}_{\pmb{e}_2'}
+\underbrace {\begin{pmatrix}  cos\theta \\  sin\theta \\ \end{pmatrix}}_{\mathbf{e}_1'} 
+\underbrace{\begin{pmatrix}  -sin\theta \\  cos\theta \\ \end{pmatrix}}_{\mathbf{e}_2'}
 \Bigg)
 
 \begin{pmatrix} u_1' \\ u_2' \end{pmatrix}
@@ -292,16 +296,16 @@ $$
 $$
 \underbrace{
 \Bigg(
-\underbrace {\begin{pmatrix} 1 \\ 0 \\ \end{pmatrix}}_{\pmb{e}_1} 
-\underbrace{\begin{pmatrix} 0 \\ 1 \\ \end{pmatrix}}_{\pmb{e}_2}
+\underbrace {\begin{pmatrix} 1 \\ 0 \\ \end{pmatrix}}_{\mathbf{e}_1} 
+\underbrace{\begin{pmatrix} 0 \\ 1 \\ \end{pmatrix}}_{\mathbf{e}_2}
 \Bigg)
 }_{ o-x_1-x_2 \ 下的原坐标系基向量}
 \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}
 =
 \underbrace{
 \Bigg(
-\underbrace {\begin{pmatrix} 1\cdot cos\theta \\ 1\cdot sin\theta \\ \end{pmatrix}}_{\pmb{e}_1': 点 D 坐标} 
-\underbrace{\begin{pmatrix} 1\cdot -sin\theta \\ 1\cdot cos\theta \\ \end{pmatrix}}_{\pmb{e}_2'}
+\underbrace {\begin{pmatrix} 1\cdot cos\theta \\ 1\cdot sin\theta \\ \end{pmatrix}}_{\mathbf{e}_1': 点 D 坐标} 
+\underbrace{\begin{pmatrix} 1\cdot -sin\theta \\ 1\cdot cos\theta \\ \end{pmatrix}}_{\mathbf{e}_2'}
 \Bigg)
 }_{o-x_1-x_2 \ 下的目标坐标系基向量}
 \begin{pmatrix} u_1' \\ u_2' \end{pmatrix}
@@ -312,27 +316,29 @@ $$
 将上面那个变换带上轴 $x_3$ ，有：
 $$
 \textcolor{red}{
-[u_i']=\underbrace{[cos(e_i,e_j')]^T}_{Q_{ji}\pmb{e}_i \otimes \pmb{e}_j}[u_j]
+[u_i']=\underbrace{[cos(e_i,e_j')]^T}_{Q_{ji}\mathbf{e}_i \otimes \mathbf{e}_j}[u_j]
 }
 $$
 
 $$
+\textcolor{red}{
 \begin{align}
 \begin{pmatrix}1 &0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1\end{pmatrix}
 \begin{pmatrix} u_1 \\ u_2 \\ u_3\end{pmatrix}
 = \begin{pmatrix} cos\theta &-sin\theta & 0\\ sin\theta & cos\theta & 0\\ 0 & 0 & 1\end{pmatrix}
 \begin{pmatrix} u_1' \\ u_2' \\ u_3'\end{pmatrix}
 \end{align}
+}
 $$
 写成浓缩的矩阵形式，有：
 $$
-[\pmb{I}][\pmb{u}] = [\pmb{u}] = [\pmb{Q} ][\pmb{u}']
+[\mathbf{I}][\mathbf{u}] = [\mathbf{u}] = [\mathbf{Q} ][\mathbf{u}']
 $$
 使用指标记法，有：
 $$
 [u_i] = [Q_{ij}][u_j']
 $$
-注意，严格意义来说，这个 $\pmb{Q}$ 不是张量。
+注意，严格意义来说，这个 $\mathbf{Q}$ 不是张量。
 
 因为张量的定义是将一个向量映射到另一个向量。
 
@@ -342,11 +348,11 @@ $$
 
 反之有：
 $$
-[\pmb{Q}]^{-1}[\pmb{u}] = [\pmb{u}']
+[\mathbf{Q}]^{-1}[\mathbf{u}] = [\mathbf{u}']
 $$
 这样一个旋转坐标系的矩阵矩阵是正交矩阵，故有：
 $$
-[\pmb{Q}]^{-1}=[\pmb{Q}]^T
+[\mathbf{Q}]^{-1}=[\mathbf{Q}]^T
 $$
 写成指标形式有：
 $$
@@ -354,5 +360,5 @@ $$
 $$
 三维旋转坐标矩阵中元素的通式有：
 $$
-Q_{ij} = cos(\pmb{e}_i, \pmb{e}_j')=\pmb{e}_i \cdot \pmb{e}_j'
+Q_{ij} = cos(\mathbf{e}_i, \mathbf{e}_j')=\mathbf{e}_i \cdot \mathbf{e}_j'
 $$

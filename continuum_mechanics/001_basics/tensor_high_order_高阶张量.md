@@ -16,6 +16,7 @@
 
 
 
+
 一个经典的高阶张量是 permutation tensor：
 $$
 \underline{\underline{\underline{\pmb{E}}}} 
@@ -171,14 +172,19 @@ $$
 
 四阶张量的 minor symmetries：
 $$
+\textcolor{blue}{T_{ijk}=T_{jik}=T_{jki}=T_{kij}=...}
+$$
+
+$$
 C_{ijkl} = C_{jikl} \\
 C_{ijkl} = C_{ijlk}
 $$
 四阶张量的 major symmetries：
 $$
-C_{ijkl} = C_{jikl} \\
-C_{ijkl} = C_{ijlk} \\
-C_{ijkl} = C_{klij} \\
+\textcolor{blue}{
+C_{ijkl} = C_{jikl} , \ 
+C_{ijkl} = C_{ijlk} , \ 
+C_{ijkl} = C_{klij} }
 $$
 对一个对称的张量 $\underline{\underline{\underline{\underline{T}}}}$，它和它的转置应该是一样的，于是也有：
 $$

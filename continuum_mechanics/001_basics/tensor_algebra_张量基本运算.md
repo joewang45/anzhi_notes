@@ -22,28 +22,28 @@
 
 张量的记法
 
-- 加粗的大写拉丁字母 $\pmb{T}$
-- 加粗的小写希腊字母 $\pmb{\sigma}$
+- 加粗的大写拉丁字母 $\mathbf{T}$
+- 加粗的小写希腊字母 $\mathbf{\sigma}$
 
 ## 1.1 张量是线性算子
 
 我们可以将一阶张量定义为，将另一个一阶张量映射到零阶张量上的线性算子：
 $$
-\underbrace{\pmb{a} }_{一}
-(\underbrace{\pmb{v} }_{一})
-= \pmb{a}
+\underbrace{\mathbf{a} }_{一}
+(\underbrace{\mathbf{v} }_{一})
+= \mathbf{a}
 \cdot\ 
-\pmb{v} 
+\mathbf{v} 
 = \underbrace{\alpha}_{零}
 $$
 同样的，二阶张量可以定义为，将一个一阶张量映射到另一个一阶张量上的线性算子：
 $$
-\underbrace{\pmb{T}}_{二}
-( \underbrace{\pmb{v}}_{一}) 
-= \pmb{T}\cdot \pmb{v}
-= \underbrace{\pmb{u}}_{一}
+\underbrace{\mathbf{T}}_{二}
+( \underbrace{\mathbf{v}}_{一}) 
+= \mathbf{T}\cdot \mathbf{v}
+= \underbrace{\mathbf{u}}_{一}
 $$
-如此，两个向量叉乘 $\pmb{a} \times \pmb{b}$ 中的 “$\pmb{a} \times$” 也可以理解为一个二阶张量算子。
+如此，两个向量叉乘 $\mathbf{a} \times \mathbf{b}$ 中的 “$\mathbf{a} \times$” 也可以理解为一个二阶张量算子。
 
 之后我们也会看到，三阶张量可以将一阶张量映射到二阶张量上（$三 一 \mapsto 二$）
 
@@ -53,23 +53,23 @@ $$
 
 两个向量之间，有：
 
-- 点乘：$\pmb{a} \cdot \pmb{b}$   是一个 scalar
-- 叉乘：$\pmb{a} \times \pmb{b}$ 是一个 vector
-- 圈乘：$\pmb{a}\otimes \pmb{b}$ 是一个 dyad [^文献里有时候忽略 $$\otimes$$，而直接写成 $\pmb{a}\pmb{b}$]
+- 点乘：$\mathbf{a} \cdot \mathbf{b}$   是一个 scalar
+- 叉乘：$\mathbf{a} \times \mathbf{b}$ 是一个 vector
+- 圈乘：$\mathbf{a}\otimes \mathbf{b}$ 是一个 dyad [^文献里有时候忽略 $$\otimes$$，而直接写成 $\mathbf{a}\mathbf{b}$]
 
 定义 Dyad：
 $$
 \textcolor{blue}{
-(\pmb{a} \otimes \pmb{b})\cdot \pmb{c}
-=\pmb{a}(\pmb{b}\cdot \pmb{c})
+(\mathbf{a} \otimes \mathbf{b})\cdot \mathbf{c}
+=\mathbf{a}(\mathbf{b}\cdot \mathbf{c})
 }
 $$
 这样一个东西满足张量为线性算子的定义，于是 Dyad 是一个张量。
 
 可以用矩阵形式表达两个向量的圈乘，这满足它的定义：
 $$
-\pmb{a} \otimes \pmb{b} = 
-[\pmb{a}][\pmb{b}]^T = 
+\mathbf{a} \otimes \mathbf{b} = 
+[\mathbf{a}][\mathbf{b}]^T = 
 \begin{pmatrix}
 a_{1}b_{1} & a_{1}b_{2} & a_{1}b_{3} \\
 a_{2}b_{1} & a_{2}b_{2} & a_{2}b_{3} \\
@@ -82,31 +82,31 @@ Dyad 的物理意义如下图：
 
 显然，Dyad 不满足交换律：
 $$
-(\pmb{a} \otimes \pmb{b})\pmb{c} 
+(\mathbf{a} \otimes \mathbf{b})\mathbf{c} 
 \neq
-(\pmb{b} \otimes \pmb{a})\pmb{c} 
+(\mathbf{b} \otimes \mathbf{a})\mathbf{c} 
 $$
 有关 Dyad 的推论
 
-- $(\pmb{a}\otimes\pmb{b})(\pmb{c}\otimes\pmb{d})=(\pmb{b}\cdot\pmb{c})(\pmb{a}\otimes\pmb{d})$
-- $\pmb{a}(\pmb{b}\otimes\pmb{c}) = (\pmb{a}\cdot \pmb{b})\pmb{c}$
-- 存疑：$\pmb{a}\cdot(\pmb{b}\otimes\pmb{c}) = (\pmb{a}\cdot \pmb{b})\pmb{c}$
+- $(\mathbf{a}\otimes\mathbf{b})(\mathbf{c}\otimes\mathbf{d})=(\mathbf{b}\cdot\mathbf{c})(\mathbf{a}\otimes\mathbf{d})$
+- $\mathbf{a}(\mathbf{b}\otimes\mathbf{c}) = (\mathbf{a}\cdot \mathbf{b})\mathbf{c}$
+- 存疑：$\mathbf{a}\cdot(\mathbf{b}\otimes\mathbf{c}) = (\mathbf{a}\cdot \mathbf{b})\mathbf{c}$
 
 和叉乘一样，圈乘对顺序十分严格。
 
-投影张量：$(\pmb{e}\otimes\pmb{e})\pmb{u}=\pmb{e}(\pmb{e}\cdot\pmb{u})$，如此可以得到向量 $\pmb{u}$ 在任意方向上的投影向量。
+投影张量：$(\mathbf{e}\otimes\mathbf{e})\mathbf{u}=\mathbf{e}(\mathbf{e}\cdot\mathbf{u})$，如此可以得到向量 $\mathbf{u}$ 在任意方向上的投影向量。
 
 ## 1.3 Dyadics
 
 Dyadics 是若干 Dyads 的线性组合，形如：
 $$
- \alpha(\pmb{a}\otimes\pmb{b}) + \beta(\pmb{c}\otimes\pmb{d}) + \gamma(\pmb{e}\otimes\pmb{f}) + ...
+ \alpha(\mathbf{a}\otimes\mathbf{b}) + \beta(\mathbf{c}\otimes\mathbf{d}) + \gamma(\mathbf{e}\otimes\mathbf{f}) + ...
 $$
 之后我们将证明，一个二阶张量总可以写成 Dyadics 的形式：
 $$
-\pmb{T} = \alpha(\pmb{a}\otimes\pmb{b}) + \beta(\pmb{c}\otimes\pmb{d}) + \gamma(\pmb{e}\otimes\pmb{f}) + ...
+\mathbf{T} = \alpha(\mathbf{a}\otimes\mathbf{b}) + \beta(\mathbf{c}\otimes\mathbf{d}) + \gamma(\mathbf{e}\otimes\mathbf{f}) + ...
 $$
-形如 $\pmb{T} = \pmb{a} \otimes \pmb{b}$ 的二阶张量，被称作简单张量 simple tensor。
+形如 $\mathbf{T} = \mathbf{a} \otimes \mathbf{b}$ 的二阶张量，被称作简单张量 simple tensor。
 
 # 2. 笛卡尔坐标系中的张量
 
@@ -116,31 +116,31 @@ $$
 
 这里我们将在笛卡尔坐标系下证明，一个二阶张量总可以写成 Dyadics 的形式：
 $$
-\pmb{T} = \alpha(\pmb{a}\otimes\pmb{b}) + \beta(\pmb{c}\otimes\pmb{d}) + \gamma(\pmb{e}\otimes\pmb{f}) + ...
+\mathbf{T} = \alpha(\mathbf{a}\otimes\mathbf{b}) + \beta(\mathbf{c}\otimes\mathbf{d}) + \gamma(\mathbf{e}\otimes\mathbf{f}) + ...
 $$
-对可以把向量 $\pmb{a}$ 变换成向量 $\pmb{b}$ 的张量 $\pmb{T}$ ，在笛卡尔坐标系下，有
+对可以把向量 $\mathbf{a}$ 变换成向量 $\mathbf{b}$ 的张量 $\mathbf{T}$ ，在笛卡尔坐标系下，有
 $$
 \begin{align}
-\pmb{T}(\pmb{a}) & = \pmb{b} \\
-\pmb{T}(a_i\pmb{e}_i) & = \pmb{b} \\
-a_1 \underbrace{\pmb{T}(\pmb{e}_1)}_{\pmb{u}} +
-a_2 \underbrace{\pmb{T}(\pmb{e}_2)}_{\pmb{v}} +
-a_3 \underbrace{\pmb{T}(\pmb{e}_3)}_{\pmb{w}} 
-& = \pmb{b}\\ 
-a_1\pmb{u} + a_2\pmb{v} + a_3\pmb{w} & = \pmb{b} \\
-(\pmb{a}\cdot \pmb{e}_1)\pmb{u} + 
-(\pmb{a}\cdot \pmb{e}_2)\pmb{v} + 
-(\pmb{a}\cdot \pmb{e}_3)\pmb{w} & = \pmb{b} \\
-(\pmb{u}\otimes \pmb{e}_1)\pmb{a} + 
-(\pmb{v}\otimes \pmb{e}_2)\pmb{a} + 
-(\pmb{w}\otimes \pmb{e}_3)\pmb{a} & = \pmb{b} \\
-(\pmb{u}\otimes \pmb{e}_1 + \pmb{v}\otimes \pmb{e}_2 + \pmb{w}\otimes \pmb{e}_3)\pmb{a} & = \pmb{b} 
+\mathbf{T}(\mathbf{a}) & = \mathbf{b} \\
+\mathbf{T}(a_i\mathbf{e}_i) & = \mathbf{b} \\
+a_1 \underbrace{\mathbf{T}(\mathbf{e}_1)}_{\mathbf{u}} +
+a_2 \underbrace{\mathbf{T}(\mathbf{e}_2)}_{\mathbf{v}} +
+a_3 \underbrace{\mathbf{T}(\mathbf{e}_3)}_{\mathbf{w}} 
+& = \mathbf{b}\\ 
+a_1\mathbf{u} + a_2\mathbf{v} + a_3\mathbf{w} & = \mathbf{b} \\
+(\mathbf{a}\cdot \mathbf{e}_1)\mathbf{u} + 
+(\mathbf{a}\cdot \mathbf{e}_2)\mathbf{v} + 
+(\mathbf{a}\cdot \mathbf{e}_3)\mathbf{w} & = \mathbf{b} \\
+(\mathbf{u}\otimes \mathbf{e}_1)\mathbf{a} + 
+(\mathbf{v}\otimes \mathbf{e}_2)\mathbf{a} + 
+(\mathbf{w}\otimes \mathbf{e}_3)\mathbf{a} & = \mathbf{b} \\
+(\mathbf{u}\otimes \mathbf{e}_1 + \mathbf{v}\otimes \mathbf{e}_2 + \mathbf{w}\otimes \mathbf{e}_3)\mathbf{a} & = \mathbf{b} 
 \end{align}
 $$
 故，
 $$
-\pmb{T} =
-\pmb{u}\otimes \pmb{e}_1 + \pmb{v}\otimes \pmb{e}_2 + \pmb{w}\otimes \pmb{e}_3
+\mathbf{T} =
+\mathbf{u}\otimes \mathbf{e}_1 + \mathbf{v}\otimes \mathbf{e}_2 + \mathbf{w}\otimes \mathbf{e}_3
 $$
 Q.E.D
 
@@ -149,94 +149,94 @@ Q.E.D
 从上式可以接着推出张量在笛卡尔坐标系下的分量形式：
 $$
 \begin{align}
-\pmb{T} 
+\mathbf{T} 
 %%%%%%%%%%%%%%%%%%%
 & = &
-& \pmb{u} \otimes \pmb{e}_1 
+& \mathbf{u} \otimes \mathbf{e}_1 
 &+ 
-& \pmb{v}\otimes \pmb{e}_2 
+& \mathbf{v}\otimes \mathbf{e}_2 
 &+ 
-& \pmb{w}\otimes \pmb{e}_3 \\
+& \mathbf{w}\otimes \mathbf{e}_3 \\
 %%%%%%%%%%%%%%%%%%%
 & = &
-& (u_i\pmb{e}_i)\otimes\pmb{e}_1 
+& (u_i\mathbf{e}_i)\otimes\mathbf{e}_1 
 &+ 
-&(v_i\pmb{e}_i)\otimes\pmb{e}_2
+&(v_i\mathbf{e}_i)\otimes\mathbf{e}_2
 &+ 
-&(w_i\pmb{e}_i)\otimes\pmb{e}_3 \\
+&(w_i\mathbf{e}_i)\otimes\mathbf{e}_3 \\
 %%%%%%%%%%%%%%%%%%%
 \\
 & = &
-& u_1 \pmb{e}_1 \otimes \pmb{e}_1 
+& u_1 \mathbf{e}_1 \otimes \mathbf{e}_1 
 & +
-& u_2 \pmb{e}_2 \otimes \pmb{e}_1 
+& u_2 \mathbf{e}_2 \otimes \mathbf{e}_1 
 & +
-& u_3 \pmb{e}_3 \otimes \pmb{e}_1 \\
+& u_3 \mathbf{e}_3 \otimes \mathbf{e}_1 \\
 & &+ 
-& v_1 \pmb{e}_1 \otimes \pmb{e}_2 
+& v_1 \mathbf{e}_1 \otimes \mathbf{e}_2 
 & +
-& v_2 \pmb{e}_2 \otimes \pmb{e}_2 
+& v_2 \mathbf{e}_2 \otimes \mathbf{e}_2 
 & +
-& v_3 \pmb{e}_3 \otimes \pmb{e}_2 \\
+& v_3 \mathbf{e}_3 \otimes \mathbf{e}_2 \\
 & &+ 
-& w_1 \pmb{e}_1 \otimes \pmb{e}_3 
+& w_1 \mathbf{e}_1 \otimes \mathbf{e}_3 
 & +
-& w_2 \pmb{e}_2 \otimes \pmb{e}_3 
+& w_2 \mathbf{e}_2 \otimes \mathbf{e}_3 
 & +
-& w_3 \pmb{e}_3 \otimes \pmb{e}_3 \\
+& w_3 \mathbf{e}_3 \otimes \mathbf{e}_3 \\
 %%%%%%%%%%%%%%%%%%%
 \\
 & = & 
-& T_{11} \pmb{e}_1 \otimes \pmb{e}_1 
+& T_{11} \mathbf{e}_1 \otimes \mathbf{e}_1 
 & +
-& T_{21} \pmb{e}_2 \otimes \pmb{e}_1 
+& T_{21} \mathbf{e}_2 \otimes \mathbf{e}_1 
 & +
-& T_{31} \pmb{e}_3 \otimes \pmb{e}_1 \\
+& T_{31} \mathbf{e}_3 \otimes \mathbf{e}_1 \\
 & &+ 
-& T_{12} \pmb{e}_1 \otimes \pmb{e}_2 
+& T_{12} \mathbf{e}_1 \otimes \mathbf{e}_2 
 & +
-& T_{22} \pmb{e}_2 \otimes \pmb{e}_2 
+& T_{22} \mathbf{e}_2 \otimes \mathbf{e}_2 
 & +
-& T_{32} \pmb{e}_3 \otimes \pmb{e}_2 \\
+& T_{32} \mathbf{e}_3 \otimes \mathbf{e}_2 \\
 & &+ 
-& T_{13} \pmb{e}_1 \otimes \pmb{e}_3 
+& T_{13} \mathbf{e}_1 \otimes \mathbf{e}_3 
 & +
-& T_{23} \pmb{e}_2 \otimes \pmb{e}_3 
+& T_{23} \mathbf{e}_2 \otimes \mathbf{e}_3 
 & +
-& T_{33} \pmb{e}_3 \otimes \pmb{e}_3 \\
+& T_{33} \mathbf{e}_3 \otimes \mathbf{e}_3 \\
 %%%%%%%%%%%%%%%%%%%%%
 \\
-\pmb{T} & = & 
-&T_{ij} \pmb{e}_i \otimes \pmb{e}_j
+\mathbf{T} & = & 
+&T_{ij} \mathbf{e}_i \otimes \mathbf{e}_j
 \end{align}
 $$
 一个三维空间中的二阶张量有九个分量。
 
 张量可以写成 $3\times3$ 的矩阵形式，这满足它的定义。
 $$
-\pmb{T} = 
-[\pmb{T}] = 
+\mathbf{T} = 
+[\mathbf{T}] = 
 \begin{pmatrix}
 T_{11} & T_{12} & T_{13} \\
 T_{21} & T_{22} & T_{23} \\
 T_{31} & T_{32} & T_{33} \\
 \end{pmatrix}
 $$
-$\pmb{e}_i \otimes \pmb{e}_j$ 告诉我们，这个分量处于由 $\pmb{e}_i$ 为基构成的矩阵的第 $i$ 列，第 $j$ 行。
+$\mathbf{e}_i \otimes \mathbf{e}_j$ 告诉我们，这个分量处于由 $\mathbf{e}_i$ 为基构成的矩阵的第 $i$ 列，第 $j$ 行。
 
 从推导中我们可以看出，实际上不需要是笛卡尔坐标系，任何坐标系的基又可以完成这一推导，只是分量会有所不同，有：
 $$
-\pmb{T} 
-= T_{ij} \pmb{e}_i \otimes \pmb{e}_j 
-= T_{ij}^g \pmb{g}_i \otimes \pmb{g}_j
+\mathbf{T} 
+= T_{ij} \mathbf{e}_i \otimes \mathbf{e}_j 
+= T_{ij}^g \mathbf{g}_i \otimes \mathbf{g}_j
 $$
 很容易可以从笛卡尔坐标系的正交性得出，张量在笛卡尔坐标系下的分量（算一算就明白）
 $$
 \textcolor{blue}{
-T_{ij}= \pmb{e}_i \cdot \pmb{T} \cdot \pmb{e}_j
+T_{ij}= \mathbf{e}_i \cdot \mathbf{T} \cdot \mathbf{e}_j
 }
 $$
-这个和向量在笛卡尔坐标系下的分量 $u_i=\pmb{u} \pmb{e}_i$ 存在形式上的统一。
+这个和向量在笛卡尔坐标系下的分量 $u_i=\mathbf{u} \mathbf{e}_i$ 存在形式上的统一。
 
 ## 2.3 高阶张量
 
@@ -244,20 +244,25 @@ $$
 
 - 三阶张量 Triadics
   $$
-  \underline{\underline{\underline{\pmb{T}}}}=T_{jik} \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k
+  \underline{\underline{\underline{\mathbf{T}}}}=T_{jik} \mathbf{e}_i \otimes \mathbf{e}_j \otimes \mathbf{e}_k
   $$
 
 - 四阶张量 Tetradics
   $$
-  \underline{\underline{\underline{\underline{\pmb{T}}}}}=T_{jikl} \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k\otimes \pmb{e}_l
+  \underline{\underline{\underline{\underline{\mathbf{T}}}}}=T_{jikl} \mathbf{e}_i \otimes \mathbf{e}_j \otimes \mathbf{e}_k\otimes \mathbf{e}_l
   $$
+
+
+
+
+
 
 
 
 一个经典的高阶张量是 permutation tensor：
 $$
-\underline{\underline{\underline{\pmb{E}}}} 
-= \varepsilon_{jik}\pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k
+\underline{\underline{\underline{\mathbf{E}}}} 
+= \varepsilon_{jik}\mathbf{e}_i \otimes \mathbf{e}_j \otimes \mathbf{e}_k
 $$
 显然，$n$ 阶张量在 $3$ 维空间中，有 $3^n$ 个分量
 
@@ -272,18 +277,18 @@ $$
 $$
 \textcolor{blue}{
 \begin{align}
-\pmb{T}\cdot\pmb{u} 
-= T_{ij}u_j \pmb{e}_i
+\mathbf{T}\cdot\mathbf{u} 
+= T_{ij}u_j \mathbf{e}_i
 \end{align}
 }
 $$
 
 $$
 \begin{align}
-\pmb{T}\pmb{a} 
-& = T_{ij}\pmb{e}_i\otimes\pmb{e}_ja_k\pmb{e}_k
-=T_{ij}a_k  \delta_{jk} \pmb{e}_i  \\
-& = T_{ij}a_j\pmb{e}_i
+\mathbf{T}\mathbf{a} 
+& = T_{ij}\mathbf{e}_i\otimes\mathbf{e}_ja_k\mathbf{e}_k
+=T_{ij}a_k  \delta_{jk} \mathbf{e}_i  \\
+& = T_{ij}a_j\mathbf{e}_i
 \end{align}
 $$
 缩的意思，是指原来的总阶数（2+1=3）减少了。
@@ -296,22 +301,22 @@ Simple Contraction 是用于区别 Double Contraction 的概念。
 
 ### 3.1.2 张量和张量的单点缩并
 
-根据 $(\pmb{a}\otimes\pmb{b})(\pmb{c}\otimes\pmb{d})=(\pmb{b}\cdot\pmb{c})(\pmb{a}\otimes\pmb{d})$ ，有：
+根据 $\textcolor{blue}{(\mathbf{a}\otimes\mathbf{b})(\mathbf{c}\otimes\mathbf{d})=(\mathbf{b}\cdot\mathbf{c})(\mathbf{a}\otimes\mathbf{d})}$ ，有：
 $$
 \textcolor{blue}{
-\pmb{A}\cdot\pmb{B} = A_{ik}B_{kj}\pmb{e}_i\otimes \pmb{e}_j
+\mathbf{A}\cdot\mathbf{B} = A_{ik}B_{kj}\mathbf{e}_i\otimes \mathbf{e}_j
 }
 $$
 
 $$
 \begin{align}
-\pmb{A} \pmb{B} 
+\mathbf{A} \mathbf{B} 
 & =
-A_{ij}\pmb{e}_i\otimes\pmb{e}_j 
-B_{kl}\pmb{e}_k\otimes\pmb{e}_l 
-= A_{ij}B_{kl} \delta_{jk} (\pmb{e}_i\otimes\pmb{e}_l) \\
+A_{ij}\mathbf{e}_i\otimes\mathbf{e}_j 
+B_{kl}\mathbf{e}_k\otimes\mathbf{e}_l 
+= A_{ij}B_{kl} \delta_{jk} (\mathbf{e}_i\otimes\mathbf{e}_l) \\
 \\
-& = A_{ij}B_{jl} (\pmb{e}_i\otimes\pmb{e}_l)
+& = A_{ij}B_{jl} (\mathbf{e}_i\otimes\mathbf{e}_l)
 \end{align}
 $$
 如果我们知道一个张量是由两个张量单点缩并而来，那么我们可以直接写出这个张量的分量形式：
@@ -328,8 +333,8 @@ $$
 $$
 \textcolor{blue}{
 \begin{cases}
-\pmb{T}^0 = \pmb{I} \\
-\pmb{T}^n = \pmb{T}^{n-1}\pmb{T}
+\mathbf{T}^0 = \mathbf{I} \\
+\mathbf{T}^n = \mathbf{T}^{n-1}\mathbf{T}
 \end{cases}}
 $$
 
@@ -346,12 +351,12 @@ $$
 由特征分解的定义，有：
 $$
 \begin{align}
-& \pmb{T} \hat{\pmb{n}} = \lambda \hat{\pmb{n}} \\
+& \mathbf{T} \hat{\mathbf{n}} = \lambda \hat{\mathbf{n}} \\
 \\
-\Rightarrow \quad & \pmb{T}^n \hat{\pmb{n}} = \lambda^n \hat{\pmb{n}}
+\Rightarrow \quad & \mathbf{T}^n \hat{\mathbf{n}} = \lambda^n \hat{\mathbf{n}}
 \end{align}
 $$
-故，$\pmb{T}$ 和 $\pmb{T}^n$ 的特征向量是相同的，都是 $\hat{\pmb{n}}$。
+故，$\mathbf{T}$ 和 $\mathbf{T}^n$ 的特征向量是相同的，都是 $\hat{\mathbf{n}}$。
 
 它们是同轴的。
 
@@ -360,9 +365,9 @@ $$
 由此，我们可以定义张量的实数 $m$ 次幂，有：
 $$
 \begin{align}
-& \pmb{T} = \sum_{i=1}^3 \lambda_{(i)} \hat{\pmb{n}}_{(i)} \otimes \hat{\pmb{n}}_{(i)} \\
+& \mathbf{T} = \sum_{i=1}^3 \lambda_{(i)} \hat{\mathbf{n}}_{(i)} \otimes \hat{\mathbf{n}}_{(i)} \\
 \Rightarrow \quad 
-& \pmb{T}^m = \sum_{i=1}^3 \lambda_{(i)}^m \hat{\pmb{n}}_{(i)} \otimes \hat{\pmb{n}}_{(i)} \\
+& \mathbf{T}^m = \sum_{i=1}^3 \lambda_{(i)}^m \hat{\mathbf{n}}_{(i)} \otimes \hat{\mathbf{n}}_{(i)} \\
 \end{align}
 $$
 
@@ -371,14 +376,14 @@ $$
 张量的简单缩并的规则是很简单的，如下：
 $$
 \begin{align}
-(\pmb{a} \otimes \pmb{b}) \pmb{c} 
-& = (\pmb{b} \cdot \pmb{c}) \pmb{a} \\
-(\pmb{a} \otimes \pmb{b})(\pmb{c} \otimes \pmb{d}) 
-& = (\pmb{b} \cdot \pmb{c})(\pmb{a} \otimes \pmb{d}) \\
-(\pmb{a} \otimes \pmb{b})(\pmb{c} \otimes \pmb{d} \otimes \pmb{e}) 
-& = (\pmb{b} \cdot \pmb{c})(\pmb{a} \otimes \pmb{d}\otimes \pmb{e}) \\
-(\pmb{a} \otimes \pmb{b}\otimes\pmb{c})(\pmb{d} \otimes \pmb{e} \otimes \pmb{f}) 
-& = (\pmb{c} \cdot \pmb{d})(\pmb{a} \otimes \pmb{b} \otimes \pmb{e}\otimes \pmb{f}) \\
+(\mathbf{a} \otimes \mathbf{b}) \mathbf{c} 
+& = (\mathbf{b} \cdot \mathbf{c}) \mathbf{a} \\
+(\mathbf{a} \otimes \mathbf{b})(\mathbf{c} \otimes \mathbf{d}) 
+& = (\mathbf{b} \cdot \mathbf{c})(\mathbf{a} \otimes \mathbf{d}) \\
+(\mathbf{a} \otimes \mathbf{b})(\mathbf{c} \otimes \mathbf{d} \otimes \mathbf{e}) 
+& = (\mathbf{b} \cdot \mathbf{c})(\mathbf{a} \otimes \mathbf{d}\otimes \mathbf{e}) \\
+(\mathbf{a} \otimes \mathbf{b}\otimes\mathbf{c})(\mathbf{d} \otimes \mathbf{e} \otimes \mathbf{f}) 
+& = (\mathbf{c} \cdot \mathbf{d})(\mathbf{a} \otimes \mathbf{b} \otimes \mathbf{e}\otimes \mathbf{f}) \\
 \end{align}
 $$
 简单来说就是相邻的两个向量点乘，剩下的仍然按照圈乘顺序排列。
@@ -386,10 +391,10 @@ $$
 $$
 \textcolor{blue}{
 \begin{align}
-(\pmb{a} \otimes \pmb{b})\cdot(\pmb{c} \otimes \pmb{d} \otimes \pmb{e}) 
-& = (\pmb{b} \cdot \pmb{c})(\pmb{a} \otimes \pmb{d}\otimes \pmb{e}) \\
-(\pmb{a} \otimes \pmb{b}\otimes\pmb{c})\cdot(\pmb{d} \otimes \pmb{e} \otimes \pmb{f}) 
-& = (\pmb{c} \cdot \pmb{d})(\pmb{a} \otimes \pmb{b} \otimes \pmb{e}\otimes \pmb{f}) \\
+(\mathbf{a} \otimes \mathbf{b})\cdot(\mathbf{c} \otimes \mathbf{d} \otimes \mathbf{e}) 
+& = (\mathbf{b} \cdot \mathbf{c})(\mathbf{a} \otimes \mathbf{d}\otimes \mathbf{e}) \\
+(\mathbf{a} \otimes \mathbf{b}\otimes\mathbf{c})\cdot(\mathbf{d} \otimes \mathbf{e} \otimes \mathbf{f}) 
+& = (\mathbf{c} \cdot \mathbf{d})(\mathbf{a} \otimes \mathbf{b} \otimes \mathbf{e}\otimes \mathbf{f}) \\
 \end{align}
 }
 $$
@@ -397,8 +402,8 @@ $$
 
 于是，可以很容易的证明（算算便知）
 $$
-\pmb{A}(\pmb{B} \otimes \pmb{C})\pmb{D}
-= (\pmb{A}\pmb{B}) \otimes (\pmb{C}\pmb{D})
+\mathbf{A}(\mathbf{B} \otimes \mathbf{C})\mathbf{D}
+= (\mathbf{A}\mathbf{B}) \otimes (\mathbf{C}\mathbf{D})
 $$
 
 ## 3.2 双点缩并
@@ -409,8 +414,8 @@ Dyad 的双点缩并：
 $$
 \textcolor{blue}{
 \begin{align}
-(\pmb{a}\otimes\pmb{b}):(\pmb{c}\otimes\pmb{d})
-& = (\pmb{a} \cdot \pmb{c})(\pmb{b} \cdot \pmb{d}) \\
+(\mathbf{a}\otimes\mathbf{b}):(\mathbf{c}\otimes\mathbf{d})
+& = (\mathbf{a} \cdot \mathbf{c})(\mathbf{b} \cdot \mathbf{d}) \\
 \end{align}
 }
 $$
@@ -418,46 +423,46 @@ Triadics 的双点缩并：
 $$
 \textcolor{blue}{
 \begin{align}
-(\pmb{a}\otimes\pmb{b}\otimes\pmb{c}):(\pmb{d}\otimes\pmb{e}\otimes\pmb{f})
-& = (\pmb{b} \cdot \pmb{d}) (\pmb{c} \cdot \pmb{e}) \pmb{a}\otimes\pmb{f} \\
+(\mathbf{a}\otimes\mathbf{b}\otimes\mathbf{c}):(\mathbf{d}\otimes\mathbf{e}\otimes\mathbf{f})
+& = (\mathbf{b} \cdot \mathbf{d}) (\mathbf{c} \cdot \mathbf{e}) \mathbf{a}\otimes\mathbf{f} \\
 \end{align}
 }
 $$
 Dyad 和 Triadics 的双点缩并：
 $$
 \begin{align}
-(\pmb{a}\otimes\pmb{b}\otimes\pmb{c}):(\pmb{d}\otimes\pmb{e})
-& = (\pmb{b} \cdot \pmb{d}) (\pmb{c} \cdot \pmb{e}) \pmb{a} \\
-(\pmb{a}\otimes\pmb{b}):(\pmb{c}\otimes \pmb{d}\otimes\pmb{e}) 
-& = (\pmb{a} \cdot \pmb{c}) (\pmb{b} \cdot \pmb{d}) \pmb{e} & not \ sure\ yet\\
+(\mathbf{a}\otimes\mathbf{b}\otimes\mathbf{c}):(\mathbf{d}\otimes\mathbf{e})
+& = (\mathbf{b} \cdot \mathbf{d}) (\mathbf{c} \cdot \mathbf{e}) \mathbf{a} \\
+(\mathbf{a}\otimes\mathbf{b}):(\mathbf{c}\otimes \mathbf{d}\otimes\mathbf{e}) 
+& = (\mathbf{a} \cdot \mathbf{c}) (\mathbf{b} \cdot \mathbf{d}) \mathbf{e} & not \ sure\ yet\\
 \end{align}
 $$
 张量的双点缩并：
 $$
 \textcolor{blue}{
-\pmb{A} : \pmb{B} = A_{ij} B_{ij} = tr(\pmb{A}^T\cdot\pmb{B})
+\mathbf{A} : \mathbf{B} = A_{ij} B_{ij} = tr(\mathbf{A}^T\cdot\mathbf{B})
 }
 $$
 引入张量的迹的概念之后，我们有：
 $$
-\pmb{A}:\pmb{B} = tr(\pmb{A}^T\pmb{B})=tr(\pmb{AB}^T)=tr(\pmb{B}^T\pmb{A})=tr(\pmb{BA}^T)
+\mathbf{A}:\mathbf{B} = tr(\mathbf{A}^T\mathbf{B})=tr(\mathbf{AB}^T)=tr(\mathbf{B}^T\mathbf{A})=tr(\mathbf{BA}^T)
 $$
 两个向量的点乘可以转写为，单位张量与这两个向量的圈乘的双点缩并：
 $$
-\pmb{u} \cdot \pmb{v} = \pmb{I} : (\pmb{u} \otimes \pmb{v})
+\mathbf{u} \cdot \mathbf{v} = \mathbf{I} : (\mathbf{u} \otimes \mathbf{v})
 $$
 两个向量的叉乘可以转写为，permutation tensor 与整个两个圈乘的双点缩并：
 $$
-\pmb{u} \times \pmb{v} 
-= \underline{\underline{\underline{\pmb{E}}}}: 
-(\pmb{u} \otimes \pmb{v})
+\mathbf{u} \times \mathbf{v} 
+= \underline{\underline{\underline{\mathbf{E}}}}: 
+(\mathbf{u} \otimes \mathbf{v})
 $$
 四阶张量的分量可以通过双点缩并得到，有：
 $$
 T_{jikl}
-= (\pmb{e}_i \otimes \pmb{e}_j): 
-\underline{\underline{\underline{\underline{\pmb{T}}}}}
-:( \pmb{e}_k\otimes \pmb{e}_l)
+= (\mathbf{e}_i \otimes \mathbf{e}_j): 
+\underline{\underline{\underline{\underline{\mathbf{T}}}}}
+:( \mathbf{e}_k\otimes \mathbf{e}_l)
 $$
 
 双点缩并是二阶张量的内积。
@@ -465,16 +470,16 @@ $$
 内积为零，意味着正交，于是：
 $$
 \textcolor{blue}{
-\pmb{A}:\pmb{B}=0 \Leftrightarrow \pmb{A} \bot \pmb{B}
+\mathbf{A}:\mathbf{B}=0 \Leftrightarrow \mathbf{A} \bot \mathbf{B}
 }
 $$
 这个性质是用于张量空间中的。
 
 一些推论：
 
-- $ (\pmb{A} \otimes \pmb{B}):\pmb{C} = \pmb{A} (\pmb{B}:\pmb{C}) = (\pmb{B}:\pmb{C})\pmb{A}$
-- $ \pmb{A} :(\pmb{B} \otimes \pmb{C}) = \pmb{C} (\pmb{A}:\pmb{B}) = (\pmb{A}:\pmb{B})\pmb{C}$
-- $ (\pmb{A} \otimes \pmb{B}):(\pmb{C}\otimes \pmb{D}) = (\pmb{B} : \pmb{C}) (\pmb{A} \otimes \pmb{D}) =(\pmb{A} \otimes \pmb{D})  (\pmb{B}:\pmb{C})$
+- $ (\mathbf{A} \otimes \mathbf{B}):\mathbf{C} = \mathbf{A} (\mathbf{B}:\mathbf{C}) = (\mathbf{B}:\mathbf{C})\mathbf{A}$
+- $ \mathbf{A} :(\mathbf{B} \otimes \mathbf{C}) = \mathbf{C} (\mathbf{A}:\mathbf{B}) = (\mathbf{A}:\mathbf{B})\mathbf{C}$
+- $ (\mathbf{A} \otimes \mathbf{B}):(\mathbf{C}\otimes \mathbf{D}) = (\mathbf{B} : \mathbf{C}) (\mathbf{A} \otimes \mathbf{D}) =(\mathbf{A} \otimes \mathbf{D})  (\mathbf{B}:\mathbf{C})$
 
 ## 3.3 其他运算
 
@@ -482,33 +487,33 @@ $$
 
 $$
 \begin{align}
-(\pmb{a}\otimes\pmb{b}) \cdot \cdot (\pmb{c}\otimes\pmb{d}) 
-& = (\pmb{b} \cdot \pmb{c})(\pmb{a} \cdot \pmb{d}) \\
-(\pmb{a}\otimes\pmb{b}\otimes\pmb{c})\cdot \cdot (\pmb{d}\otimes\pmb{e}\otimes\pmb{f})
-& =  (\pmb{b} \cdot \pmb{e}) (\pmb{c} \cdot \pmb{d}) \pmb{a}\otimes\pmb{f} 
+(\mathbf{a}\otimes\mathbf{b}) \cdot \cdot (\mathbf{c}\otimes\mathbf{d}) 
+& = (\mathbf{b} \cdot \mathbf{c})(\mathbf{a} \cdot \mathbf{d}) \\
+(\mathbf{a}\otimes\mathbf{b}\otimes\mathbf{c})\cdot \cdot (\mathbf{d}\otimes\mathbf{e}\otimes\mathbf{f})
+& =  (\mathbf{b} \cdot \mathbf{e}) (\mathbf{c} \cdot \mathbf{d}) \mathbf{a}\otimes\mathbf{f} 
 \end{align}
 $$
 
 **叉乘圈乘共存**
 
 $$
-(\pmb{a} \otimes \pmb{b}) \times (\pmb{c} \otimes \pmb{d}) 
-= (\pmb{a} \otimes \pmb{d}) \otimes (\pmb{b} \times \pmb{c})
+(\mathbf{a} \otimes \mathbf{b}) \times (\mathbf{c} \otimes \mathbf{d}) 
+= (\mathbf{a} \otimes \mathbf{d}) \otimes (\mathbf{b} \times \mathbf{c})
 $$
 
 **双叉乘/点乘**
 $$
 \begin{align}
 
-(\pmb{a} \otimes \pmb{b}) ^{\times}_{\times} (\pmb{c} \otimes \pmb{d}) 
+(\mathbf{a} \otimes \mathbf{b}) ^{\times}_{\times} (\mathbf{c} \otimes \mathbf{d}) 
 & = 
-(\pmb{a} \times \pmb{c}) \otimes (\pmb{b} \times \pmb{d}) \\
-(\pmb{a} \otimes \pmb{b}) ^{\times}_{\ .} (\pmb{c} \otimes \pmb{d}) 
+(\mathbf{a} \times \mathbf{c}) \otimes (\mathbf{b} \times \mathbf{d}) \\
+(\mathbf{a} \otimes \mathbf{b}) ^{\times}_{\ .} (\mathbf{c} \otimes \mathbf{d}) 
 & = 
-(\pmb{a} \times \pmb{c}) (\pmb{b} \cdot \pmb{d}) \\
-(\pmb{a} \otimes \pmb{b}) ^{\ .}_{\times} (\pmb{c} \otimes \pmb{d}) 
+(\mathbf{a} \times \mathbf{c}) (\mathbf{b} \cdot \mathbf{d}) \\
+(\mathbf{a} \otimes \mathbf{b}) ^{\ .}_{\times} (\mathbf{c} \otimes \mathbf{d}) 
 & = 
-(\pmb{a} \cdot \pmb{c}) (\pmb{b} \times \pmb{d}) \\
+(\mathbf{a} \cdot \mathbf{c}) (\mathbf{b} \times \mathbf{d}) \\
 
 \end{align}
 $$
@@ -521,41 +526,41 @@ $$
 
 坐标系变换建立在基向量变换的基础上。
 
-> 正交基向量 $\pmb{e}_1, \pmb{e}_2, \pmb{e}_3​$ 和另一个正交基向量 $\pmb{e}_1', \pmb{e}_2', \pmb{e}_3'​$ , 每个向量之间的关系可以通过他们的夹角来描述
+> 正交基向量 $\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3​$ 和另一个正交基向量 $\mathbf{e}_1', \mathbf{e}_2', \mathbf{e}_3'​$ , 每个向量之间的关系可以通过他们的夹角来描述
 > $$
 > \begin{align}
-> & \pmb{e}_i \cdot \pmb{e}_j' = Q_{ij} = cos(\pmb{e}_i, \pmb{e}_j' ) \\
+> & \mathbf{e}_i \cdot \mathbf{e}_j' = Q_{ij} = cos(\mathbf{e}_i, \mathbf{e}_j' ) \\
 > \Rightarrow \quad
-> & \pmb{e}_i = Q_{ij} \pmb{e}_j' \\
-> & \pmb{e}_i' = Q_{ji} \pmb{e}_j \\
+> & \mathbf{e}_i = Q_{ij} \mathbf{e}_j' \\
+> & \mathbf{e}_i' = Q_{ji} \mathbf{e}_j \\
 > \end{align}
 > $$
 >
 
 和向量的坐标系变换一样，张量的坐标系变换的表现，是矩阵中的分量的变化。
 
-对张量 $\pmb{T} = T_{ij} \pmb{e}_i \otimes \pmb{e}_j = T_{pq}' \pmb{e}_p' \otimes \pmb{e}_q'$ ，有：
+对张量 $\mathbf{T} = T_{ij} \mathbf{e}_i \otimes \mathbf{e}_j = T_{pq}' \mathbf{e}_p' \otimes \mathbf{e}_q'$ ，有：
 $$
 \textcolor{blue}{
-\pmb{T} = T_{ij} \pmb{e}_i \otimes \pmb{e}_j = T_{pq}' \pmb{e}_p' \otimes \pmb{e}_q'
-= T_{pq}' (Q_{ip}\pmb{e}_i) \otimes (Q_{jq}\pmb{e}_j)
+\mathbf{T} = T_{ij} \mathbf{e}_i \otimes \mathbf{e}_j = T_{pq}' \mathbf{e}_p' \otimes \mathbf{e}_q'
+= T_{pq}' (Q_{ip}\mathbf{e}_i) \otimes (Q_{jq}\mathbf{e}_j)
 \\
-[\pmb{T}']  = [\pmb{Q}^T][\pmb{T}][\pmb{Q}]
+[\mathbf{T}']  = [\mathbf{Q}^T][\mathbf{T}][\mathbf{Q}]
 }
 $$
 
 $$
 \begin{align}
-T_{ij} \pmb{e}_i \otimes \pmb{e}_j & = T_{pq}' \pmb{e}_p' \otimes \pmb{e}_q' \\
+T_{ij} \mathbf{e}_i \otimes \mathbf{e}_j & = T_{pq}' \mathbf{e}_p' \otimes \mathbf{e}_q' \\
 \\
-& = T_{pq}' (Q_{ip}\pmb{e}_i) \otimes (Q_{jq}\pmb{e}_j) \\
+& = T_{pq}' (Q_{ip}\mathbf{e}_i) \otimes (Q_{jq}\mathbf{e}_j) \\
 \\
-& = Q_{ip} Q_{jq} T_{pq}' \pmb{e}_i \otimes \pmb{e}_j \\
+& = Q_{ip} Q_{jq} T_{pq}' \mathbf{e}_i \otimes \mathbf{e}_j \\
 \\
 \Rightarrow \quad T_{ij}
 & = Q_{ip} Q_{jq} T_{pq}' \\
 \\
-[\pmb{T}] & = [\pmb{Q}][\pmb{T}'][\pmb{Q}^T]
+[\mathbf{T}] & = [\mathbf{Q}][\mathbf{T}'][\mathbf{Q}^T]
 \end{align}
 $$
 反过来就有：
@@ -564,8 +569,8 @@ $$
 T_{ij}'
 & = Q_{pi} Q_{qj} T_{pq} \\
 \\
-[\pmb{T}'] 
-& = [\pmb{Q}^T][\pmb{T}][\pmb{Q}]
+[\mathbf{T}'] 
+& = [\mathbf{Q}^T][\mathbf{T}][\mathbf{Q}]
 \end{align}
 $$
 
@@ -577,13 +582,13 @@ $$
 
 ### 例：摩尔变换 The Mohr Transformation
 
->在二维平面中存在张量 $\pmb{S}$ ，有：
+>在二维平面中存在张量 $\mathbf{S}$ ，有：
 >$$
 >\begin{align}
->\pmb{S} 
->& = S_{11} \pmb{e}_1 \otimes \pmb{e}_1  + S_{12} \pmb{e}_1 \otimes \pmb{e}_2 \\
+>\mathbf{S} 
+>& = S_{11} \mathbf{e}_1 \otimes \mathbf{e}_1  + S_{12} \mathbf{e}_1 \otimes \mathbf{e}_2 \\
 >\\
->& + S_{21} \pmb{e}_2 \otimes \pmb{e}_1  + S_{22} \pmb{e}_2 \otimes \pmb{e}_2 \\
+>& + S_{21} \mathbf{e}_2 \otimes \mathbf{e}_1  + S_{22} \mathbf{e}_2 \otimes \mathbf{e}_2 \\
 >\\
 >& = 
 >\begin{pmatrix}
@@ -595,11 +600,11 @@ $$
 >
 >通过旋转变换坐标系，旋转的角度为 $\theta$ ，变换矩阵有：
 >$$
->Q_{ij} = \pmb{e}_i \cdot \pmb{e}_j'
+>Q_{ij} = \mathbf{e}_i \cdot \mathbf{e}_j'
 >= 
 >\begin{pmatrix}
-> \pmb{e}_1 \cdot \pmb{e}_1' &  \pmb{e}_1 \cdot \pmb{e}_2' \\
-> \pmb{e}_2 \cdot \pmb{e}_1' &  \pmb{e}_2 \cdot \pmb{e}_2' \\
+> \mathbf{e}_1 \cdot \mathbf{e}_1' &  \mathbf{e}_1 \cdot \mathbf{e}_2' \\
+> \mathbf{e}_2 \cdot \mathbf{e}_1' &  \mathbf{e}_2 \cdot \mathbf{e}_2' \\
 >\end{pmatrix}
 >= 
 >\begin{pmatrix}
@@ -610,20 +615,20 @@ $$
 >于是，变换过的张量获得了新的分量，有：
 >$$
 >\begin{align}
->\pmb{S} 
->& = S_{11}' \pmb{e}_1' \otimes \pmb{e}_1'  + S_{12}' \pmb{e}_1' \otimes \pmb{e}_2' 
->+ S_{21}' \pmb{e}_2' \otimes \pmb{e}_1'  + S_{22}' \pmb{e}_2' \otimes \pmb{e}_2' \\
+>\mathbf{S} 
+>& = S_{11}' \mathbf{e}_1' \otimes \mathbf{e}_1'  + S_{12}' \mathbf{e}_1' \otimes \mathbf{e}_2' 
+>+ S_{21}' \mathbf{e}_2' \otimes \mathbf{e}_1'  + S_{22}' \mathbf{e}_2' \otimes \mathbf{e}_2' \\
 >\\
->& = (Q_{11}Q_{11}S_{11}+Q_{11}Q_{21}S_{12}+Q_{21}Q_{11}S_{21}+Q_{21}Q_{21}S_{22}) \pmb{e}_1' \otimes \pmb{e}_1' \\
+>& = (Q_{11}Q_{11}S_{11}+Q_{11}Q_{21}S_{12}+Q_{21}Q_{11}S_{21}+Q_{21}Q_{21}S_{22}) \mathbf{e}_1' \otimes \mathbf{e}_1' \\
 >& \quad \  + ...\\
 >\\
->& = (cos^2\theta S_{11} + cos\theta sin\theta S_{12} + sin\theta cos\theta S_{21} + cos^2\theta S_{22}) \pmb{e}_1' \otimes \pmb{e}_1'  \\ 
+>& = (cos^2\theta S_{11} + cos\theta sin\theta S_{12} + sin\theta cos\theta S_{21} + cos^2\theta S_{22}) \mathbf{e}_1' \otimes \mathbf{e}_1'  \\ 
 >& \quad \  + ...\\
 >\\
 >
->\Rightarrow [\pmb{S}']
+>\Rightarrow [\mathbf{S}']
 >& = 
-> [\pmb{Q}^T][\pmb{S}][\pmb{Q}]
+> [\mathbf{Q}^T][\mathbf{S}][\mathbf{Q}]
 >=
 >\begin{pmatrix}
 >cos\theta &  sin\theta \\
@@ -641,7 +646,7 @@ $$
 >\end{pmatrix}
 >\end{align}
 >$$
->当 $\pmb{S}$ 是一个对称张量的时候，我们只有三个独立分量，有：
+>当 $\mathbf{S}$ 是一个对称张量的时候，我们只有三个独立分量，有：
 >$$
 >\begin{cases}
 >S_{11}' = S_{11} cos^2 \theta + S_{22} sin^2\theta + S_{12} sin(2\theta) \\
@@ -665,33 +670,39 @@ $$
 
 - 零阶张量都是各向同性的。
 
-- 一阶张量都不是各向同性的。
+  - 一阶张量都不是各向同性的。
 
-- ==二阶张量中，只有球张量 $\alpha \pmb{I} = \alpha \delta_{ij}$ 是各向同性的。== 其他的二阶张量都是各向异性的。
+- ==二阶张量中，只有球张量 $\alpha \mathbf{I} = \alpha \delta_{ij}$ 是各向同性的。== 其他的二阶张量都是各向异性的。$\textcolor{blue}{\alpha \underline{\underline{\underline{E}}}}$
 
-- ==三阶张量中，只有张量 $\alpha \underline{\underline{\underline{E}}} = \alpha \varepsilon_{ijk} \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_k $ 是各向同性的。==
+- ==三阶张量中，只有张量 $\alpha \underline{\underline{\underline{E}}} = \alpha \varepsilon_{ijk} \mathbf{e}_i \otimes \mathbf{e}_j \otimes \mathbf{e}_k $ 是各向同性的。==
 
-  - 三阶张量比较特殊的一点是，镜像的 orthogonal 张量 ($det(\pmb{Q}) = -1$) 会让它的分量正负交换
+  - 三阶张量比较特殊的一点是，镜像的 orthogonal 张量 ($det(\mathbf{Q}) = -1$) 会让它的分量正负交换
   - 偶数阶的张量则没有这个问题
 
 - 有三个不同的基本四阶张量是各向同性的：
   $$
   \begin{align}
   \underline{\underline{\underline{\underline{I}}}} 
-  & = \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_i \otimes \pmb{e}_j \\
+  & = \mathbf{e}_i \otimes \mathbf{e}_j \otimes \mathbf{e}_i \otimes \mathbf{e}_j \\
   \\
   \tilde{\underline{\underline{\underline{\underline{I}}}}}
-  & = \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_j \otimes \pmb{e}_i \\
+  & = \mathbf{e}_i \otimes \mathbf{e}_j \otimes \mathbf{e}_j \otimes \mathbf{e}_i \\
   \\
-  \pmb{I} \otimes \pmb{I} 
-  & = \pmb{e}_i \otimes \pmb{e}_i \otimes \pmb{e}_j \otimes \pmb{e}_j \\
+  \mathbf{I} \otimes \mathbf{I} 
+  & = \mathbf{e}_i \otimes \mathbf{e}_i \otimes \mathbf{e}_j \otimes \mathbf{e}_j \\
   \end{align}
   $$
   ==四阶各向同性张量的一般形式为：==
   $$
-  \alpha\pmb{I} \otimes \pmb{I} 
+  \textcolor{blue}{
+  \alpha\mathbf{I} \otimes \mathbf{I} 
   + \beta \underline{\underline{\underline{\underline{I}}}} 
   + \gamma\tilde{\underline{\underline{\underline{\underline{I}}}}}
+  }
   $$
-  
+
+
+
+
+
 
