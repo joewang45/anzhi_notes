@@ -6,18 +6,18 @@
 
 场函数，既可以简称为场，也可以简称为函数，逗。
 
-场函数的定义：变量为空间 $\pmb{x}$ 和时间 $t$ 的函数。
+场函数的定义：变量为空间 $\mathbf{x}$ 和时间 $t$ 的函数。
 
 根据映射对象属性的不同，有：
 
-- 标量场，如温度场：$\phi (\pmb{x},t)$
-- 向量场，如速度场：$\pmb{v}(\pmb{x},t)$
-- 张量场，如应力场：$\pmb{\sigma}(\pmb{x},t)$
+- 标量场，如温度场：$\phi (\mathbf{x},t)$
+- 向量场，如速度场：$\mathbf{v}(\mathbf{x},t)$
+- 张量场，如应力场：$\mathbf{\sigma}(\mathbf{x},t)$
 
 由于涉及到多个变量，所以很多操作要通过偏微分进行，我们约定了新的记法，有：
 
 - 任意场对时间做偏微分：$\frac{\partial}{\partial t}=\dot{(\bullet)}$
-- 任意场对空间做偏微分：$\frac{\partial}{\partial \pmb{x}}= \frac{\partial}{\partial x_i} = (\bullet)_{,i}$
+- 任意场对空间做偏微分：$\frac{\partial}{\partial \mathbf{x}}= \frac{\partial}{\partial x_i} = (\bullet)_{,i}$
 
   - 向量场对空间做偏微分：$(\bullet)_{i,j}$
   - 向量场对空间做二次偏微分：$(\bullet)_{i,jk}$
@@ -25,13 +25,13 @@
 
 为了更加方便的描述场函数的各种操作，我们引入 Nabla 算子 $\nabla$ ，来代表对空间的偏微分算符，有：
 
-- 梯度的计算，*Nabla 升阶乘* ：$\nabla(\bullet) = \frac{\partial}{\partial x_i}\pmb{e}_i(\bullet):=grad(\bullet)$
-- 散度的计算，*Nabla 降阶乘* ：$\nabla\cdot (\bullet) = \frac{\partial}{\partial x_i}\pmb{e}_i\cdot(\bullet):=div(\bullet)$
-- 旋度的计算，*Nabla 不变阶乘* ：$\nabla\times (\bullet) = \frac{\partial}{\partial x_i}\pmb{e}_i\times(\bullet):=curl(\bullet)$
+- 梯度的计算，*Nabla 升阶乘* ：$\nabla(\bullet) = \frac{\partial}{\partial x_i}\mathbf{e}_i(\bullet):=grad(\bullet)$
+- 散度的计算，*Nabla 降阶乘* ：$\nabla\cdot (\bullet) = \frac{\partial}{\partial x_i}\mathbf{e}_i\cdot(\bullet):=div(\bullet)$
+- 旋度的计算，*Nabla 不变阶乘* ：$\nabla\times (\bullet) = \frac{\partial}{\partial x_i}\mathbf{e}_i\times(\bullet):=curl(\bullet)$
 
-# 1. 变量为标量的向量函数的微分 $\pmb{u}=\pmb{u}(t)$
+# 1. 变量为标量的向量函数的微分 $\mathbf{u}=\mathbf{u}(t)$
 
-我们这里以位移函数 $\pmb{u}=\pmb{u}(t)$ 为中心讨论向量函数的微分
+我们这里以位移函数 $\mathbf{u}=\mathbf{u}(t)$ 为中心讨论向量函数的微分
 
 ## 1.1 定义
 
@@ -59,7 +59,7 @@ $$
 
 位移向量函数对时间微分的物理意义是速度向量，即
 $$
-\pmb{v}=\frac{d\pmb{u}(t)}{dt}
+\mathbf{v}=\frac{d\mathbf{u}(t)}{dt}
 $$
 
 速率，即速度的模为：
@@ -76,22 +76,22 @@ $$
 于是，这一小段的速率就为：
 $$
 \begin{align}
-|\pmb{v}|
-= \frac {|d\pmb{u}|} {dt}
+|\mathbf{v}|
+= \frac {|d\mathbf{u}|} {dt}
 = \frac {ds} {dt}
 \end{align}
 $$
 
 切线的方向向量，即速度向量和速率之比，有：
 $$
-\pmb{\tau} 
-= \frac {\pmb{v}} {|\pmb{v}|}
+\mathbf{\tau} 
+= \frac {\mathbf{v}} {|\mathbf{v}|}
 = \frac {d\mathbf{u}/dt} {|d\mathbf{u}/dt|}
 $$
 
 引入路径坐标 $s$ ，有：
 $$
-\pmb{\tau}
+\mathbf{\tau}
 = \frac {d\mathbf{u}/dt}{|d\mathbf{u}/dt|}
 = \frac {d\mathbf{u} / dt} {ds/dt}
 = \frac {d\mathbf{u}} {ds}
@@ -134,8 +134,8 @@ $$
 曲率，即曲线方向的变化率，有：
 $$
 \begin{align}
-&\kappa : = |\frac{d\pmb{\tau}}{ds}|=|\frac{d}{ds}(\frac{d\mathbf{u}}{ds})|=|\frac{d^2\mathbf{u}}{ds^2}| \\
-&\Rightarrow |d \pmb{\tau}| =\kappa \cdot ds
+&\kappa : = |\frac{d\mathbf{\tau}}{ds}|=|\frac{d}{ds}(\frac{d\mathbf{u}}{ds})|=|\frac{d^2\mathbf{u}}{ds^2}| \\
+&\Rightarrow |d \mathbf{\tau}| =\kappa \cdot ds
 \end{align}
 $$
 曲率半径是曲率的倒数，可以通过圆推导出来：
@@ -143,31 +143,31 @@ $$
 R=\frac{1}{\kappa}
 $$
 
-由于切线向量的 $$\pmb{\tau}$$ 方向总是在变化的，所以空间曲线切线的变化量 $$ d\pmb{\tau}$$ 与 $$\pmb{\tau}$$ 是垂直的，有：
+由于切线向量的 $$\mathbf{\tau}$$ 方向总是在变化的，所以空间曲线切线的变化量 $$ d\mathbf{\tau}$$ 与 $$\mathbf{\tau}$$ 是垂直的，有：
 
 ![](C:\Users\wang\Documents\gitHub\anzhi_notes\continuum_mechanics\picture\4.png)
 
 $$
 \begin{align}
- & \frac{d(\pmb{\tau} \cdot \pmb{\tau})}{ds} = \frac{1}{ds} = 0 \\
-\Rightarrow & \frac{d[\pmb{\tau}(s)\cdot \pmb{\tau}(s)]}{d\pmb{\tau}(s)}\cdot \frac{d\pmb{\tau}(s)}{ds}=0 \\
-\Rightarrow & 2\pmb{\tau}(s) \cdot \frac{d\pmb{\tau}(s)}{ds}=0\\
-\Rightarrow & \pmb{\tau}\cdot d\pmb{\tau} =0
+ & \frac{d(\mathbf{\tau} \cdot \mathbf{\tau})}{ds} = \frac{1}{ds} = 0 \\
+\Rightarrow & \frac{d[\mathbf{\tau}(s)\cdot \mathbf{\tau}(s)]}{d\mathbf{\tau}(s)}\cdot \frac{d\mathbf{\tau}(s)}{ds}=0 \\
+\Rightarrow & 2\mathbf{\tau}(s) \cdot \frac{d\mathbf{\tau}(s)}{ds}=0\\
+\Rightarrow & \mathbf{\tau}\cdot d\mathbf{\tau} =0
 \end{align}
 $$
 
-$$d\pmb{\tau}$$ 方向上的单位向量$\pmb{\nu}$，有：
+$$d\mathbf{\tau}$$ 方向上的单位向量$\mathbf{\nu}$，有：
 
 $$
-\pmb{\nu}
-= \pmb{\nu}(s)
-= \frac {d\pmb{\tau}} {|d\pmb{\tau}|} 
-= \frac {d\pmb{\tau}} {\kappa(s)ds}
+\mathbf{\nu}
+= \mathbf{\nu}(s)
+= \frac {d\mathbf{\tau}} {|d\mathbf{\tau}|} 
+= \frac {d\mathbf{\tau}} {\kappa(s)ds}
 $$
 
 使用两个方向上的单位向量，可以定义出垂直于这两个单位向量的单位向量 
 $$
-\pmb{b}(s)=\pmb{\tau}(s)\times \pmb{\nu}(s)
+\mathbf{b}(s)=\mathbf{\tau}(s)\times \mathbf{\nu}(s)
 $$
 ![](C:\Users\wang\Documents\gitHub\anzhi_notes\continuum_mechanics\picture\5.png)
 
@@ -175,9 +175,9 @@ $$
 
 梯度的概念狭义上是针对空间的
 
-所以在讨论梯度计算时，被微分对象，如 $\phi(\pmb{x},t) $ 中的 $t$ 就和常数一样，写的时候带不带上是一样的。
+所以在讨论梯度计算时，被微分对象，如 $\phi(\mathbf{x},t) $ 中的 $t$ 就和常数一样，写的时候带不带上是一样的。
 
-所以我们讨论的对象都是 $\phi(\pmb{x})$
+所以我们讨论的对象都是 $\phi(\mathbf{x})$
 
 梯度计算将使场函数升阶。
 
@@ -187,9 +187,9 @@ $$
 
 <u>定义</u>：
 $$
-grad \big( \phi(\pmb{x}) \big) 
-=\nabla \phi(\pmb{x}) 
-= \frac{\partial \big( \phi(x_1,x_2,x_3) \big)}{\partial x_i}\pmb{e}_i
+grad \big( \phi(\mathbf{x}) \big) 
+=\nabla \phi(\mathbf{x}) 
+= \frac{\partial \big( \phi(x_1,x_2,x_3) \big)}{\partial x_i}\mathbf{e}_i
 $$
 <u>物理意义</u>：
 
@@ -215,17 +215,17 @@ $$
 展开，有：
 $$
 \begin{align}
-\phi(\pmb{x}+d\pmb{x}) 
-& = \phi(\pmb{x}) + \frac{d\phi(\pmb{x})}{d\pmb{x}}\cdot \big( (\pmb{x}+d\pmb{x})-\pmb{x} \big) + \underbrace{...}_{高阶小量} \\
+\phi(\mathbf{x}+d\mathbf{x}) 
+& = \phi(\mathbf{x}) + \frac{d\phi(\mathbf{x})}{d\mathbf{x}}\cdot \big( (\mathbf{x}+d\mathbf{x})-\mathbf{x} \big) + \underbrace{...}_{高阶小量} \\
 \\
-& = \phi(\pmb{x})+ d\phi(\pmb{x}) \\
+& = \phi(\mathbf{x})+ d\phi(\mathbf{x}) \\
 \\
-& = \phi(\pmb{x}) + (\frac{\partial\phi}{\partial x_1} dx_1 + \frac{\partial\phi}{\partial x_2} dx_2 + \frac{\partial\phi}{\partial x_3} dx_3) \\
+& = \phi(\mathbf{x}) + (\frac{\partial\phi}{\partial x_1} dx_1 + \frac{\partial\phi}{\partial x_2} dx_2 + \frac{\partial\phi}{\partial x_3} dx_3) \\
 \\
-& =  \phi(\pmb{x}) + \underbrace{\frac{\partial \phi}{\partial x_i}\pmb{e}_i}_{grad(\phi)} \cdot dx_j\pmb{e}_j \\
+& =  \phi(\mathbf{x}) + \underbrace{\frac{\partial \phi}{\partial x_i}\mathbf{e}_i}_{grad(\phi)} \cdot dx_j\mathbf{e}_j \\
 \\
-\Rightarrow d\phi(\pmb{x})
-& =   grad(\phi) \cdot d\pmb{x}
+\Rightarrow d\phi(\mathbf{x})
+& =   grad(\phi) \cdot d\mathbf{x}
 \end{align}
 $$
 标量场的梯度描述了标量场中，空间点上的标量值，在每个方向的变化之和，是三维空间中的“斜率”。
@@ -234,14 +234,14 @@ $$
 
 ### 例：二维温度场的梯度
 
->求环状二维温度场 $\theta(\pmb{x}) = x_1^2 +x_2^2$ 的梯度
+>求环状二维温度场 $\theta(\mathbf{x}) = x_1^2 +x_2^2$ 的梯度
 >$$
 >\begin{align}
 >\nabla \theta 
->= \frac{\partial\theta}{\partial x_i}\pmb{e}_i 
->= \frac{\partial(x_1^2+x_2^2)}{\partial x_1}\pmb{e}_1
->+  \frac{\partial(x_1^2+x_2^2)}{\partial x_2}\pmb{e}_2
->= 2x_1\pmb{e_1}+2x_2\pmb{e}_2
+>= \frac{\partial\theta}{\partial x_i}\mathbf{e}_i 
+>= \frac{\partial(x_1^2+x_2^2)}{\partial x_1}\mathbf{e}_1
+>+  \frac{\partial(x_1^2+x_2^2)}{\partial x_2}\mathbf{e}_2
+>= 2x_1\mathbf{e_1}+2x_2\mathbf{e}_2
 >\end{align}
 >$$
 >![1533130678058](..\picture\1533130678058.png)
@@ -267,10 +267,10 @@ $$
 & \frac{\partial f}{\partial x_1} \frac{dx_1}{dt} 
 + \frac{\partial f}{\partial x_2} \frac{dx_2}{dt}
 + \frac{\partial f}{\partial x_3} \frac{dx_3}{dt}
-=\nabla f\cdot \frac{d\pmb{x}}{dt} =0
+=\nabla f\cdot \frac{d\mathbf{x}}{dt} =0
 \end{align}
 $$
-因为 $d\pmb{x}/dt$ 是切线向量，所以对曲面函数（标量场）求梯度就是求它的法向量。
+因为 $d\mathbf{x}/dt$ 是切线向量，所以对曲面函数（标量场）求梯度就是求它的法向量。
 
 ### 标量场的方向导数
 
@@ -278,13 +278,13 @@ The Directional Derivative
 
 某方向导数，就是在这个方向上的变化值。
 
-采用单位向量，来计算 $d\phi(\pmb{x}) =   \nabla\phi \cdot d\pmb{x}$ 即可得到方向导数。
+采用单位向量，来计算 $d\phi(\mathbf{x}) =   \nabla\phi \cdot d\mathbf{x}$ 即可得到方向导数。
 
-记标量场 $\phi(\pmb{x})$ 在方向 $\pmb{w}$ 上的方向导数为 $D_{\pmb{w}} (\phi)$，有：
+记标量场 $\phi(\mathbf{x})$ 在方向 $\mathbf{w}$ 上的方向导数为 $D_{\mathbf{w}} (\phi)$，有：
 $$
-D_{\pmb{w}} (\phi) 
-= grad(\phi) \cdot \pmb{e}_{\pmb{w}}
-= \nabla \phi \cdot \frac{\pmb{w}}{|\pmb{w}|} 
+D_{\mathbf{w}} (\phi) 
+= grad(\phi) \cdot \mathbf{e}_{\mathbf{w}}
+= \nabla \phi \cdot \frac{\mathbf{w}}{|\mathbf{w}|} 
 $$
 也可以引入无穷小来进一步准确定义，这里不继续了。
 
@@ -304,9 +304,9 @@ $$
 
 <u>定义</u>：
 $$
-div \big( \pmb{u}(\pmb{x})\big) 
-= \nabla \cdot \pmb{u} 
-= \frac{\partial}{\partial x_i}\pmb{e}_i \cdot u_j \pmb{e}_j 
+div \big( \mathbf{u}(\mathbf{x})\big) 
+= \nabla \cdot \mathbf{u} 
+= \frac{\partial}{\partial x_i}\mathbf{e}_i \cdot u_j \mathbf{e}_j 
 = \frac{\partial u_i}{\partial x_i}
 $$
 可见是个有关位置的标量， 原向量场被降阶了。
@@ -315,7 +315,7 @@ $$
 
 > 散度描述的是场内的“物质”的损失，可以理解为逸散程度。
 >
-> 考虑处于速度场 $\pmb{v}(\pmb{x})$ 中的流体，立足于点 $(x_1,x_2,x_3)$ ，取一块边长分别为 $\Delta x_1, \Delta x_2, \Delta x_3$ 的立方体空间进行讨论，如下图：
+> 考虑处于速度场 $\mathbf{v}(\mathbf{x})$ 中的流体，立足于点 $(x_1,x_2,x_3)$ ，取一块边长分别为 $\Delta x_1, \Delta x_2, \Delta x_3$ 的立方体空间进行讨论，如下图：
 >
 > ![1533135514031](..\picture\1533135514031.png)
 >
@@ -344,7 +344,7 @@ $$
 > 故，同理，流场中，所有方向上，单位体积单位时间内，损失的量就为：
 > $$
 > \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} 
-> = div (\pmb{v})
+> = div (\mathbf{v})
 > $$
 > 散度为正说明有损失，散度为零说明没有损失
 >
@@ -352,7 +352,7 @@ $$
 
 向量场的散度，或者说是散度的，更一般的定义，是梯度与二阶单位张量的两点并积，有：
 $$
-div(\pmb{u})= grad(\pmb{u}): \pmb{I} = \nabla\cdot\pmb{u}
+div(\mathbf{u})= grad(\mathbf{u}): \mathbf{I} = \nabla\cdot\mathbf{u}
 $$
 
 # 4. 旋度

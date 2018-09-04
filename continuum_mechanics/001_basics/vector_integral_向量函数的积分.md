@@ -204,8 +204,10 @@ $$
 $$
 应用雅克比矩阵变换坐标系：
 $$
-\int f(x) dx = \int f[x(y)] dx =\int f(y) \cdot det(\frac{\partial x_i}{\partial y_j}) dy
+\int f(x) dx = \int f[x(t)] dx =\int g(t) \cdot det(\frac{\partial x_i}{\partial t_j}) dt
 $$
+
+
 
 ---
 
@@ -349,7 +351,7 @@ $$
 于是，有：
 $$
 \iint \pmb{f}dS
-= \iint\pmb{f} = |\frac{\partial \pmb{x} }{\partial t_1} \times \frac{\partial \pmb{x} }{\partial t_2}| dt_1dt_2 \\
+= \iint\pmb{f} |\frac{\partial \pmb{x} }{\partial t_1} \times \frac{\partial \pmb{x} }{\partial t_2}| dt_1dt_2 \\
 $$
 由于 $$\pmb{x}$$ 是一个三维向量，而我们要把它转到二维上去，所以我们无法直接构造出一个矩阵的行列式
 
