@@ -12,9 +12,11 @@ r = 1
 % [x1,x2,x3] = meshgrid (i0:dist:ie,i0:dist:ie,i0:dist:ie)
 % C = x1.^2 + x2.^2 + x3.^2
 % [F1,F2,F3]=gradient(C)
+% 
+% x3 = real(sqrt(r^2-x1.^2-x2.^2))
 % quiver3(x1,x2,x3,F1,F2,F3)
-
 % hold on
+
 
 [s1,s2,s3]=sphere
 s1 = r.*s1
