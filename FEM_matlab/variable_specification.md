@@ -12,6 +12,8 @@
 | Material property table         | prop       |          |
 | Nodal boundary condition table  | nd_bc      |          |
 | Nodal loading condition table   | nd_f       |          |
-| Nodal displacement table        | nd_U      |          |
 | Force vector in global function | F_gl       |          |
 | Displacement vector in global function | U_gl | |
+| Nodal displacement table        | nd_U      |          |
+| Element force table| el_F ||
+

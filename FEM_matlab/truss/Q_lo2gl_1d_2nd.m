@@ -1,10 +1,10 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% FUNCTION: Q_lo2gl = Q_lo2gl_1d_2nd(el_no)                   
-% coordinate transformation from local to global
-% for 1-d element with 2 nodes
-% input is Element No.
-% returns transformation matrix from local to global
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FUNCTION: Q_lo2gl = Q_lo2gl_1d_2nd(el_no)          %        
+% coordinate transformation from local to global     %
+% for 1-d element with 2 nodes                       %
+% input is Element No.                               %
+% returns transformation matrix from local to global %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % function truss_C: input i, return C
 function [Q_lo2gl] = Q_lo2gl_1d_2nd (el_no)
@@ -30,6 +30,7 @@ function [Q_lo2gl] = Q_lo2gl_1d_2nd (el_no)
         end
     else 
         theta = atan ( (y2 - y1) / (x2 - x1) )
+    end
         
     % construct the transformation matrix for the 1-d element
     Q_lo2gl = [ cos(theta)  -sin(theta)      0            0      ; ...

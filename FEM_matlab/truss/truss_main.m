@@ -27,15 +27,15 @@ truss_model_information
 %% build the gloabal equation
 % initialize the global stiffness matrix and force vector
 % the global displacement vector is to derive from them
-K = zeros(n_dof_tot)
-F = zeros(n_dof_tot,1)
+K_gl = zeros(n_dof_tot)
+F_gl = zeros(n_dof_tot,1)
 
 for i = 1 : n_el
-    kl = truss_kl(i)
-    C = truss_C(i)
-    kg = C*kl*C'
-    g = truss_g(i)
-    KK = form_KK(KK,kg,g)
+    K_el_lo = truss_K_lo(i)
+    Q_lo2gl = Q_lo2gl_1d_2nd(i)
+    K_el_gl = Q_lo2gl * K_lo * Q_lo2gl'
+    U0_gl = U0_el_bc_1d_2nd(i)
+    K_gl = K_gl_build(K_gl,K_el_gl,U0_gl)
 end
 
 F = form_truss_F(F)
