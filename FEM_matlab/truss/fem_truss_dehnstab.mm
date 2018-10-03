@@ -12,10 +12,9 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <font NAME="Comic Sans MS" SIZE="22"/>
-<hook NAME="MapStyle" zoom="0.685">
+<hook NAME="MapStyle" zoom="0.623">
     <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
@@ -102,7 +101,7 @@
 <edge COLOR="#ffffff"/>
 <node TEXT="Truss Element" POSITION="right" ID="ID_1534362128" CREATED="1535701640439" MODIFIED="1537614114132" HGAP_QUANTITY="26.7499996200204 pt" VSHIFT_QUANTITY="-74.24999778717763 pt" COLOR="#ffffff" BACKGROUND_COLOR="#ff0000">
 <edge COLOR="#ff0000" WIDTH="10"/>
-<node TEXT="1st Discretizing: total to elements" ID="ID_950308531" CREATED="1537609611448" MODIFIED="1537613060282">
+<node TEXT="1st Discretization: total to elements" ID="ID_950308531" CREATED="1537609611448" MODIFIED="1537615396304">
 <node TEXT="PvV" ID="ID_562317190" CREATED="1537611397151" MODIFIED="1537612982650" HGAP_QUANTITY="15.499999955296516 pt" VSHIFT_QUANTITY="-12.7499996200204 pt">
 <node TEXT="\latex $ \delta A_{tot} = \sum \delta A_{el} = 0 $" ID="ID_173835363" CREATED="1537610438826" MODIFIED="1537612985638" HGAP_QUANTITY="18.499999865889553 pt" VSHIFT_QUANTITY="-21.749999351799506 pt">
 <node TEXT="\latex $-\delta A_{el} = &#xa;\int \delta u(x)_{,x} \cdot EA \cdot u(x)_{,x} dx &#xa;- \int \delta u(x) \cdot q_x(x) dx &#xa;- \delta u_{node} \cdot N_{node} &#xa;\neq 0 $" ID="ID_1715894285" CREATED="1537609617933" MODIFIED="1537612989969" MAX_WIDTH="200.0 cm" HGAP_QUANTITY="36.49999932944777 pt" VSHIFT_QUANTITY="-14.249999575316917 pt">
@@ -113,7 +112,7 @@
 </node>
 </node>
 </node>
-<node TEXT="2nd Discretizing: elements to nodes" ID="ID_1664501066" CREATED="1537611240745" MODIFIED="1537613073247">
+<node TEXT="2nd Discretization: elements to nodes" ID="ID_1664501066" CREATED="1537611240745" MODIFIED="1537615400422">
 <node TEXT="Shape Function" ID="ID_1072985977" CREATED="1537611252148" MODIFIED="1537612999107" HGAP_QUANTITY="25.999999642372142 pt" VSHIFT_QUANTITY="-22.499999329447768 pt">
 <node TEXT="linear" ID="ID_1651572925" CREATED="1537611440509" MODIFIED="1537613001627" HGAP_QUANTITY="25.249999664723884 pt" VSHIFT_QUANTITY="-26.249999217689062 pt">
 <node TEXT="\latex $ u(x) = (1-\frac{x}{l})\cdot u_A + \frac{x}{l} \cdot u_B" ID="ID_1325536118" CREATED="1537611446906" MODIFIED="1537613001627" HGAP_QUANTITY="37.249999307096026 pt" VSHIFT_QUANTITY="-21.749999351799506 pt"/>
@@ -129,7 +128,7 @@
 </node>
 </node>
 </node>
-<node TEXT="From local to global" ID="ID_1470322045" CREATED="1537612946393" MODIFIED="1537614044699">
+<node TEXT="Global Form" ID="ID_1470322045" CREATED="1537612946393" MODIFIED="1537615418715">
 <node TEXT="Deflection" ID="ID_1103845738" CREATED="1537612955717" MODIFIED="1537613779363" HGAP_QUANTITY="26.7499996200204 pt" VSHIFT_QUANTITY="-11.999999642372142 pt">
 <node TEXT="\latex $&#xa;\begin{pmatrix} U_A \\ V_A \\ U_B \\ V_B \end{pmatrix}&#xa;=&#xa;\begin{pmatrix} cos \theta &amp; -sin \theta &amp; 0 &amp; 0 \\ &#xa;sin \theta &amp; cos \theta &amp; 0 &amp; 0  \\ &#xa;0 &amp; 0 &amp; cos \theta &amp; - sin \theta \\ &#xa; 0 &amp; 0 &amp; sin \theta &amp; cos \theta \end{pmatrix}&#xa;\begin{pmatrix} u_A \\ v_A \\ u_B \\ v_B \end{pmatrix}&#xa;&#xa;$" ID="ID_1941064561" CREATED="1537613152997" MODIFIED="1537613886327" HGAP_QUANTITY="48.499998971819906 pt" VSHIFT_QUANTITY="-60.74999818950897 pt" MAX_WIDTH="20.0 cm">
 <node TEXT="\latex $&#xa;\tensor{u}_{gl} = \tensor{Q} \cdot \tensor{u}_{lo}&#xa;\Rightarrow \tensor{u}_{lo} = \tensor{Q}^T \cdot \tensor{u}_{gl}&#xa;$" ID="ID_171771073" CREATED="1537613849205" MODIFIED="1537613997816" HGAP_QUANTITY="42.49999915063384 pt" VSHIFT_QUANTITY="4.499999865889553 pt"/>

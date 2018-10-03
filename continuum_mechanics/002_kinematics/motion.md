@@ -10,9 +10,9 @@
 
 我们只讨论真实物体在抽象世界中投影，称作 Body。
 
-一个 Body 应该有一些连续的性质，即连续的函数。
+一个 Body 应该有一些连续的性质，即这些性质是连续的函数。
 
-一个和真实世界比较接近的抽象世界是欧几里得空间。
+一个比较容易接近我们平时生活的抽象世界是欧几里得空间。
 
 我们讨论在欧几里得空间中的 Body。
 
@@ -20,13 +20,14 @@
 
 通过研究这些向量的性质，来研究物体的性质。
 
----
 
 ## 构型和运动
 
-在真实世界和抽象世界之间，我们可以定义出一个映射 $\chi$ 联系物理世界和数学世界，有：
+在真实世界和抽象世界之间，我们可以定义出一个映射 $\chi$ 联系物理世界（M：Matter）和数学世界，有：
 $$
 \begin{align}
+\chi&:  M\mapsto \pmb{x} \\
+\\
 \pmb{x} & = \chi(M)  := 构型\\
 \\
 M & = \chi^{-1} (\pmb{x})
@@ -50,17 +51,21 @@ $$
 
 ## 参考构型和即时构型
 
-由于运动是相对的，所以我们需要一个参考构型，来描述运动。
+由于运动是相对的，所以我们需要一个参考构型，来描述其他运动。
 
-一般地，可以任意选择 $t=t_0$ 时的构型，作为参考构型。
+一般地，可以任意选择 $t=t_0​$ 时的构型，作为参考构型。
 
->  我们可以选择 $t=0$ 时的 Initial Configuration；也可以选择内部无应力的 Undeformed Configuration。
+>  我们可以选择 $t=0$ 时的 Initial Configuration
+>
+>  也可以选择内部无应力的 Undeformed Configuration
 
 在一段时间之后，在 $t$ 时刻，Body 运动到了我们需要研究的这么一个构型，即 Current Configuration。
 
 通过物理实体这么一个中间媒介，我们可以建立即时构型和参考构型之间的映射。
 
 ![1533998044479](../picture/1533998044479.png)
+
+关键在于，构型之间是无法直接建立映射的，必须通过物理实体这么一个中间媒介，才可以建立映射。
 
 要注意的是，在不同时间，可以用不同的坐标系描述物质点。也就是说，$\vec{x}_{t_{0}}$ 和 $\vec{x}_{t_{1}}$ 可以是不同的坐标系，如：
 
@@ -72,12 +77,18 @@ $$
 
 由于运动是相对的，我们既可以站在 $\pmb{X}$ 上看 $\pmb{x}$（参考系不动）；也可以站在 $\pmb{x}$ 上看 $\pmb{X}$（参考系运动）。
 
+我们可以基于一个不动的参考系，描述某研究对象的运动（拉格朗日 is a stalker）
+
+我们也可以
+
 参考系不动的考察方式，称作拉格朗日描述；参考系运动的考察方式，称作欧拉描述。
 
 - 拉格朗日描述：$\pmb{x}=\pmb{x}(\pmb{X},t)$
 - 欧拉描述：$\pmb{X}=\pmb{X}(\pmb{x}(t),t)$
 
 这两种描述方式在描述小变形时没有区别，在描述有限变形时区别较大。
+
+两者最大的区别体现在对时间求导的时候。
 
 为了说明这两者的关系和区别，我们引入两个例子：
 
@@ -122,9 +133,28 @@ $$
 - 拉格朗日描述：$\pmb{x}=\pmb{x}(\pmb{X},t)$
 - 欧拉描述：$\pmb{X}=\pmb{X}(\pmb{x}(t),t)$
 
-对映射，可以使用泰勒级数，对拉格朗日描述 $\pmb{x}(\pmb{X}+d\pmb{X})$ 展开。
+对拉格朗日描述的映射 $$ \chi: \pmb{X} \mapsto \pmb{x}(\pmb{X}）$$ 可以使用泰勒级数，对拉格朗日描述 $\pmb{x}(\pmb{X}+d\pmb{X})$ 展开。
 
 在忽略小量的情况下，我们可以得到变形梯度张量场。
+
+有：
+
+
+$$
+\begin{align}
+\pmb{x}(\pmb{X}+d\pmb{X}) 
+& = \pmb{x}(\pmb{X}) + \frac{d\pmb{x}(\pmb{X})}{d\pmb{X}}\cdot \big( (\pmb{X}+d\pmb{X})-\pmb{X} \big) + \underbrace{...}_{高阶小量} \\
+\\
+& = \pmb{x}(\pmb{X})+ d\pmb{x}(\pmb{X}) \\
+\\
+& = \pmb{x}(\pmb{X}) + \frac{\partial x_i}{\partial X_j} \pmb{e}_i \otimes \pmb{e}_j \cdot dX_k \pmb{e}_k\\
+\\
+& = \pmb{x}(\pmb{X}) + d\pmb{x}(\pmb{X}) \\
+\\
+\Rightarrow d\pmb{x}(\pmb{X})
+& =   grad(\pmb{x}) \cdot d\pmb{X}
+\end{align}
+$$
 
 ![1534506051427](../picture/1534506051427.png)
 
@@ -168,3 +198,35 @@ Rigid Body Rotation and Translations
 
 ### 变形梯度张量的逆
 
+对由即时构型到参考构型的映射，即变形的逆映射 $$\chi^{-1} : \pmb{x} \mapsto \pmb{X}(\pmb{x})$$ 也可以作泰勒展开，有：
+$$
+\begin{align}
+\pmb{X}(\pmb{x}+d\pmb{x}) 
+& = \pmb{X}(\pmb{x}) + \frac{d\pmb{X}(\pmb{x})}{d\pmb{x}}\cdot \big( (\pmb{x}+d\pmb{x})-\pmb{x} \big) + \underbrace{...}_{高阶小量} \\
+\\
+& = \pmb{X}(\pmb{x})+ d\pmb{X}(\pmb{x}) \\
+\\
+& = \pmb{X}(\pmb{x}) + \frac{\partial X_i}{\partial x_j} \pmb{e}_i \otimes \pmb{e}_j \cdot dx_k \pmb{e}_k\\
+\\
+\Rightarrow d\pmb{X}(\pmb{x})
+& =   \pmb{F}^{-1} \cdot d\pmb{x}
+\end{align}
+$$
+
+### 例：变形梯度和它的逆
+
+某变形，即映射 $$ \chi: \pmb{X} \mapsto \pmb{x}(\pmb{X}）$$，在物质坐标系下，有：
+$$
+\pmb{x} = \pmb{x}(\pmb{X}) = 
+\begin{pmatrix}
+2X_1- 2X_3 \\ -X_2 \\ X_1 + 3X_2 + X_3
+\end{pmatrix}
+$$
+我们可以通过列方程组，得到其逆映射 $$\chi^{-1} : \pmb{x} \mapsto \pmb{X}(\pmb{x})$$ 在同一个坐标系下的表示，有：
+$$
+\pmb{X} = \pmb{X}(\pmb{x}) = 
+\begin{pmatrix}
+x_1 + 5x_2 + x_3 \\ -x_2 \\ -x_1 -2x_2
+\end{pmatrix}
+$$
+对于这样一个向量场，
