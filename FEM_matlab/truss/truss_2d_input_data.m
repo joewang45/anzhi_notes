@@ -39,7 +39,7 @@ for i = 1 : n_el
 end
          
 %% Calculate the total DOFs
-% Here strongly simplified !!!
+% Here simplified, that total DOFs should be calculated from the EL_TYPES
 
 n_dof_a_nd = 2
 n_nd_a_el =2

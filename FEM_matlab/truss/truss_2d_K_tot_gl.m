@@ -26,15 +26,3 @@ function [K_tot_gl] = truss_2d_K_tot_gl (el_no, K_tot_gl, K_el_gl)
     K_tot_gl(NodeB*n_dof_a_nd  ,NodeB*n_dof_a_nd  ) = K_tot_gl(NodeB*n_dof_a_nd  ,NodeB*n_dof_a_nd  ) + K_el_gl(4,4)
     
     
-%     NodeA = el_cfg (el_no, 1)
-%     NodeB = el_cfg (el_no, 2)
-% 
-%     nd_el = [el_cfg(el_no,1); el_cfg(el_no,2)]
-%     
-%     
-%     for i = 1 : size(nd_el)
-%         for j = 1 : size(nd_el)
-%             K_tot_gl ( nd_el(i) * nd_dof_a_nd-1 , nd_el(j) * 
-%             
-% 
-%     

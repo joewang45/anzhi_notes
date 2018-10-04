@@ -18,7 +18,7 @@ for i = 1 : n_el
     K_el_lo = truss_2d_K_el_lo(i)
     Q = coor_trans_1d (i)
     K_el_gl = Q * K_el_lo * Q'
-    K_tot_gl = truss_2d_K_tot_gl ( i, K_tot_gl, K_el_gl )
+    K_tot_gl = truss_2d_K_tot_gl_rev2 ( i, K_tot_gl, K_el_gl )
 end 
 
 % build the global force vector 
@@ -44,7 +44,8 @@ for i = 1 : n_nd
 end
 
 %% Solve the global equation
+
 U_tot_gl = K_tot_gl \ F_tot_gl
- 
+
 %% Post Process
 % 
