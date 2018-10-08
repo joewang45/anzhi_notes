@@ -40,7 +40,7 @@ $$
   =  \frac{\partial u_j}{\partial x_i}\pmb{e}_i \otimes \pmb{e}_j
   = \Big( grad(\pmb{u})\Big)^T
   $$
-  虽然也有把这个定义为梯度的，但是为了区分，我们记它为 $\nabla \otimes \pmb{u}$ 
+  虽然也有把这个定义为梯度的（Altenbach），但是为了区分，我们记它为 $\nabla \otimes \pmb{u}$ 
 
 - 用转置的方法定义：
   $$
@@ -53,6 +53,7 @@ $$
   = \frac{\partial (\bullet)}{\partial x_i} \otimes \pmb{e}_i 
   = grad(\bullet)
   $$
+
 
 
 

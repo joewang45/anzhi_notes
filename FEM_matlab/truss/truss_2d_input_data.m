@@ -1,3 +1,5 @@
+%% TRUSS_2D_INPUT_DATA %%
+
 global truss_model_name node n_nd E A el_cfg n_el 
 global n_dof_a_nd n_nd_a_el n_dof_a_el n_dof_tot 
 

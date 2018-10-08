@@ -1,3 +1,5 @@
+%% TRUSS_2D_K_el_lo %%
+
 function [K_el_lo] = truss_2d_K_el_lo (el_no)
 
     global node el_cfg

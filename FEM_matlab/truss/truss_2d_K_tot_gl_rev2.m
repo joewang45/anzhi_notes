@@ -1,3 +1,5 @@
+%% TRUSS_2D_K_tot_gl_rev2 %%
+
 function [K_tot_gl] = truss_2d_K_tot_gl_rev2 (el_no, K_tot_gl, K_el_gl)
 
     global node   el_cfg   n_nd_a_el   n_dof_a_nd   n_dof_a_el

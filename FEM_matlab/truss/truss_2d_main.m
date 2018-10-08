@@ -1,3 +1,5 @@
+%% TRUSS_2D_MAIN %%
+
 %% initializing
 clc % clear screen 
 clear % clear variables in memory
@@ -44,8 +46,11 @@ for i = 1 : n_nd
 end
 
 %% Solve the global equation
-
 U_tot_gl = K_tot_gl \ F_tot_gl
 
 %% Post Process
-% 
+% get the local nodal displacement 
+
+% calculate the truss force
+
+% output 
