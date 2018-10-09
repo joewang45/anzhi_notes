@@ -5,8 +5,8 @@ clc % clear screen
 clear % clear variables in memory
 
 % get variables
-global truss_model_name node n_nd E A el_cfg n_el 
-global n_dof_a_nd n_nd_a_el n_dof_a_el n_dof_tot 
+global truss_model_name   node n_nd   E   A   el_cfg   n_el 
+global n_dof_a_nd   n_nd_a_el   n_dof_a_el   n_dof_tot   U_tot_gl 
 
 %% input model information
 truss_2d_input_data
@@ -50,6 +50,7 @@ U_tot_gl = K_tot_gl \ F_tot_gl
 
 %% Post Process
 % get the local nodal displacement 
+
 
 % calculate the truss force
 

@@ -7,7 +7,6 @@ global n_dof_a_nd n_nd_a_el n_dof_a_el n_dof_tot
 truss_model_name = 'myTrussModel'
 
 % Units in mm, N
-L = 5000 
 
 %% Nodal Coordiantes, Boundary Conditions and Forces
 %  0 = constrainted ; 1 = free
@@ -25,9 +24,9 @@ A = 2300
 
 %% Element Configuration
 %           Node A  Node B  EL_TYPE  E-Modulus  Section Area   Length
-el_cfg= [      1       2       1         E            A          0;
-               2       3       1         E            A          0;
-               1       3       1         E            A          0;
+el_cfg= [      1       2       1         E            A          0      ;
+               2       3       1         E            A          0      ;
+               1       3       1         E            A          0      ;
         ]
 n_el = size(el_cfg, 1)
 

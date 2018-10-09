@@ -1,10 +1,16 @@
-%% TRUSS_2D_K_tot_gl_rev2 %%
+%% POSITION_VECTOR_TO_GET_POSITION %%
 
-function [K_tot_gl] = truss_2d_K_tot_gl_rev2 (el_no, K_tot_gl, K_el_gl)
+function [pos] = pos_vec(el_no, el_typ)
 
-    global node   el_cfg   n_nd_a_el   n_dof_a_nd  n_dof_a_el
+    global node   el_cfg
     
-    %% 
+    % el_typ 1 = truss_2d
+    if el_typ = 1 
+        n_dof_a_nd = 2
+        n_nd_a_el = 2
+        n_dof_a_el = 4
+    end
+     
     % get the node number of the el_no
     % e.g. truss element 3 has nodes [1; 3]
     nd_el = zeros(n_nd_a_el,1)
@@ -23,14 +29,7 @@ function [K_tot_gl] = truss_2d_K_tot_gl_rev2 (el_no, K_tot_gl, K_el_gl)
     for i = 1 : n_dof_a_el
         pos_vec(i) = a(i) * n_dof_a_nd - b(i)
     end
-    
-    %% Form the global stifness matrix
-    for i = 1 : n_dof_a_el
-        for j = 1 : n_dof_a_el
-            K_tot_gl ( pos_vec(i), pos_vec(j) ) = K_tot_gl ( pos_vec(i), pos_vec(j) ) + K_el_gl (i,j)
-        end
-    end
-    
+
 end
 
 %% Subfunctions for the positioning
