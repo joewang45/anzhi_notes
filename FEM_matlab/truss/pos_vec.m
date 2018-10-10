@@ -1,18 +1,20 @@
-%% POSITION_VECTOR_TO_GET_POSITION %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% POSITION VECTOR           %
+% TO GET POSITION           %
+% IN GLOBAL STIFNESS MATRIX %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [pos] = pos_vec(el_no, el_typ)
+function [pos] = pos_vec(el_no)
 
-    global node   el_cfg
+    global el_cfg
     
-    % el_typ 1 = truss_2d
-    if el_typ = 1 
-        n_dof_a_nd = 2
+    % get DOF information of the element
+    if el_cfg ( el_no, 3) == 1
         n_nd_a_el = 2
-        n_dof_a_el = 4
+        n_dof_a_nd = 2
     end
-     
+    
     % get the node number of the el_no
-    % e.g. truss element 3 has nodes [1; 3]
     nd_el = zeros(n_nd_a_el,1)
 	for i = 1 : n_nd_a_el
 		nd_el(i) = el_cfg(el_no,i)
@@ -25,9 +27,9 @@ function [pos] = pos_vec(el_no, el_typ)
     b = span_array_2 (n_nd_a_el, n_dof_a_nd)
     
     % from [1 ; 3] to  [1 ; 2 ; 5 ; 6]
-    pos_vec = zeros (n_dof_a_el, 1)
-    for i = 1 : n_dof_a_el
-        pos_vec(i) = a(i) * n_dof_a_nd - b(i)
+    pos = zeros (n_dof_a_nd * n_nd_a_el, 1)
+    for i = 1 : n_dof_a_nd * n_nd_a_el
+        pos(i) = a(i) * n_dof_a_nd - b(i)
     end
 
 end
@@ -43,7 +45,7 @@ end
             end
     end    
     
-    function [b] = span_array_2 ( n_nd , n_dof_a_nd )
+    function [b] = span_array_2 ( n_nd_a_el , n_dof_a_nd )
         % this function creates an array for positioning
         % e.g. span_array_2 ( 3 , 2 )
         % returns [2 ; 1; 0 ; 2 ; 1 ; 0]
@@ -51,7 +53,7 @@ end
         b = n_dof_a_nd -1 : -1 : 0
         b0 = b
         i = 1
-        while i < n_nd 
+        while i < n_nd_a_el 
             b = cat (2, b, b0)
             i = i + 1
         end

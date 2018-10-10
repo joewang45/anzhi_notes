@@ -1,30 +1,31 @@
-%% TRUSS_2D_K_tot_gl_rev1 %%
+%% TRUSS_2D_K_tot_gl_rev2 %%
 
 function [K_tot_gl] = truss_2d_K_tot_gl (el_no, K_tot_gl, K_el_gl)
 
-    global node el_cfg n_dof_a_nd n_dof_a_el
+    global el_cfg
     
-    NodeA = el_cfg (el_no, 1)
-    NodeB = el_cfg (el_no, 2)
+    % get DOF information of the element
+    if el_cfg ( el_no, 3) == 1
+        n_nd_a_el = 2
+        n_dof_a_nd = 2
+    end
+    
+    % get the node number of the element el_no
+    nd_el = zeros(n_nd_a_el,1)
+	for i = 1 : n_nd_a_el
+		nd_el(i) = el_cfg(el_no,i)
+    end
+    
+    % get the positioning vector 
+    pos = pos_vec (el_no)
+    
+    %% Form the global stifness matrix
+    for i = 1 : n_dof_a_nd * n_nd_a_el
+        for j = 1 : n_dof_a_nd * n_nd_a_el
+            K_tot_gl ( pos(i), pos(j) ) = K_tot_gl ( pos(i), pos(j) ) + K_el_gl (i,j)
+        end
+    end
+    
+end
 
-    K_tot_gl(NodeA*n_dof_a_nd-1,NodeA*n_dof_a_nd-1) = K_tot_gl(NodeA*n_dof_a_nd-1,NodeA*n_dof_a_nd-1) + K_el_gl(1,1)
-    K_tot_gl(NodeA*n_dof_a_nd-1,NodeA*n_dof_a_nd  ) = K_tot_gl(NodeA*n_dof_a_nd-1,NodeA*n_dof_a_nd  ) + K_el_gl(1,2)
-    K_tot_gl(NodeA*n_dof_a_nd-1,NodeB*n_dof_a_nd-1) = K_tot_gl(NodeA*n_dof_a_nd-1,NodeB*n_dof_a_nd-1) + K_el_gl(1,3)
-    K_tot_gl(NodeA*n_dof_a_nd-1,NodeB*n_dof_a_nd  ) = K_tot_gl(NodeA*n_dof_a_nd-1,NodeB*n_dof_a_nd  ) + K_el_gl(1,4)
-    
-    K_tot_gl(NodeA*n_dof_a_nd  ,NodeA*n_dof_a_nd-1) = K_tot_gl(NodeA*n_dof_a_nd  ,NodeA*n_dof_a_nd-1) + K_el_gl(2,1)
-    K_tot_gl(NodeA*n_dof_a_nd  ,NodeA*n_dof_a_nd  ) = K_tot_gl(NodeA*n_dof_a_nd  ,NodeA*n_dof_a_nd  ) + K_el_gl(2,2)
-    K_tot_gl(NodeA*n_dof_a_nd  ,NodeB*n_dof_a_nd-1) = K_tot_gl(NodeA*n_dof_a_nd  ,NodeB*n_dof_a_nd-1) + K_el_gl(2,3)
-    K_tot_gl(NodeA*n_dof_a_nd  ,NodeB*n_dof_a_nd  ) = K_tot_gl(NodeA*n_dof_a_nd  ,NodeB*n_dof_a_nd  ) + K_el_gl(2,4)
-    
-    K_tot_gl(NodeB*n_dof_a_nd-1,NodeA*n_dof_a_nd-1) = K_tot_gl(NodeB*n_dof_a_nd-1,NodeA*n_dof_a_nd-1) + K_el_gl(3,1)
-    K_tot_gl(NodeB*n_dof_a_nd-1,NodeA*n_dof_a_nd  ) = K_tot_gl(NodeB*n_dof_a_nd-1,NodeA*n_dof_a_nd  ) + K_el_gl(3,2)
-    K_tot_gl(NodeB*n_dof_a_nd-1,NodeB*n_dof_a_nd-1) = K_tot_gl(NodeB*n_dof_a_nd-1,NodeB*n_dof_a_nd-1) + K_el_gl(3,3)
-    K_tot_gl(NodeB*n_dof_a_nd-1,NodeB*n_dof_a_nd  ) = K_tot_gl(NodeB*n_dof_a_nd-1,NodeB*n_dof_a_nd  ) + K_el_gl(3,4)
-    
-    K_tot_gl(NodeB*n_dof_a_nd  ,NodeA*n_dof_a_nd-1) = K_tot_gl(NodeB*n_dof_a_nd  ,NodeA*n_dof_a_nd-1) + K_el_gl(4,1)
-    K_tot_gl(NodeB*n_dof_a_nd  ,NodeA*n_dof_a_nd  ) = K_tot_gl(NodeB*n_dof_a_nd  ,NodeA*n_dof_a_nd  ) + K_el_gl(4,2)
-    K_tot_gl(NodeB*n_dof_a_nd  ,NodeB*n_dof_a_nd-1) = K_tot_gl(NodeB*n_dof_a_nd  ,NodeB*n_dof_a_nd-1) + K_el_gl(4,3)
-    K_tot_gl(NodeB*n_dof_a_nd  ,NodeB*n_dof_a_nd  ) = K_tot_gl(NodeB*n_dof_a_nd  ,NodeB*n_dof_a_nd  ) + K_el_gl(4,4)
-    
-    
+
