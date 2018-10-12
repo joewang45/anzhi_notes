@@ -52,7 +52,6 @@ k = 1
 for i = 1 : size(node,1)
     for j = 3 : 4 
         if node(i,j) == 0
-            % max( max (el_cfg,[],2)) =  maximal E-Modulus in System
             K_tot_gl(k,k) = K_tot_gl(k,k) + myBigNumber
         elseif node(i,j) == 1
 

@@ -29,11 +29,11 @@ end
 for i = 1 : size(node,1)
     for j = 1 : 2  
         if node(i,j + 2) == 0
-            node(i, j + 7) = (node(i, j + 9) - node(i, j )) * myBigNumber
+            node(i, j + 7) = - (node(i, j + 9) - node(i, j )) * myBigNumber
         elseif node(i,j + 2) == 1
             
         else
-            node(i, j + 7) = (node(i, j + 9) - node(i, j )) * node(i,j)
+            node(i, j + 7) = - (node(i, j + 9) - node(i, j )) * node(i,j)
         end
     end
 end
@@ -42,8 +42,8 @@ end
 xBalance = 0 
 yBalance = 0
 for i = 1 : size(node,1)
-    xBalance = xBalance + node(i, 5) - node(i, 8)
-    yBalance = yBalance + node(i, 6) - node(i, 9)
+    xBalance = xBalance + node(i, 5) + node(i, 8)
+    yBalance = yBalance + node(i, 6) + node(i, 9)
 end
 
 if abs(xBalance) < mySmallNumber & abs(yBalance) < mySmallNumber
