@@ -5,13 +5,13 @@ clc % clear screen
 clear % clear variables in memory
 
 % global variables
-global truss_model_name   
+global beam_model_name   
 global node  el_cfg  n_dof_tot   
 global myBigNumber   mySmallNumber   
 global K_tot_gl  F_tot_gl  U_tot_gl 
 
 %% input model information
-truss_2d_input_data
+beam_2d_input_data
 
 % find a big number and a small number
 myBigNumber = max( max (el_cfg,[],2)) * 10^6
