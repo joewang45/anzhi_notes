@@ -1,4 +1,4 @@
-# Basic Functions
+# Basic Elemental Functions
 
 ## Kinematics
 
@@ -18,14 +18,16 @@ $$
 M=-EI\cdot\kappa
 $$
 
-## Virtual Work Function
+## Elemetental Virtual Work Function
 
 $$
 \begin{align}
-\delta A & = \int \delta\kappa(x)\cdot M(x)dx + \int \delta w(x) \cdot p_z(x)dx \\
-& = \int\delta w(x)_{,xx}\cdot -EI\cdot w_{,xx} dx+ \int \delta w(x) \cdot p_z(x)dx
+\delta A & = \int \delta\kappa(x)\cdot M(x)dx + \int \delta w(x) \cdot p_z(x)dx  \\
+& = \int_0^l\delta w(x)_{,xx}\cdot -EI\cdot w_{,xx} dx+ \int_0^l \delta w(x) \cdot p_z(x)dx
 \end{align}
 $$
+
+![1540476846788](../picture/1540476846788.png)
 
 # With Shape Functions
 

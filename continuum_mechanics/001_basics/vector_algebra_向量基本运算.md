@@ -137,7 +137,7 @@ $$
 $$
 [\pmb{a}, \pmb{b}, \pmb{c}] 
 = \pmb{a} \cdot (\pmb{b} \times \pmb{c}) 
-= (\pmb{a} \times \pmb{b}) \cdot \pmb{c}) 
+= (\pmb{a} \times \pmb{b}) \cdot \pmb{c})
 $$
 三重积的几何意义是，三个向量组成的平行六面体的体积。
 
@@ -211,6 +211,7 @@ $$
    = (\pmb{a} \cdot \pmb{c}) (\pmb{b}\cdot \pmb{d})
    -  (\pmb{a} \cdot \pmb{d}) (\pmb{b}\cdot \pmb{c})
    $$
+
 
 
 

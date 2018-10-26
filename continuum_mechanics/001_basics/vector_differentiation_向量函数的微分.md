@@ -276,15 +276,25 @@ $$
 
 The Directional Derivative
 
-某方向导数，就是在这个方向上的变化值。
+函数 $\phi(\pmb{x})$ 在某方向 $\pmb{w}$ 的方向导数，就是函数在这个方向上的单位变化量。
 
-采用单位向量，来计算 $d\phi(\mathbf{x}) =   \nabla\phi \cdot d\mathbf{x}$ 即可得到方向导数。
+> 有：
+
+$$
+d\phi=\phi(\pmb{x}+\pmb{w})-\phi(\pmb{x})
+$$
+
+引入一个新变量 $\varepsilon\subset[0,1]$ ，考察函数 $\phi(\pmb{x}+\varepsilon\pmb{w})$。
+
+
+
+采用方向 $\pmb{w}$ 的单位向量，来代替 $d\phi(\mathbf{x}) =   \nabla\phi \cdot d\mathbf{x}$ 的 $d\pmb{x}$ 即可得到方向导数。
 
 记标量场 $\phi(\mathbf{x})$ 在方向 $\mathbf{w}$ 上的方向导数为 $D_{\mathbf{w}} (\phi)$，有：
 $$
 D_{\mathbf{w}} (\phi) 
 = grad(\phi) \cdot \mathbf{e}_{\mathbf{w}}
-= \nabla \phi \cdot \frac{\mathbf{w}}{|\mathbf{w}|} 
+= \nabla \phi \cdot \frac{\mathbf{w}}{|\mathbf{w}|}
 $$
 也可以引入无穷小来进一步准确定义，这里不继续了。
 

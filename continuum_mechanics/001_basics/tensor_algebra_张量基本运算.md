@@ -100,7 +100,7 @@ $$
 
 Dyadics 是若干 Dyads 的线性组合，形如：
 $$
- \alpha(\mathbf{a}\otimes\mathbf{b}) + \beta(\mathbf{c}\otimes\mathbf{d}) + \gamma(\mathbf{e}\otimes\mathbf{f}) + ...
+\alpha(\mathbf{a}\otimes\mathbf{b}) + \beta(\mathbf{c}\otimes\mathbf{d}) + \gamma(\mathbf{e}\otimes\mathbf{f}) + ...
 $$
 之后我们将证明，一个二阶张量总可以写成 Dyadics 的形式：
 $$
@@ -251,6 +251,7 @@ $$
   $$
   \underline{\underline{\underline{\underline{\mathbf{T}}}}}=T_{jikl} \mathbf{e}_i \otimes \mathbf{e}_j \otimes \mathbf{e}_k\otimes \mathbf{e}_l
   $$
+
 
 
 
@@ -484,7 +485,6 @@ $$
 ## 3.3 其他运算
 
 **横双点缩并**
-
 $$
 \begin{align}
 (\mathbf{a}\otimes\mathbf{b}) \cdot \cdot (\mathbf{c}\otimes\mathbf{d}) 
@@ -700,6 +700,7 @@ $$
   + \gamma\tilde{\underline{\underline{\underline{\underline{I}}}}}
   }
   $$
+
 
 
 
