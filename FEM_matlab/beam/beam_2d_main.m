@@ -17,13 +17,13 @@ beam_2d_input_data
 myBigNumber = max( max (el_cfg,[],2)) * 10^6
 mySmallNumber = 10^-6
 %% build the gloabal equation
-truss_2d_build_equation
+beam_2d_build_equation
 
 %% Solve the global equation
 U_tot_gl = K_tot_gl \ F_tot_gl
 
 %% Post Process
-truss_2d_post_process
+beam_2d_post_process
 
 %% out put analysis results
-truss_2d_output_result
+beam_2d_output_result
